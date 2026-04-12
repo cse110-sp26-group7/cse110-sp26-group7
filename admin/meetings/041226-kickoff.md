@@ -1,67 +1,78 @@
-# Team 7 Kickoff
+# Team 7 (Pied Piper) — Kickoff Meeting
 
-## 11:00 AM, 4/12/2026
+## Meeting Info
 
-# Attendance
+- **Type:** Kickoff Meeting
+- **Date:** April 12, 2026
+- **Time:** 11:00 AM – 1:30 PM
+- **Location:** Zoom / Google Meet
 
-* Ethan Carter \- Eatyboy  
-* Aarnav Gujjari \- aarn4v  
-* Johnny Huang \- just0johnny  
-* Kareem Nabulsi \- Lumen98  
-* Cindy Zhang \- ciz003  
-* Nhan Tri Danh \- dnhan1707  
-* Benny Signer \- b-signer  
-* Gabrielle Wang \- gaw004   
-* Thy Doan \- thyndoan   
-* Bishal Khatri \- BishalKhatri1  
-* Theo Lee \- TheoLee021  
-* Michael → missing
+## Attendance
 
-# Useful Links
+### Present
+- Ethan Carter (Eatyboy)
+- Aarnav Gujjari (aarn4v)
+- Johnny Huang (just0johnny)
+- Kareem Nabulsi (Lumen98)
+- Cindy Zhang (ciz003)
+- Nhan Tri Danh (dnhan1707)
+- Benny Signer (b-signer)
+- Gabrielle Wang (gaw004)
+- Thy Doan (thyndoan)
+- Bishal Khatri (BishalKhatri1)
+- Theo Lee (TheoLee021)
 
-Github Organization  
-[https://github.com/cse110-sp26-group7](https://github.com/cse110-sp26-group7)  
-Team Repo  
-[https://github.com/cse110-sp26-group7/cse110-sp26-group7](https://github.com/cse110-sp26-group7/cse110-sp26-group7)
+### Absent
+- Michael Marras
 
-# Agenda
+## Useful Links
 
-* Github Repo  
-  * Theo is on it  
-* Team Brand  
-  * Team name: Pied Piper  
-  * Colors: Green   
-  * Font: IBM Plex Sans  
-* Team Page  
-  * Nhan is starting it   
-  * Github Repos and Pages  
-    * Benny Signer: [https://github.com/b-signer/CSE-110-Lab1-User-Page](https://github.com/b-signer/CSE-110-Lab1-User-Page)   
-    * Bishal Khatri :[https://bishalkhatri1.github.io/cse-110-Lab-1/](https://bishalkhatri1.github.io/cse-110-Lab-1/)  
-    * Kareem Nabulsi [https://github.com/Lumen98/CSE110Pages](https://github.com/Lumen98/CSE110Pages)  
-    * Cindy Zhang: [https://github.com/ciz003/User-Page](https://github.com/ciz003/User-Page)   
-    * Ethan Carter: [https://github.com/Eatyboy/CSE-110](https://github.com/Eatyboy/CSE-110)  [https://eatyboy.github.io/CSE-110/](https://eatyboy.github.io/CSE-110/)   
-    * Thy Doan: [https://github.com/thyndoan/CSE110](https://github.com/thyndoan/CSE110)	  
-    * Gabrielle Wang: [https://github.com/gaw004/Lab1/blob/main/index.md](https://github.com/gaw004/Lab1/blob/main/index.md)  
-    * Johnny Huang: ​ [https://just0johnny.github.io/GitHub-Pages/](https://just0johnny.github.io/GitHub-Pages/) [https://github.com/just0johnny/GitHub-Pages/blob/main/index.md](https://github.com/just0johnny/GitHub-Pages/blob/main/index.md)   
-    * Theo Lee: [https://github.com/TheoLee021/cse110-lab1](https://github.com/TheoLee021/cse110-lab1)  
-* Group Contract  
-  * Everybody push signed version to the repo  
-  * Ethan Carter \- Signed  
-  * Kareem Nabulsi \- Signed  
-  * Johnny Huang \- Signed  
-  * Bishal Khatri \- Signed  
-  * Thy Doan \- Signed  
-  * Theo Lee \- Signed  
-  * Benny Signer \- Signed  
-  * Aarnav Gujjari \- Signed  
-  * Cindy Zhang \- Signed  
-  * Nhan Tri Danh \- Signed  
-  * Gabrielle Wang \- Signed  
-  * Michael Marras \-   
-* The AI Slop Casino  
-  * [AI Slot Machine Notes](https://docs.google.com/document/d/1lypYaT5YuUdexftm77FVxImufHE-fTklrcQJXriDmSk/edit?usp=sharing)  
-  * Doing it asynchronously and in parallel  
-* Team Intro Video  
-  * Everybody submit a 5-10 second video of a self introduction in the Google Drive  
-  * Johnny will edit the video and submit
+- GitHub Organization: https://github.com/cse110-sp26-group7
+- Team Repo: https://github.com/cse110-sp26-group7/cse110-sp26-group7
 
+## Agenda
+
+### 1. GitHub Repo
+- Theo set up the GitHub Organization and team repo
+
+### 2. Team Brand
+- Team name: Pied Piper
+- Colors: Green
+- Font: IBM Plex Sans
+
+### 3. Team Page
+- Nhan is starting the team page
+- Team members' GitHub Pages:
+  - Benny Signer: https://github.com/b-signer/CSE-110-Lab1-User-Page
+  - Bishal Khatri: https://bishalkhatri1.github.io/cse-110-Lab-1/
+  - Kareem Nabulsi: https://github.com/Lumen98/CSE110Pages
+  - Cindy Zhang: https://github.com/ciz003/User-Page
+  - Ethan Carter: https://github.com/Eatyboy/CSE-110 / https://eatyboy.github.io/CSE-110/
+  - Thy Doan: https://github.com/thyndoan/CSE110
+  - Gabrielle Wang: https://github.com/gaw004/Lab1/blob/main/index.md
+  - Johnny Huang: https://just0johnny.github.io/GitHub-Pages/
+  - Theo Lee: https://github.com/TheoLee021/cse110-lab1
+
+### 4. Group Contract
+- Everybody push signed version to the repo
+- Signed: Ethan Carter, Kareem Nabulsi, Johnny Huang, Bishal Khatri, Thy Doan, Theo Lee, Benny Signer, Aarnav Gujjari, Cindy Zhang, Nhan Tri Danh, Gabrielle Wang
+- Not signed: Michael Marras
+
+### 5. AI Slot Machine (The AI Slop Casino)
+- Detailed notes: [AI Slot Machine Notes](https://docs.google.com/document/d/1lypYaT5YuUdexftm77FVxImufHE-fTklrcQJXriDmSk/edit?usp=sharing)
+- Doing it asynchronously and in parallel
+
+### 6. Team Intro Video
+- Everybody submit a 5-10 second self introduction video in the Google Drive
+- Johnny will edit the video and submit
+
+## Decisions Made
+- Team name: Pied Piper, color green, font IBM Plex Sans
+- Theo handles GitHub Organization and repo setup
+- Nhan handles team page
+- AI Slot Machine work done asynchronously
+- Johnny handles video editing
+
+## Action Items
+- All members: submit self introduction video to Google Drive
+- Michael: sign and submit contract
