@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Token Casino 🤖</h1>
+            <p class="subtitle">Where Your Tokens Go to Hallucinate</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Your Tokens:</span>
+                <span class="stat-value" id="tokenCount">1000</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Total Spent on AI:</span>
+                <span class="stat-value" id="totalSpent">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Winnings:</span>
+                <span class="stat-value" id="totalWinnings">0</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">
+                    <div class="reel-item">🔄</div>
+                    <div class="reel-item">💭</div>
+                    <div class="reel-item">🚫</div>
+                    <div class="reel-item">🤖</div>
+                    <div class="reel-item">💰</div>
+                    <div class="reel-item">🎯</div>
+                    <div class="reel-item">⚡</div>
+                    <div class="reel-item">🧠</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-item">🔄</div>
+                    <div class="reel-item">💭</div>
+                    <div class="reel-item">🚫</div>
+                    <div class="reel-item">🤖</div>
+                    <div class="reel-item">💰</div>
+                    <div class="reel-item">🎯</div>
+                    <div class="reel-item">⚡</div>
+                    <div class="reel-item">🧠</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-item">🔄</div>
+                    <div class="reel-item">💭</div>
+                    <div class="reel-item">🚫</div>
+                    <div class="reel-item">🤖</div>
+                    <div class="reel-item">💰</div>
+                    <div class="reel-item">🎯</div>
+                    <div class="reel-item">⚡</div>
+                    <div class="reel-item">🧠</div>
+                </div>
+            </div>
+
+            <div class="payline"></div>
+
+            <div class="controls">
+                <button id="spinBtn" class="spin-button">SPIN (10 tokens)</button>
+                <button id="resetBtn" class="reset-button">Reset Game</button>
+            </div>
+        </div>
+
+        <div class="message-display" id="messageDisplay">
+            Click SPIN to feed the algorithm your tokens!
+        </div>
+
+        <div class="joke-box">
+            <p id="jokeText">Did you know? This AI slot machine has a 50% chance of matching three reels... and then forgetting why it matched them!</p>
+        </div>
+
+        <div class="payouts">
+            <h3>Payout Chart:</h3>
+            <ul>
+                <li>🤖 🤖 🤖 = 500 tokens (Got the same answer 3 times!)</li>
+                <li>💰 💰 💰 = 300 tokens (Congratulations on your profit!)</li>
+                <li>🧠 🧠 🧠 = 200 tokens (Intelligence found!)</li>
+                <li>⚡ ⚡ ⚡ = 150 tokens (Processing power!)</li>
+                <li>🎯 🎯 🎯 = 100 tokens (Accuracy achieved!)</li>
+                <li>🚫 🚫 🚫 = 50 tokens (Error recovery!)</li>
+                <li>Any other combination = -10 tokens (Context lost!)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

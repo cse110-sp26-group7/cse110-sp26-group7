@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Slot Machine - Token Roulette</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Token Roulette 🤖</h1>
+            <p class="tagline">"I'm feeling lucky, said no LLM ever"</p>
+        </header>
+
+        <div class="game-area">
+            <div class="token-display">
+                <div class="token-stat">
+                    <span class="label">Current Tokens</span>
+                    <span class="value" id="tokenCount">1000</span>
+                </div>
+                <div class="token-stat">
+                    <span class="label">Winnings This Session</span>
+                    <span class="value" id="sessionWinnings">0</span>
+                </div>
+            </div>
+
+            <div class="slot-machine">
+                <div class="reel-container">
+                    <div class="reel" id="reel1">
+                        <div class="symbol">🧠</div>
+                        <div class="symbol">📊</div>
+                        <div class="symbol">💰</div>
+                        <div class="symbol">🔧</div>
+                        <div class="symbol">⚠️</div>
+                        <div class="symbol">🎲</div>
+                    </div>
+                </div>
+                <div class="reel-container">
+                    <div class="reel" id="reel2">
+                        <div class="symbol">💾</div>
+                        <div class="symbol">🤔</div>
+                        <div class="symbol">💡</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😅</div>
+                        <div class="symbol">🎯</div>
+                    </div>
+                </div>
+                <div class="reel-container">
+                    <div class="reel" id="reel3">
+                        <div class="symbol">🔐</div>
+                        <div class="symbol">🌐</div>
+                        <div class="symbol">⚡</div>
+                        <div class="symbol">🎪</div>
+                        <div class="symbol">📱</div>
+                        <div class="symbol">🎨</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="spinBtn" class="spin-button">SPIN (Cost: 10 tokens)</button>
+                <button id="betIncreaseBtn" class="bet-button">Increase Bet</button>
+                <button id="betDecreaseBtn" class="bet-button">Decrease Bet</button>
+            </div>
+
+            <div class="bet-display">
+                <span class="label">Current Bet:</span>
+                <span class="value" id="betAmount">10</span>
+                <span class="label">tokens</span>
+            </div>
+
+            <div class="message-box" id="messageBox">
+                <p id="message">Ready to lose some tokens? Good luck!</p>
+            </div>
+
+            <div class="ai-comment-box" id="aiCommentBox">
+                <p id="aiComment">AI says: "Your gambling addiction is showing promise..."</p>
+            </div>
+
+            <button id="resetBtn" class="reset-button">Reset Game</button>
+        </div>
+
+        <footer>
+            <p>Disclaimer: This is a joke game. No real tokens were harmed in the making of this app.</p>
+            <p>Made with ❤️ and 404 brain cells</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
