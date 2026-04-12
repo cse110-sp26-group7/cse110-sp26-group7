@@ -51,7 +51,7 @@ Every single run — baseline and refinement — must follow these steps exactly
 2. Make sure there's no `CLAUDE.md` in your working directory
 3. `cd` into your candidate's respective folder number. ie. 'cd candidate-001/'
 4. Start your stopwatch
-5. Open Claude Code and confirm the model shows `claude-haiku-4-5-20251001`
+5. Open Claude Code and confirm the model shows `Claude Haiku 4.5`
 6. Paste the prompt from `prompts/original-prompt.txt` exactly and hit enter
 
 ### During the run
