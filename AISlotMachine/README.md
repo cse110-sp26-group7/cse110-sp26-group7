@@ -38,6 +38,74 @@ Every single run — baseline and refinement — must follow these steps exactly
 
 ---
 
+## Run Procedure (Step-by-Step)
+
+### Before you start
+
+1. Open `step1/metrics.csv` in a spreadsheet app and leave it open the whole time
+2. Have a stopwatch ready (your phone works fine)
+
+### Starting the run
+
+1. Open a brand new terminal — don't reuse an old one
+2. Make sure there's no `CLAUDE.md` in your working directory
+3. `cd` into your repo root
+4. Start your stopwatch
+5. Open Claude Code and confirm the model shows `claude-haiku-4-5-20251001`
+6. Paste the prompt from `prompts/original-prompt.txt` exactly and hit enter
+
+### During the run
+
+1. Don't touch anything — let it finish completely
+2. When output stops generating, stop your stopwatch
+
+### Right after the run
+
+1. Note the token counts from the usage summary Claude Code prints at the end
+2. Note the tool-reported time if Claude Code prints one
+3. Run this to count lines of code (swap in your candidate number):
+
+```bash
+find step1/candidate-001 -type f | xargs wc -l | tail -1
+```
+
+4. Run this to see what files were produced:
+
+```bash
+ls step1/candidate-001
+```
+
+5. Open the generated HTML file in your browser — mark yes / partial / no for "runs in browser"
+6. Write your 1–3 sentence quality notes while it's fresh in your head
+
+### Logging the data
+
+1. Add a new row to `metrics.csv` with everything you just collected
+2. Run this to get the current timestamp in ISO 8601:
+
+```bash
+date -u +"%Y-%m-%dT%H:%M:%SZ"
+```
+
+### Committing
+
+1. Copy the generated files into the candidate folder:
+
+```bash
+cp -r <wherever Claude Code put the files> step1/candidate-001/
+```
+
+2. Commit everything:
+
+```bash
+git add step1/candidate-001 step1/metrics.csv
+git commit -m "add candidate-001"
+```
+
+Then repeat from **Starting the run** for the next run, incrementing the candidate number each time.
+
+---
+
 ## Repository Structure
 
 ```
