@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Slot Machine - Tokens & Memes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Slot Machine 🤖</h1>
+            <p class="tagline">Where your tokens go to get trained</p>
+        </header>
+
+        <div class="game-wrapper">
+            <div class="token-display">
+                <div class="token-info">
+                    <span class="label">Your Tokens:</span>
+                    <span class="amount" id="tokenAmount">1000</span>
+                    <span class="token-icon">💰</span>
+                </div>
+            </div>
+
+            <div class="slots-container">
+                <div class="slot-machine">
+                    <div class="reel" id="reel1">
+                        <div class="symbol">🧠</div>
+                        <div class="symbol">🐛</div>
+                        <div class="symbol">⚙️</div>
+                        <div class="symbol">🔧</div>
+                        <div class="symbol">💾</div>
+                        <div class="symbol">🌐</div>
+                        <div class="symbol">📊</div>
+                        <div class="symbol">🎯</div>
+                    </div>
+                    <div class="reel" id="reel2">
+                        <div class="symbol">🧠</div>
+                        <div class="symbol">🐛</div>
+                        <div class="symbol">⚙️</div>
+                        <div class="symbol">🔧</div>
+                        <div class="symbol">💾</div>
+                        <div class="symbol">🌐</div>
+                        <div class="symbol">📊</div>
+                        <div class="symbol">🎯</div>
+                    </div>
+                    <div class="reel" id="reel3">
+                        <div class="symbol">🧠</div>
+                        <div class="symbol">🐛</div>
+                        <div class="symbol">⚙️</div>
+                        <div class="symbol">🔧</div>
+                        <div class="symbol">💾</div>
+                        <div class="symbol">🌐</div>
+                        <div class="symbol">📊</div>
+                        <div class="symbol">🎯</div>
+                    </div>
+                </div>
+
+                <div class="slot-display">
+                    <div class="current-symbols">
+                        <div id="symbol1" class="symbol-display">🧠</div>
+                        <div id="symbol2" class="symbol-display">🐛</div>
+                        <div id="symbol3" class="symbol-display">⚙️</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="bet-control">
+                    <label for="betAmount">Bet Amount:</label>
+                    <div class="bet-buttons">
+                        <button class="bet-btn" data-bet="10">10</button>
+                        <button class="bet-btn" data-bet="25">25</button>
+                        <button class="bet-btn active" data-bet="50">50</button>
+                        <button class="bet-btn" data-bet="100">100</button>
+                    </div>
+                    <span id="betDisplay">Current Bet: 50</span>
+                </div>
+
+                <button id="spinBtn" class="spin-button">🎰 SPIN 🎰</button>
+            </div>
+
+            <div class="message-area">
+                <div id="message" class="message">Ready to lose your tokens?</div>
+            </div>
+
+            <div class="legend">
+                <h3>Symbol Values:</h3>
+                <div class="legend-items">
+                    <div class="legend-item"><span>🧠</span> Neural Net (5x)</div>
+                    <div class="legend-item"><span>🐛</span> Bug (2x)</div>
+                    <div class="legend-item"><span>⚙️</span> Algorithm (3x)</div>
+                    <div class="legend-item"><span>🔧</span> Patch (2x)</div>
+                    <div class="legend-item"><span>💾</span> Data (1.5x)</div>
+                </div>
+            </div>
+
+            <div class="stats">
+                <button id="resetBtn" class="reset-button">Reset Tokens</button>
+                <div id="stats-display" class="stats-display">
+                    <span>Spins: <span id="spinCount">0</span></span>
+                    <span>Total Won: <span id="totalWon">0</span></span>
+                    <span>Total Lost: <span id="totalLost">0</span></span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>💡 Disclaimer: This slot machine is more reliable than actual AI predictions 💡</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
