@@ -10,6 +10,7 @@
 ## Attendance
 
 ### Present
+
 - Ethan Carter (Eatyboy)
 - Aarnav Gujjari (aarn4v)
 - Johnny Huang (just0johnny)
@@ -23,6 +24,7 @@
 - Theo Lee (TheoLee021)
 
 ### Absent
+
 - Michael Marras
 
 ## Useful Links
@@ -33,14 +35,17 @@
 ## Agenda
 
 ### 1. GitHub Repo
+
 - Theo set up the GitHub Organization and team repo
 
 ### 2. Team Brand
+
 - Team name: Pied Piper
 - Colors: Green
 - Font: IBM Plex Sans
 
 ### 3. Team Page
+
 - Nhan is starting the team page
 - Team members' GitHub Pages:
   - Benny Signer: https://github.com/b-signer/CSE-110-Lab1-User-Page
@@ -54,19 +59,23 @@
   - Theo Lee: https://github.com/TheoLee021/cse110-lab1
 
 ### 4. Group Contract
+
 - Everybody push signed version to the repo
 - Signed: Ethan Carter, Kareem Nabulsi, Johnny Huang, Bishal Khatri, Thy Doan, Theo Lee, Benny Signer, Aarnav Gujjari, Cindy Zhang, Nhan Tri Danh, Gabrielle Wang
 - Not signed: Michael Marras
 
 ### 5. AI Slot Machine (The AI Slop Casino)
+
 - Detailed notes: [AI Slot Machine Notes](https://docs.google.com/document/d/1lypYaT5YuUdexftm77FVxImufHE-fTklrcQJXriDmSk/edit?usp=sharing)
 - Doing it asynchronously and in parallel
 
 ### 6. Team Intro Video
+
 - Everybody submit a 5-10 second self introduction video in the Google Drive
 - Johnny will edit the video and submit
 
 ## Decisions Made
+
 - Team name: Pied Piper, color green, font IBM Plex Sans
 - Theo handles GitHub Organization and repo setup
 - Nhan handles team page
@@ -74,5 +83,17 @@
 - Johnny handles video editing
 
 ## Action Items
-- All members: submit self introduction video to Google Drive
-- Michael: sign and submit contract
+
+### Due Today (Apr 12)
+
+- All members: submit self introduction video to Google Drive → Johnny edits and uploads to `admin/videos/teamintro.mp4`
+- README.md: add link to `admin/team.md`
+- `admin/team.md`: add logo and Michael's info
+- Slack workspace icon: set to team brand with team number
+- Group Bonding Event: submit screenshot to Canvas
+- Michael Marras: sign and submit contract PDF to repo
+- Submit repo link to Canvas (Kickoff + Contract assignments)
+
+### Due Apr 14
+
+- AI Slot Machine: all 50 runs completed and committed
