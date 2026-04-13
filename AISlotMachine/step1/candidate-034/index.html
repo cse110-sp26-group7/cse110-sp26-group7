@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Slot Machine - Token Casino</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Token Slot Machine 🎰</h1>
+            <p class="subtitle">Where Your Tokens Meet Their Doom</p>
+        </header>
+
+        <div class="stats-panel">
+            <div class="stat">
+                <span class="stat-label">Tokens</span>
+                <span class="stat-value" id="tokenCount">100</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Total Won</span>
+                <span class="stat-value" id="totalWon">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Total Lost</span>
+                <span class="stat-value" id="totalLost">0</span>
+            </div>
+        </div>
+
+        <div class="machine">
+            <div class="reels-container">
+                <div class="reel" id="reel1">
+                    <div class="reel-item">🧠 Neurons</div>
+                    <div class="reel-item">💾 Big Data</div>
+                    <div class="reel-item">⚙️ Algorithm</div>
+                    <div class="reel-item">🔗 Neural Net</div>
+                    <div class="reel-item">📊 Learning</div>
+                    <div class="reel-item">💬 ChatGPT</div>
+                    <div class="reel-item">🌐 Model</div>
+                    <div class="reel-item">🎯 Bias</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-item">🧠 Neurons</div>
+                    <div class="reel-item">💾 Big Data</div>
+                    <div class="reel-item">⚙️ Algorithm</div>
+                    <div class="reel-item">🔗 Neural Net</div>
+                    <div class="reel-item">📊 Learning</div>
+                    <div class="reel-item">💬 ChatGPT</div>
+                    <div class="reel-item">🌐 Model</div>
+                    <div class="reel-item">🎯 Bias</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-item">🧠 Neurons</div>
+                    <div class="reel-item">💾 Big Data</div>
+                    <div class="reel-item">⚙️ Algorithm</div>
+                    <div class="reel-item">🔗 Neural Net</div>
+                    <div class="reel-item">📊 Learning</div>
+                    <div class="reel-item">💬 ChatGPT</div>
+                    <div class="reel-item">🌐 Model</div>
+                    <div class="reel-item">🎯 Bias</div>
+                </div>
+            </div>
+
+            <div class="payline"></div>
+
+            <div class="controls">
+                <div class="bet-control">
+                    <label for="betAmount">Bet Amount:</label>
+                    <div class="bet-input-group">
+                        <button id="decreaseBet" class="bet-btn">-</button>
+                        <input type="number" id="betAmount" value="10" min="1" max="100">
+                        <button id="increaseBet" class="bet-btn">+</button>
+                    </div>
+                </div>
+
+                <button id="spinBtn" class="spin-button">SPIN!</button>
+
+                <button id="resetBtn" class="reset-button">Reset Game</button>
+            </div>
+        </div>
+
+        <div class="result-area">
+            <div id="resultMessage" class="result-message"></div>
+            <div id="payoutInfo" class="payout-info"></div>
+        </div>
+
+        <div class="payouts">
+            <h3>💰 Payout Table</h3>
+            <ul>
+                <li>3 of a kind: 5x your bet</li>
+                <li>2 of a kind: 2x your bet</li>
+                <li>No match: Lose your bet</li>
+                <li>🎯 Bias special: 10x multiplier!</li>
+            </ul>
+        </div>
+
+        <div class="jokes">
+            <h3>AI Wisdom 🧠</h3>
+            <p id="joke" class="joke-text"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

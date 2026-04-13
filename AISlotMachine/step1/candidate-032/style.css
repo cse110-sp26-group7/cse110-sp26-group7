@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.tagline {
+    font-size: 1.1em;
+    color: #aaa;
+    font-style: italic;
+}
+
+.balance-display {
+    margin-bottom: 30px;
+}
+
+.balance-card {
+    background: linear-gradient(135deg, #0f3460 0%, #0f3460 100%);
+    border: 3px solid #00d4ff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.balance-card h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #00d4ff;
+}
+
+.token-count {
+    font-size: 3em;
+    font-weight: bold;
+    color: #00ff88;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    margin: 10px 0;
+}
+
+.balance-subtitle {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.slot-machine {
+    background: linear-gradient(135deg, #1e1e1e 0%, #0a0a0a 100%);
+    border: 4px solid #00d4ff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.1), 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.reel-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+    perspective: 1000px;
+}
+
+.reel {
+    width: 80px;
+    height: 120px;
+    background: linear-gradient(135deg, #0f3460 0%, #0a1e3f 100%);
+    border: 2px solid #00d4ff;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+.symbol {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8em;
+    flex-shrink: 0;
+}
+
+.reel.spinning {
+    animation: spin 0.5s ease-in-out;
+}
+
+@keyframes spin {
+    0% { transform: rotateX(0deg); }
+    100% { transform: rotateX(360deg); }
+}
+
+.payout-window {
+    background: linear-gradient(135deg, #0f3460 0%, #0a1e3f 100%);
+    border: 2px dashed #00ff88;
+    border-radius: 5px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.payline {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff88, transparent);
+    position: absolute;
+    top: 50%;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+button {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.spin-button {
+    background: linear-gradient(135deg, #00d4ff 0%, #00a8ff 100%);
+    color: #000;
+    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+}
+
+.spin-button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.6);
+}
+
+.spin-button:disabled {
+    background: linear-gradient(135deg, #666 0%, #444 100%);
+    color: #999;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.reset-button {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.reset-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+}
+
+.result-display {
+    background: linear-gradient(135deg, #0f3460 0%, #0a1e3f 100%);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 25px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #00ff88;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    border: 2px solid #00d4ff;
+}
+
+.result-display.win {
+    animation: celebrate 0.6s ease-in-out;
+    color: #00ff88;
+}
+
+.result-display.loss {
+    color: #ff6b6b;
+}
+
+@keyframes celebrate {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(-2deg); }
+    50% { transform: scale(1.15) rotate(2deg); }
+    75% { transform: scale(1.1) rotate(-2deg); }
+}
+
+.payouts {
+    background: linear-gradient(135deg, #0f3460 0%, #0a1e3f 100%);
+    border: 2px solid #00d4ff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.payouts h3 {
+    color: #00d4ff;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.payouts table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+}
+
+.payouts tr {
+    border-bottom: 1px solid #333;
+}
+
+.payouts tr:last-child {
+    border-bottom: none;
+}
+
+.payouts td {
+    padding: 10px;
+    text-align: left;
+}
+
+.payouts td:nth-child(2) {
+    text-align: center;
+    color: #00ff88;
+    font-weight: bold;
+}
+
+.payouts td:nth-child(3) {
+    text-align: right;
+    color: #aaa;
+    font-size: 0.85em;
+}
+
+.ai-messages {
+    background: linear-gradient(135deg, #2a1a3f 0%, #1a0a2f 100%);
+    border: 2px solid #ff00ff;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.ai-messages h3 {
+    color: #ff00ff;
+    margin-bottom: 10px;
+}
+
+.message-box {
+    background: linear-gradient(135deg, #1a0a2f 0%, #0f0a1f 100%);
+    border-left: 4px solid #ff00ff;
+    padding: 10px;
+    font-style: italic;
+    color: #ddd;
+    min-height: 30px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .reel {
+        width: 70px;
+        height: 100px;
+    }
+
+    .symbol {
+        height: 33px;
+        font-size: 1.5em;
+    }
+
+    .token-count {
+        font-size: 2em;
+    }
+}
