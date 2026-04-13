@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tagline {
+    font-size: 1.1em;
+    color: #666;
+    font-style: italic;
+}
+
+.stats-panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-box {
+    background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+    border: 2px solid #667eea;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.slot-machine {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.reels {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+.reel {
+    width: 100px;
+    height: 120px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.symbol {
+    font-size: 2.5em;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.reel-window {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 50px;
+    border-top: 3px dashed rgba(255, 255, 255, 0.5);
+    border-bottom: 3px dashed rgba(255, 255, 255, 0.5);
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.reel.spinning {
+    animation: spin 0.5s linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-200px);
+    }
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.bet-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f5f5f5;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+.bet-control label {
+    font-weight: bold;
+    color: #333;
+}
+
+.bet-control input {
+    width: 60px;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.bet-label {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.spin-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.spin-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(102, 126, 234, 0.6);
+}
+
+.spin-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.spin-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.result-display {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ddd;
+}
+
+#resultText {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.result-display.win {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    border-color: #4CAF50;
+    animation: pulse 0.6s;
+}
+
+.result-display.lose {
+    background: linear-gradient(135deg, #fa8174 0%, #f54241 100%);
+    border-color: #d32f2f;
+    animation: shake 0.4s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+.message-board {
+    background: #fffde7;
+    border-left: 5px solid #fbc02d;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.message {
+    margin: 5px 0;
+    color: #f57f17;
+    font-weight: 500;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #ddd;
+}
+
+.reset-button {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 15px;
+    transition: background 0.2s;
+}
+
+.reset-button:hover {
+    background: #f57c00;
+}
+
+.footer-text {
+    font-size: 0.85em;
+    color: #999;
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .stats-panel {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .reels {
+        gap: 10px;
+    }
+
+    .reel {
+        width: 80px;
+        height: 100px;
+    }
+
+    .symbol {
+        font-size: 2em;
+        height: 33px;
+    }
+}

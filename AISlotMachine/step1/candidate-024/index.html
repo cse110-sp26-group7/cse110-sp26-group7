@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine 🤖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Token Slot Machine 🤖</h1>
+            <p class="subtitle">Where your money goes to train neural networks</p>
+        </header>
+
+        <div class="machine">
+            <div class="display">
+                <div class="tokens-display">
+                    <div class="token-box">
+                        <span class="token-label">Your Tokens</span>
+                        <span class="token-count" id="tokenCount">1000</span>
+                    </div>
+                </div>
+
+                <div class="reels-container">
+                    <div class="reel" id="reel1">
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">💾</div>
+                        <div class="symbol">🧠</div>
+                        <div class="symbol">⚡</div>
+                        <div class="symbol">🤖</div>
+                        <div class="symbol">💡</div>
+                        <div class="symbol">📊</div>
+                        <div class="symbol">🔄</div>
+                    </div>
+                    <div class="reel" id="reel2">
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">💾</div>
+                        <div class="symbol">🧠</div>
+                        <div class="symbol">⚡</div>
+                        <div class="symbol">🤖</div>
+                        <div class="symbol">💡</div>
+                        <div class="symbol">📊</div>
+                        <div class="symbol">🔄</div>
+                    </div>
+                    <div class="reel" id="reel3">
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">💾</div>
+                        <div class="symbol">🧠</div>
+                        <div class="symbol">⚡</div>
+                        <div class="symbol">🤖</div>
+                        <div class="symbol">💡</div>
+                        <div class="symbol">📊</div>
+                        <div class="symbol">🔄</div>
+                    </div>
+                </div>
+
+                <div class="result" id="result"></div>
+            </div>
+
+            <button class="spin-button" id="spinButton">SPIN (Costs 10 tokens)</button>
+
+            <div class="message-box" id="messageBox">Pull the lever and watch your tokens disappear! 📉</div>
+        </div>
+
+        <div class="payouts">
+            <h2>Payout Table</h2>
+            <table>
+                <tr>
+                    <td>🤖 🤖 🤖</td>
+                    <td>+500 tokens (Skynet wins!)</td>
+                </tr>
+                <tr>
+                    <td>🧠 🧠 🧠</td>
+                    <td>+250 tokens (The singularity!)</td>
+                </tr>
+                <tr>
+                    <td>⚡ ⚡ ⚡</td>
+                    <td>+150 tokens (GPU overheating)</td>
+                </tr>
+                <tr>
+                    <td>💾 💾 💾</td>
+                    <td>+100 tokens (Training complete!)</td>
+                </tr>
+                <tr>
+                    <td>Any Match</td>
+                    <td>+25 tokens (Lucky guess)</td>
+                </tr>
+            </table>
+        </div>
+
+        <footer>
+            <p>⚠️ Warning: This slot machine is trained on real losses. Results may hallucinate profitability.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

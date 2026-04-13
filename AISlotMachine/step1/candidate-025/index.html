@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 AI Token Slot Machine 🤖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Token Slot Machine 🤖</h1>
+            <p class="subtitle">Gamble Your Way to Computational Overflow</p>
+        </header>
+
+        <div class="game-board">
+            <!-- Token Display -->
+            <div class="token-display">
+                <div class="token-section">
+                    <span class="token-label">💰 Tokens:</span>
+                    <span class="token-count" id="tokenCount">1000</span>
+                </div>
+                <div class="bet-section">
+                    <span class="bet-label">🎰 Bet:</span>
+                    <span class="bet-count" id="betAmount">10</span>
+                </div>
+            </div>
+
+            <!-- Betting Controls -->
+            <div class="betting-controls">
+                <button class="bet-button" id="decreaseBet" title="Reduce bet">➖</button>
+                <div class="bet-options">
+                    <button class="bet-quick" data-bet="5">5 🪙</button>
+                    <button class="bet-quick" data-bet="10" class="active">10 🪙</button>
+                    <button class="bet-quick" data-bet="25">25 🪙</button>
+                    <button class="bet-quick" data-bet="50">50 🪙</button>
+                </div>
+                <button class="bet-button" id="increaseBet" title="Increase bet">➕</button>
+            </div>
+
+            <!-- Slot Machine Display -->
+            <div class="slot-machine">
+                <div class="reel-container">
+                    <div class="reel" id="reel1">
+                        <div class="reel-item">🪙 Token</div>
+                        <div class="reel-item">🧠 AI Brain</div>
+                        <div class="reel-item">💾 GPU</div>
+                        <div class="reel-item">⚡ Power</div>
+                        <div class="reel-item">🔮 ML Model</div>
+                        <div class="reel-item">📊 Data</div>
+                    </div>
+                </div>
+                <div class="reel-container">
+                    <div class="reel" id="reel2">
+                        <div class="reel-item">🪙 Token</div>
+                        <div class="reel-item">🧠 AI Brain</div>
+                        <div class="reel-item">💾 GPU</div>
+                        <div class="reel-item">⚡ Power</div>
+                        <div class="reel-item">🔮 ML Model</div>
+                        <div class="reel-item">📊 Data</div>
+                    </div>
+                </div>
+                <div class="reel-container">
+                    <div class="reel" id="reel3">
+                        <div class="reel-item">🪙 Token</div>
+                        <div class="reel-item">🧠 AI Brain</div>
+                        <div class="reel-item">💾 GPU</div>
+                        <div class="reel-item">⚡ Power</div>
+                        <div class="reel-item">🔮 ML Model</div>
+                        <div class="reel-item">📊 Data</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Win Line Indicator -->
+            <div class="win-line"></div>
+
+            <!-- Spin Button -->
+            <button class="spin-button" id="spinButton">SPIN! 🎉</button>
+
+            <!-- Result Message -->
+            <div class="result-message" id="resultMessage"></div>
+
+            <!-- AI Quotes -->
+            <div class="ai-quote" id="aiQuote">
+                <p>Ready to lose all your tokens? Let's spin!</p>
+            </div>
+        </div>
+
+        <!-- Game Info -->
+        <footer>
+            <div class="info-panel">
+                <h3>🎰 How to Play:</h3>
+                <ul>
+                    <li>Set your bet using the buttons (5-50 tokens)</li>
+                    <li>Click SPIN to roll the reels</li>
+                    <li>Match symbols to win big! 🎯</li>
+                    <li>3 Tokens = 2x bet | 3 GPUs = 5x bet</li>
+                    <li>3 of anything else = 1.5x bet</li>
+                    <li>Lose your tokens = Game Over 💀</li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
