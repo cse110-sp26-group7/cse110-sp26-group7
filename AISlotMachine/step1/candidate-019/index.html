@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI TOKEN SLOTS 🎰</h1>
+            <p class="subtitle">Waste Your Tokens Faster Than Ever!</p>
+        </header>
+
+        <div class="machine">
+            <div class="top-panel">
+                <div class="token-display">
+                    <div class="token-label">TOKEN BALANCE</div>
+                    <div class="token-count">💰 <span id="tokenCount">1000</span></div>
+                </div>
+                <div class="status-display">
+                    <div id="statusMessage" class="status-message">Ready to spin...</div>
+                </div>
+            </div>
+
+            <div class="slot-machine">
+                <div class="reels-container">
+                    <div class="reel">
+                        <div class="slot" id="slot1">🤖</div>
+                    </div>
+                    <div class="reel">
+                        <div class="slot" id="slot2">🤖</div>
+                    </div>
+                    <div class="reel">
+                        <div class="slot" id="slot3">🤖</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-panel">
+                <div class="controls">
+                    <button id="spinBtn" class="spin-button" onclick="spin()">SPIN 🎲</button>
+                    <button id="resetBtn" class="reset-button" onclick="resetGame()">RESET</button>
+                </div>
+                <div class="bet-control">
+                    <label for="betAmount">BET:</label>
+                    <input type="number" id="betAmount" min="1" max="500" value="10">
+                    <span class="bet-tokens">tokens</span>
+                </div>
+            </div>
+
+            <div class="messages">
+                <div id="resultMessage" class="result-message"></div>
+                <div id="winMessage" class="win-message"></div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3>How It Works</h3>
+            <ul>
+                <li><strong>🤖 Match 3 robots:</strong> Lose all your tokens (AI takeover!)</li>
+                <li><strong>💻 Match 3 computers:</strong> Win 50x your bet</li>
+                <li><strong>🧠 Match 3 brains:</strong> Win 30x your bet</li>
+                <li><strong>⚡ Match 3 lightning:</strong> Win 20x your bet (volatility)</li>
+                <li><strong>2 of anything:</strong> Get half your bet back</li>
+                <li><strong>No matches:</strong> Lose your bet (as intended!)</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>⚠️ This is not financial advice. AI tokens are purely virtual and have no real value. Unlike crypto!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

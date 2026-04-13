@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Token Slot Machine 🤖</h1>
+            <p class="subtitle">Spend your compute cycles to win... more compute cycles</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="label">Total Tokens</span>
+                <span class="value" id="tokenCount">1000</span>
+            </div>
+            <div class="stat">
+                <span class="label">Last Win</span>
+                <span class="value" id="lastWin">—</span>
+            </div>
+            <div class="stat">
+                <span class="label">Total Wins</span>
+                <span class="value" id="totalWins">0</span>
+            </div>
+        </div>
+
+        <div class="machine">
+            <div class="display">
+                <div class="reels-container">
+                    <div class="reel" id="reel1">
+                        <div class="reel-item">🤖</div>
+                    </div>
+                    <div class="reel" id="reel2">
+                        <div class="reel-item">💻</div>
+                    </div>
+                    <div class="reel" id="reel3">
+                        <div class="reel-item">🧠</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-message" id="resultMessage"></div>
+
+            <div class="controls">
+                <div class="bet-controls">
+                    <label for="betAmount">Bet Amount:</label>
+                    <input
+                        type="number"
+                        id="betAmount"
+                        min="1"
+                        max="1000"
+                        value="10"
+                        class="bet-input"
+                    >
+                    <span id="betWarning" class="warning"></span>
+                </div>
+                <button id="spinButton" class="spin-button">SPIN (10 tokens)</button>
+            </div>
+
+            <div class="info-box">
+                <h3>How to Play:</h3>
+                <ul>
+                    <li>Set your bet amount (1-1000 tokens)</li>
+                    <li>Click SPIN to spend tokens and try your luck</li>
+                    <li>Match 3 symbols to win!</li>
+                    <li>🤖🤖🤖 = 2x bet | 💻💻💻 = 3x bet | 🧠🧠🧠 = 5x bet</li>
+                    <li>Losing spin = lose your bet</li>
+                    <li>Progress is saved automatically</li>
+                </ul>
+            </div>
+
+            <button id="resetButton" class="reset-button">Reset Game</button>
+        </div>
+
+        <footer>
+            <p>⚠️ This is a simulated game. No real tokens were harmed in the making of this app.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

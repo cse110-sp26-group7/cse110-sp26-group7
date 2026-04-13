@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Token Slot Machine 🪙</h1>
+            <p class="tagline">Gamble responsibly... with tokens</p>
+        </header>
+
+        <div class="token-display">
+            <div class="balance">
+                <span class="label">Your Tokens:</span>
+                <span class="amount" id="tokenBalance">1000</span>
+            </div>
+            <div class="bet-selector">
+                <label for="betAmount">Bet per spin:</label>
+                <input type="number" id="betAmount" min="1" max="1000" value="10" class="bet-input">
+                <span class="tokens">tokens</span>
+            </div>
+        </div>
+
+        <div class="machine">
+            <div class="reels-container">
+                <div class="reel" id="reel1">
+                    <div class="symbol">🧠</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="symbol">⚡</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="symbol">🤖</div>
+                </div>
+            </div>
+
+            <button class="spin-button" id="spinButton">SPIN</button>
+        </div>
+
+        <div class="result-area">
+            <div class="message" id="resultMessage">Place your bet and spin!</div>
+            <div class="winnings" id="winningsDisplay"></div>
+        </div>
+
+        <div class="payout-table">
+            <h3>Payout Table</h3>
+            <table>
+                <tr>
+                    <td>🤖 🤖 🤖</td>
+                    <td><strong>Jackpot! ×5</strong></td>
+                </tr>
+                <tr>
+                    <td>🧠 🧠 🧠</td>
+                    <td><strong>Big Brain! ×4</strong></td>
+                </tr>
+                <tr>
+                    <td>⚡ ⚡ ⚡</td>
+                    <td><strong>Lightning Fast! ×3</strong></td>
+                </tr>
+                <tr>
+                    <td>Any pair match</td>
+                    <td><strong>Almost there... ×1.5</strong></td>
+                </tr>
+                <tr>
+                    <td>No match</td>
+                    <td><strong>Error 404: Tokens not found</strong></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="info-box">
+            <h4>About AI Tokens</h4>
+            <p>These tokens don't actually train AI models (sadly). They just make you feel like you're doing something useful while gambling. Very meta. 🎰</p>
+        </div>
+
+        <footer>
+            <button class="reset-button" id="resetButton">Start Over</button>
+            <p class="disclaimer">This is a game of pure chance. Or is it? 👀</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
