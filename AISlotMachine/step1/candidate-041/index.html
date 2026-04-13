@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI TOKEN SLOT MACHINE 🤖</h1>
+            <p class="tagline">Gamble your computational power!</p>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-label">Tokens</div>
+                <div class="stat-value" id="tokenDisplay">1000</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Total Won</div>
+                <div class="stat-value" id="totalWonDisplay">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Total Lost</div>
+                <div class="stat-value" id="totalLostDisplay">0</div>
+            </div>
+        </div>
+
+        <div class="machine">
+            <div class="reels-container">
+                <div class="reel" id="reel1">
+                    <div class="symbol">🪙</div>
+                    <div class="symbol">🧠</div>
+                    <div class="symbol">⚡</div>
+                    <div class="symbol">🎰</div>
+                    <div class="symbol">❌</div>
+                    <div class="symbol">💰</div>
+                    <div class="symbol">🤔</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="symbol">🪙</div>
+                    <div class="symbol">🧠</div>
+                    <div class="symbol">⚡</div>
+                    <div class="symbol">🎰</div>
+                    <div class="symbol">❌</div>
+                    <div class="symbol">💰</div>
+                    <div class="symbol">🤔</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="symbol">🪙</div>
+                    <div class="symbol">🧠</div>
+                    <div class="symbol">⚡</div>
+                    <div class="symbol">🎰</div>
+                    <div class="symbol">❌</div>
+                    <div class="symbol">💰</div>
+                    <div class="symbol">🤔</div>
+                </div>
+            </div>
+            <div class="result-display" id="resultDisplay">Good luck!</div>
+        </div>
+
+        <div class="controls">
+            <button id="spinBtn" class="spin-btn">SPIN FOR 10 TOKENS</button>
+            <button id="resetBtn" class="reset-btn">Reset Game</button>
+        </div>
+
+        <div class="payout-table">
+            <h3>💸 Payout Table</h3>
+            <div class="payouts">
+                <div class="payout-row">
+                    <span>💰 💰 💰</span>
+                    <span>500 Tokens</span>
+                </div>
+                <div class="payout-row">
+                    <span>🪙 🪙 🪙</span>
+                    <span>100 Tokens</span>
+                </div>
+                <div class="payout-row">
+                    <span>🧠 🧠 🧠</span>
+                    <span>75 Tokens</span>
+                </div>
+                <div class="payout-row">
+                    <span>⚡ ⚡ ⚡</span>
+                    <span>50 Tokens</span>
+                </div>
+                <div class="payout-row">
+                    <span>🤔 🤔 🤔</span>
+                    <span>25 Tokens (Hallucination)</span>
+                </div>
+                <div class="payout-row">
+                    <span>Any Match</span>
+                    <span>10 Tokens</span>
+                </div>
+                <div class="payout-row">
+                    <span>❌ ❌ ❌</span>
+                    <span>Lose 10 Tokens (Bug!)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-box" id="messageBox"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

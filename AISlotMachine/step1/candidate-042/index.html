@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Slot Machine - Win Tokens, Lose Your Mind</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI Token Machine 🤖</h1>
+            <p class="tagline">The only way to lose money faster than crypto</p>
+        </div>
+
+        <div class="game-area">
+            <!-- Token Display -->
+            <div class="token-display">
+                <div class="token-stat">
+                    <label>Your Tokens:</label>
+                    <div class="token-count" id="tokenCount">100</div>
+                </div>
+                <div class="token-stat">
+                    <label>Bet:</label>
+                    <div class="bet-amount" id="betAmount">10</div>
+                </div>
+            </div>
+
+            <!-- Slot Machine -->
+            <div class="slot-machine">
+                <div class="reels-container">
+                    <div class="reel" id="reel1">
+                        <div class="reel-item">🦾</div>
+                        <div class="reel-item">⚙️</div>
+                        <div class="reel-item">🧠</div>
+                        <div class="reel-item">💬</div>
+                        <div class="reel-item">🎰</div>
+                        <div class="reel-item">📊</div>
+                        <div class="reel-item">🔮</div>
+                        <div class="reel-item">💰</div>
+                    </div>
+                    <div class="reel" id="reel2">
+                        <div class="reel-item">🦾</div>
+                        <div class="reel-item">⚙️</div>
+                        <div class="reel-item">🧠</div>
+                        <div class="reel-item">💬</div>
+                        <div class="reel-item">🎰</div>
+                        <div class="reel-item">📊</div>
+                        <div class="reel-item">🔮</div>
+                        <div class="reel-item">💰</div>
+                    </div>
+                    <div class="reel" id="reel3">
+                        <div class="reel-item">🦾</div>
+                        <div class="reel-item">⚙️</div>
+                        <div class="reel-item">🧠</div>
+                        <div class="reel-item">💬</div>
+                        <div class="reel-item">🎰</div>
+                        <div class="reel-item">📊</div>
+                        <div class="reel-item">🔮</div>
+                        <div class="reel-item">💰</div>
+                    </div>
+                </div>
+                <div class="payline"></div>
+            </div>
+
+            <!-- Message Display -->
+            <div class="message-box" id="messageBox">
+                <p id="message">Ready to lose tokens?</p>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <button class="bet-button" id="decreaseBet">-</button>
+                <input type="number" id="betInput" class="bet-input" value="10" min="1" max="100">
+                <button class="bet-button" id="increaseBet">+</button>
+            </div>
+
+            <!-- Spin Button -->
+            <button class="spin-button" id="spinButton">SPIN (Cost: 10 tokens)</button>
+
+            <!-- Reset Button -->
+            <button class="reset-button" id="resetButton">Reset Game</button>
+        </div>
+
+        <!-- Paytable -->
+        <div class="paytable">
+            <h3>Paytable (Making Bad Decisions Since 2024)</h3>
+            <div class="paytable-grid">
+                <div class="payline-item">
+                    <span>🧠 🧠 🧠</span>
+                    <span class="payout">+500 (AI actually thinking)</span>
+                </div>
+                <div class="payline-item">
+                    <span>💬 💬 💬</span>
+                    <span class="payout">+300 (Hallucination Jackpot)</span>
+                </div>
+                <div class="payline-item">
+                    <span>💰 💰 💰</span>
+                    <span class="payout">+250 (Token Overflow)</span>
+                </div>
+                <div class="payline-item">
+                    <span>🎰 🎰 🎰</span>
+                    <span class="payout">+200 (Recursive Loss)</span>
+                </div>
+                <div class="payline-item">
+                    <span>🔮 🔮 🔮</span>
+                    <span class="payout">+150 (Lucky Prediction)</span>
+                </div>
+                <div class="payline-item">
+                    <span>📊 📊 📊</span>
+                    <span class="payout">+100 (Data Trained Luck)</span>
+                </div>
+                <div class="payline-item">
+                    <span>Any match</span>
+                    <span class="payout">+20 (Desperate Hope)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
