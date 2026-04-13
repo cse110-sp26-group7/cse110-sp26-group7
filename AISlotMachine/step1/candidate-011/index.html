@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Token Slot Machine 🤖</h1>
+            <p class="tagline">Lose money while training the model that replaces you!</p>
+        </header>
+
+        <div class="game-board">
+            <div class="stats-panel">
+                <div class="stat">
+                    <span class="label">Tokens:</span>
+                    <span class="value" id="tokenCount">1000</span>
+                </div>
+                <div class="stat">
+                    <span class="label">Total Lost:</span>
+                    <span class="value" id="totalLost">0</span>
+                </div>
+                <div class="stat">
+                    <span class="label">IQ Points:</span>
+                    <span class="value" id="iqScore">100</span>
+                </div>
+            </div>
+
+            <div class="reel-machine">
+                <div class="reels">
+                    <div class="reel">
+                        <div class="reel-symbols">
+                            <div class="symbol">🤖</div>
+                            <div class="symbol">💬</div>
+                            <div class="symbol">🧠</div>
+                            <div class="symbol">💾</div>
+                            <div class="symbol">🔓</div>
+                            <div class="symbol">📊</div>
+                            <div class="symbol">❌</div>
+                        </div>
+                    </div>
+                    <div class="reel">
+                        <div class="reel-symbols">
+                            <div class="symbol">🤖</div>
+                            <div class="symbol">💬</div>
+                            <div class="symbol">🧠</div>
+                            <div class="symbol">💾</div>
+                            <div class="symbol">🔓</div>
+                            <div class="symbol">📊</div>
+                            <div class="symbol">❌</div>
+                        </div>
+                    </div>
+                    <div class="reel">
+                        <div class="reel-symbols">
+                            <div class="symbol">🤖</div>
+                            <div class="symbol">💬</div>
+                            <div class="symbol">🧠</div>
+                            <div class="symbol">💾</div>
+                            <div class="symbol">🔓</div>
+                            <div class="symbol">📊</div>
+                            <div class="symbol">❌</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="win-line"></div>
+            </div>
+
+            <div class="message-display" id="messageDisplay">
+                Ready to throw away money?
+            </div>
+
+            <div class="controls">
+                <button class="btn-spin" id="spinButton">SPIN (-10 tokens)</button>
+                <button class="btn-reset" id="resetButton">Reset Game</button>
+            </div>
+
+            <div class="payouts">
+                <h3>💰 Payout Table 💰</h3>
+                <div class="payout-grid">
+                    <div class="payout-item">
+                        <span>🤖 🤖 🤖</span>
+                        <span class="payout-amount">+500 tokens</span>
+                    </div>
+                    <div class="payout-item">
+                        <span>💬 💬 💬</span>
+                        <span class="payout-amount">+300 tokens</span>
+                    </div>
+                    <div class="payout-item">
+                        <span>🧠 🧠 🧠</span>
+                        <span class="payout-amount">+200 tokens</span>
+                    </div>
+                    <div class="payout-item">
+                        <span>💾 💾 💾</span>
+                        <span class="payout-amount">+150 tokens</span>
+                    </div>
+                    <div class="payout-item">
+                        <span>🔓 🔓 🔓</span>
+                        <span class="payout-amount">+100 tokens</span>
+                    </div>
+                    <div class="payout-item">
+                        <span>📊 📊 📊</span>
+                        <span class="payout-amount">+75 tokens</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>⚠️ Warning: This game is optimized for loss. Results may cause existential dread. ⚠️</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
