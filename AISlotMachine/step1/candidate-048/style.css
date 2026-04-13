@@ -1,0 +1,301 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #764ba2;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+    color: #666;
+    font-size: 0.95em;
+    font-style: italic;
+}
+
+.game-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.token-display {
+    display: flex;
+    justify-content: space-around;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+}
+
+.token-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.label {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.token-count, .token-lost {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+}
+
+.slot-machine {
+    position: relative;
+    background: linear-gradient(180deg, #333 0%, #111 100%);
+    border: 5px solid #FFD700;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.reel-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+.reel {
+    width: 80px;
+    height: 100px;
+    background: #222;
+    border: 3px solid #FFD700;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.reel-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    height: 100px;
+    flex-shrink: 0;
+    background: #1a1a1a;
+    border-bottom: 2px solid #444;
+}
+
+.reel-item:last-child {
+    border-bottom: none;
+}
+
+.reel-window {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: transparent;
+    border: 3px solid rgba(255, 215, 0, 0.5);
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 2;
+    margin: 0 20px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.bet-input {
+    padding: 12px 15px;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    width: 120px;
+    transition: border-color 0.3s;
+}
+
+.bet-input:focus {
+    outline: none;
+    border-color: #764ba2;
+    box-shadow: 0 0 10px rgba(118, 75, 162, 0.3);
+}
+
+.spin-button, .reset-button {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.spin-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    flex: 1;
+    min-width: 150px;
+}
+
+.spin-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(118, 75, 162, 0.4);
+}
+
+.spin-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.spin-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.reset-button {
+    background: #999;
+    color: white;
+}
+
+.reset-button:hover {
+    background: #777;
+    transform: translateY(-2px);
+}
+
+.result-display {
+    text-align: center;
+    padding: 20px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.result-display p {
+    color: #333;
+    font-size: 1em;
+}
+
+.win-amount {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #764ba2;
+    font-family: 'Courier New', monospace;
+}
+
+.win-amount.win {
+    color: #4CAF50;
+}
+
+.win-amount.lose {
+    color: #f44336;
+}
+
+.ai-comments {
+    background: #fffacd;
+    border-left: 4px solid #FFD700;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+}
+
+.ai-comments p {
+    margin: 0;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #999;
+    font-size: 0.85em;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+@keyframes spin {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-2400px);
+    }
+}
+
+.reel.spinning {
+    animation: spin 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .reel {
+        width: 70px;
+        height: 85px;
+    }
+
+    .reel-item {
+        font-size: 1.5em;
+        height: 85px;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .bet-input, .spin-button {
+        width: 100%;
+    }
+}

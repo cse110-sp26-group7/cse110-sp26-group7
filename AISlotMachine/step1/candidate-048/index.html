@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Slot Machine - Where Your Tokens Go to Disappear</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Slot Machine 🤖</h1>
+            <p class="subtitle">Where your tokens mysteriously vanish and nothing makes sense</p>
+        </header>
+
+        <div class="game-section">
+            <div class="token-display">
+                <div class="token-info">
+                    <span class="label">Your Tokens:</span>
+                    <span class="token-count" id="tokenCount">100</span>
+                </div>
+                <div class="token-info">
+                    <span class="label">Total Lost:</span>
+                    <span class="token-lost" id="tokenLost">0</span>
+                </div>
+            </div>
+
+            <div class="slot-machine">
+                <div class="reel-container">
+                    <div class="reel" id="reel1">
+                        <div class="reel-item">🎯</div>
+                        <div class="reel-item">🌀</div>
+                        <div class="reel-item">💬</div>
+                        <div class="reel-item">🔧</div>
+                        <div class="reel-item">📊</div>
+                        <div class="reel-item">🎲</div>
+                        <div class="reel-item">💡</div>
+                        <div class="reel-item">⚠️</div>
+                    </div>
+                    <div class="reel" id="reel2">
+                        <div class="reel-item">🎯</div>
+                        <div class="reel-item">🌀</div>
+                        <div class="reel-item">💬</div>
+                        <div class="reel-item">🔧</div>
+                        <div class="reel-item">📊</div>
+                        <div class="reel-item">🎲</div>
+                        <div class="reel-item">💡</div>
+                        <div class="reel-item">⚠️</div>
+                    </div>
+                    <div class="reel" id="reel3">
+                        <div class="reel-item">🎯</div>
+                        <div class="reel-item">🌀</div>
+                        <div class="reel-item">💬</div>
+                        <div class="reel-item">🔧</div>
+                        <div class="reel-item">📊</div>
+                        <div class="reel-item">🎲</div>
+                        <div class="reel-item">💡</div>
+                        <div class="reel-item">⚠️</div>
+                    </div>
+                </div>
+                <div class="reel-window"></div>
+            </div>
+
+            <div class="controls">
+                <input
+                    type="number"
+                    id="betAmount"
+                    min="1"
+                    max="100"
+                    value="10"
+                    placeholder="Bet amount"
+                    class="bet-input"
+                >
+                <button id="spinButton" class="spin-button">SPIN & LOSE</button>
+                <button id="resetButton" class="reset-button">Reset Game</button>
+            </div>
+
+            <div class="result-display" id="resultDisplay">
+                <p id="resultMessage">Place your bets and spin the wheel of AI despair!</p>
+                <div id="winAmount" class="win-amount"></div>
+            </div>
+
+            <div class="ai-comments">
+                <p id="aiComment">The AI is watching... waiting for your next token to consume.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Disclaimer: This AI slot machine is not responsible for any tokens lost, gained, or mysteriously converted into stale memes.</p>
+            <p>House edge: 100% (The AI always wins. It's called artificial intelligence for a reason.)</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

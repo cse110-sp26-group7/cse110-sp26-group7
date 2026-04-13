@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Token Slot Machine 🤖</h1>
+            <p class="subtitle">Spin to win (or lose) your AI tokens!</p>
+        </header>
+
+        <div class="stats-panel">
+            <div class="stat-box">
+                <div class="stat-label">Token Balance</div>
+                <div class="stat-value" id="tokenBalance">1000</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Session Wins</div>
+                <div class="stat-value" id="sessionWins">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Session Losses</div>
+                <div class="stat-value" id="sessionLosses">0</div>
+            </div>
+        </div>
+
+        <div class="machine">
+            <div class="reels-display">
+                <div class="reel-window" id="reel1">🤖</div>
+                <div class="reel-window" id="reel2">💾</div>
+                <div class="reel-window" id="reel3">📊</div>
+            </div>
+
+            <div class="message-area" id="messageArea"></div>
+
+            <div class="controls">
+                <div class="bet-section">
+                    <label for="betInput">Bet Amount:</label>
+                    <input
+                        type="number"
+                        id="betInput"
+                        min="1"
+                        max="500"
+                        value="10"
+                    >
+                </div>
+                <button id="spinButton" class="btn btn-spin">SPIN!</button>
+                <button id="resetButton" class="btn btn-reset">Reset Game</button>
+            </div>
+
+            <div class="payouts">
+                <h3>Payout Table</h3>
+                <div class="payout-item">
+                    <span class="payout-symbols">🤖 🤖 🤖</span>
+                    <span class="payout-amount">×10 bet (AGI achieved!)</span>
+                </div>
+                <div class="payout-item">
+                    <span class="payout-symbols">💾 💾 💾</span>
+                    <span class="payout-amount">×5 bet (Data saved!)</span>
+                </div>
+                <div class="payout-item">
+                    <span class="payout-symbols">📊 📊 📊</span>
+                    <span class="payout-amount">×3 bet (Perfect metrics!)</span>
+                </div>
+                <div class="payout-item">
+                    <span class="payout-symbols">Any other combo</span>
+                    <span class="payout-amount">Lose bet (GPU overheated!)</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Remember: AI doesn't actually learn from your tokens, but you might learn something about probability!</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
