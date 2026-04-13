@@ -1,31 +1,33 @@
 # Team Pied Piper
 
 ## Our Brand
-<img width="126" height="126" alt="piedPiperLogo" src="https://github.com/user-attachments/assets/77803f9b-ecc9-44cd-acad-12745eb78a96" />
 
+![brand logo](branding/images/piedPiperLogo.png)
 
 ## Core Values
+
 We believe in building a strong foundation for our project through:
-* **Quality & Excellence:** Striving for high-quality code and robust solutions.
-* **Open Communication:** Ensuring every voice is heard and ideas are shared freely.
-* **Adaptability:** Embracing change and learning from challenges during the development cycle.
-* **Collaborative Growth:** Helping each other level up our technical and professional skills.
+
+- **Quality & Excellence:** Striving for high-quality code and robust solutions.
+- **Open Communication:** Ensuring every voice is heard and ideas are shared freely.
+- **Adaptability:** Embracing change and learning from challenges during the development cycle.
+- **Collaborative Growth:** Helping each other level up our technical and professional skills.
 
 ## Team Roster
-| Name | Overview | GitHub |
-| :--- | :--- | :--- |
-| [Nhan Tri Danh] | [I'm a third-year CS student, I have experience in Software Engineer through building personal projects and internships] | [GitHub Profile](https://github.com/) |
-| [Benny Signer] | [I’m a computer science student from Los Angeles, passionate about building things with code. I’m working toward becoming a software engineer focused on solving real problems — ideally ones that matter to people.] | [GitHub Profile](https://b-signer.github.io/CSE-110-Lab1-User-Page/) |
-| [Bishal Khatri] | [I am passionate about programming, AI, and learning new technologies.] | [GitHub Profile](https://bishalkhatri1.github.io/cse-110-Lab-1/) |
-| [Kareem Nabulsi] | [I'm a software engineer passionate about the intersection of technology and creativity.] | [GitHub Profile](https://github.com/Lumen98/CSE110Pages/blob/add-index-md/index.md) |
-| [Cindy Zhang] | [I am a second year computer science major at UCSD. While I do enjoy coding, as a programmer I enjoy probelm solving aspects of software engineering more. My primary reason for studying computer science was because I wanted to use new technologies and software to solve real world problems. I hope that I can learn more at UCSD to be able to build up the skills to do so!] | [GitHub Profile](https://ciz003.github.io/User-Page/) |
-| [Ethan Carter] | [I’m Ethan Carter! I’m interested in game development and other forms of software development that involve solving intriguing problems. I also enjoy playing the bass guitar on the side.] | [GitHub Profile](https://eatyboy.github.io/CSE-110/) |
-| [Thy Doan] | [I’m a third year Computer Science major.] | [GitHub Profile](https://thyndoan.github.io/CSE110/) |
-| [Gabrielle Wang] | [I am a programmer and student focused on Mathematics and Computer Science. My primary career goal is to become a Cloud Infrastructure Engineer at a major tech company.] | [GitHub Profile](https://github.com/gaw004/Lab1/blob/main/index.md) |
-| [Johnny Huang] | [I’m Johnny and I’ve always had an interest in video games, which then ended up becoming an interest in programming. One of my main interests would be to develop a video game, not just the programming aspect of it, but some of the many other aspects of making a game] | [GitHub Profile](https://just0johnny.github.io/GitHub-Pages/) |
-| [Theo Lee] | [Hi, I’m Theo Lee, a Computer Science student at UC San Diego. I’m passionate about building software that solves real-world problems.] | [GitHub Profile](https://theolee021.github.io/cse110-lab1/) |
+
+| Name             | Overview                                                                                                                                                                                                                                                                                                                                                                             | GitHub                                                                              |
+| :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------- |
+| [Nhan Tri Danh]  | [I'm a third-year CS student, I have experience in Software Engineer through building personal projects and internships.]                                                                                                                                                                                                                                                            | [GitHub Profile](https://github.com/)                                               |
+| [Benny Signer]   | [I’m a computer science student from Los Angeles, passionate about building things with code. I’m working toward becoming a software engineer focused on solving real problems — ideally ones that matter to people.]                                                                                                                                                                | [GitHub Profile](https://b-signer.github.io/CSE-110-Lab1-User-Page/)                |
+| [Bishal Khatri]  | [I am passionate about programming, AI, and learning new technologies.]                                                                                                                                                                                                                                                                                                              | [GitHub Profile](https://bishalkhatri1.github.io/cse-110-Lab-1/)                    |
+| [Kareem Nabulsi] | [I'm a software engineer passionate about the intersection of technology and creativity.]                                                                                                                                                                                                                                                                                            | [GitHub Profile](https://github.com/Lumen98/CSE110Pages/blob/add-index-md/index.md) |
+| [Cindy Zhang]    | [I am a second year computer science major at UCSD. While I do enjoy coding, as a programmer I enjoy probelm solving aspects of software engineering more. My primary reason for studying computer science was because I wanted to use new technologies and software to solve real world problems. I hope that I can learn more at UCSD to be able to build up the skills to do so!] | [GitHub Profile](https://ciz003.github.io/User-Page/)                               |
+| [Ethan Carter]   | [I’m Ethan Carter! I’m interested in game development and other forms of software development that involve solving intriguing problems. I also enjoy playing the bass guitar on the side.]                                                                                                                                                                                           | [GitHub Profile](https://eatyboy.github.io/CSE-110/)                                |
+| [Thy Doan]       | [I’m a third year Computer Science major with passion for technology, and I hope to use my knowledge to improve people's quality of life. I love playing video games, drawing, and crocheting.]                                                                                                                                                                                      | [GitHub Profile](https://thyndoan.github.io/CSE110/)                                |
+| [Gabrielle Wang] | [I am a programmer and student focused on Mathematics and Computer Science. My primary career goal is to become a Cloud Infrastructure Engineer at a major tech company.]                                                                                                                                                                                                            | [GitHub Profile](https://github.com/gaw004/Lab1/blob/main/index.md)                 |
+| [Johnny Huang]   | [I’m Johnny and I’ve always had an interest in video games, which then ended up becoming an interest in programming. One of my main interests would be to develop a video game, not just the programming aspect of it, but some of the many other aspects of making a game.]                                                                                                         | [GitHub Profile](https://just0johnny.github.io/GitHub-Pages/)                       |
+| [Theo Lee]       | [Hi, I’m Theo Lee, a Computer Science student at UC San Diego. I’m passionate about building software that solves real-world problems.]                                                                                                                                                                                                                                              | [GitHub Profile](https://theolee021.github.io/cse110-lab1/)                         |
 
 ## Team Culture & Humor
+
 Our team culture is built on a shared passion for efficient systems and the occasional debate over the best "middle-out" approach to problem-solving. We maintain a high-energy environment—fueled by plenty of caffeine and the pursuit of a Weissman Score that would make even the toughest critics pause. Whether we are debugging late into the night or discussing the latest in tech, we keep things lighthearted and focused on building something that actually makes a difference.
-
-
