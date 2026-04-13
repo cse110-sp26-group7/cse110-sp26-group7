@@ -1,0 +1,457 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.1em;
+    opacity: 0.95;
+    font-style: italic;
+}
+
+.game-area {
+    padding: 30px 20px;
+}
+
+/* Token Display */
+.token-display {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 20px;
+    background: #f8f9ff;
+    border-radius: 12px;
+    border: 2px solid #667eea;
+}
+
+.tokens-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.token-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.token-item .label {
+    color: #333;
+}
+
+.token-item .value {
+    color: #667eea;
+    font-size: 1.5em;
+    font-weight: bold;
+    min-width: 60px;
+}
+
+.token-item .icon {
+    font-size: 1.5em;
+}
+
+/* Stats Panel */
+.stats-panel {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin-bottom: 25px;
+    background: #fff3e0;
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px solid #ffa726;
+}
+
+.stat {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #ffa726;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #f57c00;
+}
+
+/* Slot Machine */
+.machine {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    border: 8px solid #ff6b6b;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.machine-display {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    background: #1a1a2e;
+    padding: 30px;
+    border-radius: 15px;
+    border: 4px solid #ff6b6b;
+    box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.reel-container {
+    width: 140px;
+    height: 180px;
+    background: #222;
+    border: 3px solid #ff6b6b;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.reel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.1s linear;
+}
+
+.reel-item {
+    flex: 0 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: bold;
+    font-size: 0.75em;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 5px;
+}
+
+.reel-item:nth-child(odd) {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Win Line */
+.win-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: rgba(255, 107, 107, 0.2);
+    border-top: 3px dashed #ff6b6b;
+    border-bottom: 3px dashed #ff6b6b;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.spin-button {
+    padding: 15px 40px;
+    font-size: 1.4em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.spin-button:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(255, 107, 107, 0.6);
+}
+
+.spin-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: scale(1);
+}
+
+.spin-button.spinning {
+    animation: pulse 0.3s ease infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(0.98); }
+}
+
+.bet-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.bet-controls label {
+    color: #333;
+}
+
+.bet-controls input {
+    width: 80px;
+    padding: 8px 12px;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.bet-controls .icon {
+    font-size: 1.3em;
+}
+
+/* Result Box */
+.result-box {
+    background: #f3f3f3;
+    border-left: 5px solid #ffa726;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+    animation: slideIn 0.3s ease;
+}
+
+.result-box.hidden {
+    display: none;
+}
+
+.result-box.win {
+    border-left-color: #4caf50;
+    background: #e8f5e9;
+}
+
+.result-box.loss {
+    border-left-color: #f44336;
+    background: #ffebee;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#resultTitle {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#resultMessage {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.tokens-change {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.tokens-change.positive {
+    color: #4caf50;
+}
+
+.tokens-change.negative {
+    color: #f44336;
+}
+
+/* Messages Panel */
+.messages-panel {
+    background: #f8f9ff;
+    border: 2px solid #667eea;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.messages-panel h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.message-log {
+    height: 100px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.message {
+    padding: 8px;
+    margin: 5px 0;
+    background: #f0f0f0;
+    border-radius: 6px;
+    color: #333;
+    font-size: 0.95em;
+    font-style: italic;
+}
+
+.message:first-child {
+    margin-top: 0;
+}
+
+/* Footer */
+footer {
+    background: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+footer p {
+    color: #666;
+    font-size: 0.95em;
+}
+
+.reset-button {
+    padding: 10px 25px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.reset-button:hover {
+    background: #ff5252;
+    transform: scale(1.05);
+}
+
+/* Scrollbar Styling */
+.message-log::-webkit-scrollbar {
+    width: 6px;
+}
+
+.message-log::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.message-log::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 3px;
+}
+
+.message-log::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 0.95em;
+    }
+
+    .machine-display {
+        gap: 10px;
+        padding: 15px;
+    }
+
+    .reel-container {
+        width: 100px;
+        height: 140px;
+    }
+
+    .reel-item {
+        flex: 0 0 46px;
+        font-size: 0.65em;
+    }
+
+    .stats-panel {
+        flex-direction: column;
+    }
+
+    .token-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .token-item .value {
+        font-size: 1.3em;
+    }
+
+    .spin-button {
+        font-size: 1.2em;
+        padding: 12px 30px;
+    }
+}

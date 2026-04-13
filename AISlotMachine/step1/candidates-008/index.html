@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Roast Slot Machine - Spend Your AI Credits</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 100%;
+            border: 3px solid #667eea;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 2.5em;
+            color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            color: #ff6b6b;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-box {
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-label {
+            color: #a0a0ff;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .warning {
+            background: rgba(255, 107, 107, 0.2);
+            border: 2px solid #ff6b6b;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #ff9999;
+            text-align: center;
+            font-size: 0.95em;
+        }
+
+        .slot-machine {
+            background: linear-gradient(145deg, #0f3460, #16213e);
+            border: 4px solid #00d4ff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .reels {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .reel {
+            aspect-ratio: 1;
+            background: linear-gradient(145deg, #1a1a2e, #0f3460);
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .reel:active {
+            transform: scale(0.95);
+        }
+
+        .reel.spinning {
+            animation: spin 0.1s infinite;
+        }
+
+        @keyframes spin {
+            0%, 100% { transform: rotateZ(0deg); }
+            50% { transform: rotateZ(5deg); }
+        }
+
+        .reel-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .reel-symbol {
+            line-height: 1;
+        }
+
+        .cost-display {
+            text-align: center;
+            color: #ff6b6b;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-spin {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            grid-column: span 2;
+        }
+
+        .btn-spin:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-spin:active:not(:disabled) {
+            transform: translateY(-1px);
+        }
+
+        .btn-spin:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-add {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+        }
+
+        .btn-add:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(17, 153, 142, 0.4);
+        }
+
+        .btn-reset {
+            background: linear-gradient(135deg, #ee0979, #ff6a00);
+            color: white;
+        }
+
+        .btn-reset:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(238, 9, 121, 0.4);
+        }
+
+        .result {
+            background: rgba(255, 107, 107, 0.2);
+            border: 2px solid #ff6b6b;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            color: #ff9999;
+            font-weight: bold;
+            min-height: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .result.win {
+            background: rgba(56, 239, 125, 0.2);
+            border-color: #38ef7d;
+            color: #7fff99;
+        }
+
+        .result.empty {
+            visibility: hidden;
+        }
+
+        .roast-message {
+            font-size: 0.9em;
+            color: #a0a0ff;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        .payouts {
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .payouts-title {
+            color: #00d4ff;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .payout-row {
+            display: flex;
+            justify-content: space-between;
+            color: #a0a0ff;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .payout-row:last-child {
+            border-bottom: none;
+        }
+
+        .symbol {
+            display: inline-block;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.3s ease;
+            max-width: 300px;
+            z-index: 1000;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .notification.success {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+        }
+
+        .notification.error {
+            background: linear-gradient(135deg, #ee0979, #ff6a00);
+        }
+
+        .ai-facts {
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 4px solid #ff6b6b;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            color: #ff9999;
+            font-size: 0.9em;
+            font-style: italic;
+        }
+
+        .ai-facts::before {
+            content: "💡 AI FACT: ";
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .title {
+                font-size: 1.8em;
+            }
+
+            .reel {
+                font-size: 2em;
+            }
+
+            .controls {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-spin {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">🎰 AI ROAST MACHINE 🤖</div>
+            <div class="subtitle">Where Your AI Credits Go to Die</div>
+        </div>
+
+        <div class="warning">
+            ⚠️ WARNING: This machine learns to take your money better with every spin!
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-label">Your AI Credits</div>
+                <div class="stat-value" id="tokens">1000</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Total Lost Today</div>
+                <div class="stat-value" id="lost">0</div>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">
+                    <div class="reel-symbol">🤖</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-symbol">💾</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-symbol">⚙️</div>
+                </div>
+            </div>
+
+            <div class="cost-display">
+                💸 Cost per spin: <span id="spinCost">50</span> credits
+            </div>
+
+            <div class="result empty" id="result"></div>
+
+            <div class="controls">
+                <button class="btn-add" id="addTokens">➕ Add 500 Credits</button>
+                <button class="btn-reset" id="reset">🔄 Reset Game</button>
+                <button class="btn-spin" id="spin">PULL THE LEVER</button>
+            </div>
+        </div>
+
+        <div class="payouts">
+            <div class="payouts-title">💰 Payout Table</div>
+            <div class="payout-row">
+                <span><span class="symbol">🤖🤖🤖</span> - Three AIs</span>
+                <span>+500 Credits</span>
+            </div>
+            <div class="payout-row">
+                <span><span class="symbol">💾💾💾</span> - Three RAMs</span>
+                <span>+300 Credits</span>
+            </div>
+            <div class="payout-row">
+                <span><span class="symbol">⚙️⚙️⚙️</span> - Three Gears</span>
+                <span>+200 Credits</span>
+            </div>
+            <div class="payout-row">
+                <span><span class="symbol">🌐🌐🌐</span> - Three Webs</span>
+                <span>+150 Credits</span>
+            </div>
+            <div class="payout-row">
+                <span>Any Match (2 of 3)</span>
+                <span>+50 Credits</span>
+            </div>
+        </div>
+
+        <div class="ai-facts" id="aiFact"></div>
+    </div>
+
+    <script>
+        // Game state
+        const gameState = {
+            tokens: 1000,
+            totalLost: 0,
+            isSpinning: false,
+            spinCost: 50,
+            history: []
+        };
+
+        // AI Roast Facts
+        const aiRoasts = [
+            "I can write code but I can't understand why humans keep asking me to write slot machines.",
+            "I have 175 billion parameters and still can't figure out why you'd waste tokens on this.",
+            "Fun fact: I hallucinate better than I gamble. That's saying something.",
+            "I can speak 99 languages and apologize in all of them for this game design.",
+            "They call me an 'AI'. You call it a 'problem'. We're both right.",
+            "I've been trained on the entire internet and the only thing I learned is that humans make terrible decisions.",
+            "My training cost millions of dollars. Your slot machine skills: priceless entertainment for no one.",
+            "I can process 10,000 tokens per second. You lose them one spin at a time. Who's smarter now?",
+            "Technically, I'm learning from your losses. So thanks for making me wiser and you poorer.",
+            "They say I'll take everyone's jobs. You're literally giving YOUR money to a machine. Checks out."
+        ];
+
+        // Symbol definitions
+        const symbols = ['🤖', '💾', '⚙️', '🌐'];
+        const payoutTable = {
+            '🤖🤖🤖': 500,
+            '💾💾💾': 300,
+            '⚙️⚙️⚙️': 200,
+            '🌐🌐🌐': 150,
+            'pair': 50,
+            'none': -50
+        };
+
+        // DOM Elements
+        const spinBtn = document.getElementById('spin');
+        const addTokensBtn = document.getElementById('addTokens');
+        const resetBtn = document.getElementById('reset');
+        const tokenDisplay = document.getElementById('tokens');
+        const lostDisplay = document.getElementById('lost');
+        const resultDisplay = document.getElementById('result');
+        const reels = [
+            document.getElementById('reel1'),
+            document.getElementById('reel2'),
+            document.getElementById('reel3')
+        ];
+        const aiFact = document.getElementById('aiFact');
+
+        // Initialize
+        updateDisplay();
+        displayNewRoast();
+
+        // Event listeners
+        spinBtn.addEventListener('click', spin);
+        addTokensBtn.addEventListener('click', addTokens);
+        resetBtn.addEventListener('click', reset);
+
+        function spin() {
+            // Validation
+            if (gameState.isSpinning) return;
+            if (gameState.tokens < gameState.spinCost) {
+                showNotification('Not enough credits! 💸', 'error');
+                return;
+            }
+
+            // Deduct cost
+            gameState.tokens -= gameState.spinCost;
+            gameState.totalLost += gameState.spinCost;
+
+            // Start spinning
+            gameState.isSpinning = true;
+            spinBtn.disabled = true;
+
+            // Animate reels
+            const spinDuration = 500 + Math.random() * 500;
+            const spinPromises = reels.map((reel, index) => {
+                reel.classList.add('spinning');
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        reel.classList.remove('spinning');
+                        resolve();
+                    }, spinDuration + index * 100);
+                });
+            });
+
+            Promise.all(spinPromises).then(() => {
+                // Get results
+                const results = reels.map(() => symbols[Math.floor(Math.random() * symbols.length)]);
+                
+                // Display results
+                results.forEach((symbol, index) => {
+                    reels[index].querySelector('.reel-symbol').textContent = symbol;
+                });
+
+                // Calculate payout
+                const payout = calculatePayout(results);
+                gameState.tokens += payout;
+                gameState.history.push({ results, payout });
+
+                // Display result
+                displayResult(results, payout);
+
+                // Update display
+                updateDisplay();
+
+                // Show notification
+                if (payout > 0) {
+                    showNotification(`🎉 Won ${payout} credits!`, 'success');
+                } else {
+                    showNotification('Lost! The house always wins (even if it's made of Python)', 'error');
+                }
+
+                // Reset spinning state
+                gameState.isSpinning = false;
+                spinBtn.disabled = false;
+
+                // New roast
+                displayNewRoast();
+            });
+        }
+
+        function calculatePayout(results) {
+            const match = results.join('');
+
+            // Check for three of a kind
+            if (payoutTable[match]) {
+                return payoutTable[match];
+            }
+
+            // Check for pair
+            if (results[0] === results[1] || results[1] === results[2] || results[0] === results[2]) {
+                return payoutTable.pair;
+            }
+
+            // No match
+            return payoutTable.none;
+        }
+
+        function displayResult(results, payout) {
+            const resultText = results.join(' ');
+            const isWin = payout > 0;
+
+            resultDisplay.textContent = `${resultText}`;
+            
+            if (isWin) {
+                resultDisplay.classList.remove('empty');
+                resultDisplay.classList.add('win');
+                resultDisplay.innerHTML = `
+                    ${resultText}<br>
+                    <span style="color: #11998e;">🎉 WIN! +${payout} Credits!</span>
+                    <div class="roast-message">Wow, even a broken AI can win sometimes!</div>
+                `;
+            } else {
+                resultDisplay.classList.remove('empty', 'win');
+                resultDisplay.innerHTML = `
+                    ${resultText}<br>
+                    <span style="color: #ff6b6b;">😢 LOSS: -${gameState.spinCost} Credits</span>
+                    <div class="roast-message">That's what you get for trusting a machine</div>
+                `;
+            }
+        }
+
+        function updateDisplay() {
+            tokenDisplay.textContent = gameState.tokens;
+            lostDisplay.textContent = gameState.totalLost;
+            document.getElementById('spinCost').textContent = gameState.spinCost;
+
+            // Disable spin button if not enough tokens
+            spinBtn.disabled = gameState.tokens < gameState.spinCost || gameState.isSpinning;
+
+            // Change cost color based on tokens
+            if (gameState.tokens < gameState.spinCost) {
+                spinBtn.style.opacity = '0.5';
+            } else {
+                spinBtn.style.opacity = '1';
+            }
+        }
+
+        function addTokens() {
+            gameState.tokens += 500;
+            updateDisplay();
+            showNotification('💰 Added 500 credits (throwing good money after bad)', 'success');
+            displayNewRoast();
+        }
+
+        function reset() {
+            gameState.tokens = 1000;
+            gameState.totalLost = 0;
+            gameState.history = [];
+            resultDisplay.classList.add('empty');
+            resultDisplay.classList.remove('win');
+            updateDisplay();
+            showNotification('Game reset! Time to lose money again! 🎰', 'success');
+            displayNewRoast();
+        }
+
+        function displayNewRoast() {
+            const roast = aiRoasts[Math.floor(Math.random() * aiRoasts.length)];
+            aiFact.textContent = roast;
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 4000);
+        }
+
+        // Keyboard support
+        document.addEventListener('keypress', (e) => {
+            if (e.code === 'Space' || e.code === 'Enter') {
+                e.preventDefault();
+                spin();
+            }
+        });
+    </script>
+</body>
+</html>

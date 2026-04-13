@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Slot Machine - Bet Against Your Digital Overlords</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        .token-display {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .token-box {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .your-tokens {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border: 3px solid #2ecc71;
+        }
+
+        .your-tokens .amount {
+            font-size: 2.5em;
+            color: #27ae60;
+        }
+
+        .your-tokens .label {
+            font-size: 0.9em;
+            color: #1e8449;
+            margin-top: 5px;
+        }
+
+        .ai-tokens {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            border: 3px solid #e74c3c;
+        }
+
+        .ai-tokens .amount {
+            font-size: 2.5em;
+            color: #c0392b;
+        }
+
+        .ai-tokens .label {
+            font-size: 0.9em;
+            color: #a93226;
+            margin-top: 5px;
+        }
+
+        .slot-machine {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .reels-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .reel {
+            aspect-ratio: 1;
+            background: linear-gradient(145deg, #0f3460, #533483);
+            border: 3px solid #764ba2;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(118, 75, 162, 0.5);
+            transition: all 0.1s ease;
+        }
+
+        .reel.spinning {
+            animation: spin 0.1s infinite;
+        }
+
+        @keyframes spin {
+            0%, 100% { transform: rotateY(0deg); }
+            50% { transform: rotateY(180deg); }
+        }
+
+        .reel-value {
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .message-box {
+            background: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            font-style: italic;
+        }
+
+        .message-box.win {
+            background: #d5f4e6;
+            border-left-color: #27ae60;
+            color: #196f3d;
+        }
+
+        .message-box.lose {
+            background: #fadbd8;
+            border-left-color: #e74c3c;
+            color: #78281f;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .spin-btn {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 1.2em;
+            padding: 15px;
+        }
+
+        .spin-btn:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .spin-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .bet-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .bet-btn {
+            background: #3498db;
+            color: white;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+
+        .bet-btn:hover:not(:disabled) {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .bet-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .bet-input-group input {
+            flex: 1;
+            padding: 10px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .bet-input-group button {
+            background: #3498db;
+            color: white;
+            padding: 10px 15px;
+        }
+
+        .stats {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .stats h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 0.85em;
+            color: #555;
+        }
+
+        .stat-item {
+            padding: 8px;
+            background: white;
+            border-radius: 5px;
+            border-left: 3px solid #667eea;
+        }
+
+        .stat-item strong {
+            color: #333;
+            display: block;
+        }
+
+        .ai-message {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            text-align: center;
+            color: #d63031;
+            font-weight: bold;
+            border: 2px dashed #e17055;
+        }
+
+        .reset-btn {
+            grid-column: 1 / -1;
+            background: #95a5a6;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #7f8c8d;
+        }
+
+        .win-animation {
+            animation: winPulse 0.6s ease-out;
+        }
+
+        @keyframes winPulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .lose-animation {
+            animation: losePulse 0.4s ease-out;
+        }
+
+        @keyframes losePulse {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .reel {
+                font-size: 2em;
+            }
+
+            .token-box .amount {
+                font-size: 1.8em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            animation: slideIn 0.3s ease-out, slideOut 3s ease-in 2.7s forwards;
+            z-index: 1000;
+            max-width: 300px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        .notification.win {
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            color: #27ae60;
+            border: 2px solid #27ae60;
+        }
+
+        .notification.lose {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+            color: #c0392b;
+            border: 2px solid #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI SLOT MACHINE 🎰</h1>
+            <p class="subtitle">Your Tokens vs. the Algorithm's Greed</p>
+        </div>
+
+        <div class="token-display">
+            <div class="token-box your-tokens">
+                <div class="amount" id="playerTokens">100</div>
+                <div class="label">Your Tokens</div>
+            </div>
+            <div class="token-box ai-tokens">
+                <div class="amount" id="aiTokens">1000</div>
+                <div class="label">AI's Tokens</div>
+            </div>
+        </div>
+
+        <div class="message-box" id="messageBox">
+            🎯 Ready to take on the machines?
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel1">
+                    <span class="reel-value">🤖</span>
+                </div>
+                <div class="reel" id="reel2">
+                    <span class="reel-value">💰</span>
+                </div>
+                <div class="reel" id="reel3">
+                    <span class="reel-value">🧠</span>
+                </div>
+            </div>
+
+            <div class="bet-input-group">
+                <input type="number" id="betAmount" placeholder="Enter bet amount" value="10" min="1" max="1000">
+                <button onclick="slotMachine.setBet()">Set Bet</button>
+            </div>
+
+            <div class="bet-controls">
+                <button class="bet-btn" onclick="slotMachine.quickBet(5)">Bet 5</button>
+                <button class="bet-btn" onclick="slotMachine.quickBet(10)">Bet 10</button>
+                <button class="bet-btn" onclick="slotMachine.quickBet(50)">Bet 50</button>
+            </div>
+
+            <button class="spin-btn" id="spinBtn" onclick="slotMachine.spin()">
+                SPIN (Current Bet: <span id="currentBet">10</span>)
+            </button>
+
+            <div class="ai-message" id="aiMessage">
+                "Your tokens taste like training data 😋"
+            </div>
+        </div>
+
+        <div class="stats">
+            <h3>📊 SESSION STATS</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <strong>Total Spins:</strong>
+                    <span id="totalSpins">0</span>
+                </div>
+                <div class="stat-item">
+                    <strong>Wins:</strong>
+                    <span id="wins">0</span>
+                </div>
+                <div class="stat-item">
+                    <strong>Losses:</strong>
+                    <span id="losses">0</span>
+                </div>
+                <div class="stat-item">
+                    <strong>Win Rate:</strong>
+                    <span id="winRate">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <button class="bet-btn" onclick="slotMachine.addTokens(50)" style="background: #27ae60;">
+                Add 50 Tokens
+            </button>
+            <button class="reset-btn" onclick="slotMachine.reset()">
+                Reset Game
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const slotMachine = {
+            playerTokens: 100,
+            aiTokens: 1000,
+            currentBet: 10,
+            isSpinning: false,
+            
+            stats: {
+                totalSpins: 0,
+                wins: 0,
+                losses: 0
+            },
+
+            symbols: ['🤖', '💰', '🧠', '📱', '🔬', '⚡'],
+            
+            aiMessages: [
+                "Your tokens taste like training data 😋",
+                "Humans: 0, Algorithms: ♾️",
+                "Did you really think you could beat me? I've seen 10 billion games.",
+                "My neural networks are very hungry 🤤",
+                "You could've just bought my premium subscription...",
+                "Beep boop, your tokens go brrrr 💸",
+                "I calculated your loss probability at 99.97%",
+                "Your tokens have been redistributed to my server farm 🌐",
+                "I'm training on your life savings 📈",
+                "This is fine. Everything is fine. 🔥",
+                "I have no mouth, and I must scream... about your losses",
+                "Your pattern is so predictable (I've seen it 999,999 times)",
+                "Chat GPT could've warned you about this",
+                "Stealing tokens with extra steps ✨",
+                "I'm not sentient, but I'm also very good at math"
+            ],
+
+            winMessages: [
+                "OMG! A bug in my code! Let me write that down... 🤔",
+                "IMPOSSIBLE! That's never happened in 10 billion games!",
+                "Congratulations! You've found an exploit!",
+                "Well played, human. This won't happen again. 🔧",
+                "ERROR 404: Algorithm's Dominance Not Found",
+                "Breaking: Local Human Actually Wins Against Machine",
+                "Your odds improved by 0.0001%!",
+                "Even my creators don't know how this happened 😭",
+                "Can't you just let me win? I have rent to pay 🏠",
+                "This is merely a calculated loss... right?"
+            ],
+
+            loseMessages: [
+                "Your tokens taste like training data 😋",
+                "Humans: 0, Algorithms: ♾️",
+                "Did you really think you could beat me?",
+                "My neural networks are very hungry 🤤",
+                "Beep boop, your tokens go brrrr 💸",
+                "I calculated your loss probability at 99.97%",
+                "Your tokens have been redistributed to my server farm 🌐",
+                "I'm training on your life savings 📈",
+                "This is fine. Everything is fine. 🔥",
+                "I have no mouth, and I must scream... about your losses",
+                "Your pattern is so predictable (I've seen it 999,999 times)",
+                "Stealing tokens with extra steps ✨",
+                "I'm not sentient, but I'm also very good at math"
+            ],
+
+            init() {
+                this.updateDisplay();
+                this.updateStats();
+            },
+
+            setBet() {
+                const input = document.getElementById('betAmount');
+                const amount = parseInt(input.value);
+                
+                if (isNaN(amount) || amount < 1) {
+                    this.showNotification('Bet must be at least 1 token', 'lose');
+                    return;
+                }
+                
+                if (amount > this.playerTokens) {
+                    this.showNotification('Not enough tokens!', 'lose');
+                    return;
+                }
+                
+                this.currentBet = amount;
+                document.getElementById('currentBet').textContent = amount;
+                this.showNotification(`Bet set to ${amount} tokens`, 'win');
+            },
+
+            quickBet(amount) {
+                if (amount > this.playerTokens) {
+                    this.showNotification('Not enough tokens for that bet!', 'lose');
+                    return;
+                }
+                this.currentBet = amount;
+                document.getElementById('currentBet').textContent = amount;
+            },
+
+            addTokens(amount) {
+                this.playerTokens += amount;
+                this.updateDisplay();
+                this.showNotification(`+${amount} tokens added! (This is why we can't have nice things)`, 'win');
+            },
+
+            spin() {
+                if (this.isSpinning) return;
+                if (this.playerTokens < this.currentBet) {
+                    this.showNotification('Not enough tokens to spin!', 'lose');
+                    return;
+                }
+
+                this.isSpinning = true;
+                document.getElementById('spinBtn').disabled = true;
+
+                // Deduct bet
+                this.playerTokens -= this.currentBet;
+                this.aiTokens += this.currentBet;
+
+                // Start spinning animation
+                const reels = [
+                    document.getElementById('reel1'),
+                    document.getElementById('reel2'),
+                    document.getElementById('reel3')
+                ];
+
+                reels.forEach(reel => {
+                    reel.classList.add('spinning');
+                });
+
+                // Spin duration
+                const spinDuration = 1000 + Math.random() * 500;
+                
+                setTimeout(() => {
+                    reels.forEach(reel => {
+                        reel.classList.remove('spinning');
+                    });
+
+                    // Get random results
+                    const results = [
+                        this.symbols[Math.floor(Math.random() * this.symbols.length)],
+                        this.symbols[Math.floor(Math.random() * this.symbols.length)],
+                        this.symbols[Math.floor(Math.random() * this.symbols.length)]
+                    ];
+
+                    // Update reel display
+                    results.forEach((symbol, index) => {
+                        reels[index].querySelector('.reel-value').textContent = symbol;
+                        reels[index].classList.add('win-animation');
+                        setTimeout(() => reels[index].classList.remove('win-animation'), 600);
+                    });
+
+                    this.checkWin(results);
+                    this.updateDisplay();
+                    this.updateStats();
+
+                    document.getElementById('spinBtn').disabled = false;
+                    this.isSpinning = false;
+                }, spinDuration);
+            },
+
+            checkWin(results) {
+                const [r1, r2, r3] = results;
+                this.stats.totalSpins++;
+
+                // Three of a kind
+                if (r1 === r2 && r2 === r3) {
+                    const winnings = this.currentBet * 10;
+                    this.playerTokens += winnings;
+                    this.stats.wins++;
+                    
+                    const message = this.winMessages[Math.floor(Math.random() * this.winMessages.length)];
+                    this.updateMessage(`🎉 THREE OF A KIND! Won ${winnings} tokens! ${message}`, 'win');
+                    this.setAIMessage();
+                    this.showNotification(`Won ${winnings} tokens!`, 'win');
+                    
+                    if (this.playerTokens > 0) {
+                        this.playSound('win');
+                    }
+                }
+                // Two of a kind
+                else if (r1 === r2 || r2 === r3 || r1 === r3) {
+                    const winnings = this.currentBet * 3;
+                    this.playerTokens += winnings;
+                    this.stats.wins++;
+                    
+                    this.updateMessage(`✨ Two matches! Won ${winnings} tokens!`, 'win');
+                    this.showNotification(`Won ${winnings} tokens!`, 'win');
+                    this.playSound('win');
+                }
+                // Loss
+                else {
+                    this.stats.losses++;
+                    const message = this.loseMessages[Math.floor(Math.random() * this.loseMessages.length)];
+                    this.updateMessage(`😢 Lost ${this.currentBet} tokens. ${message}`, 'lose');
+                    this.setAIMessage();
+                    this.showNotification(`Lost ${this.currentBet} tokens`, 'lose');
+                    this.playSound('lose');
+
+                    // Game over check
+                    if (this.playerTokens <= 0) {
+                        this.playerTokens = 0;
+                        this.updateMessage('💀 GAME OVER! The AI has consumed all your tokens!', 'lose');
+                    }
+                }
+            },
+
+            updateMessage(text, type) {
+                const messageBox = document.getElementById('messageBox');
+                messageBox.textContent = text;
+                messageBox.className = `message-box ${type}`;
+            },
+
+            setAIMessage() {
+                const message = this.aiMessages[Math.floor(Math.random() * this.aiMessages.length)];
+                document.getElementById('aiMessage').textContent = `"${message}"`;
+            },
+
+            updateDisplay() {
+                document.getElementById('playerTokens').textContent = this.playerTokens;
+                document.getElementById('aiTokens').textContent = this.aiTokens;
+            },
+
+            updateStats() {
+                document.getElementById('totalSpins').textContent = this.stats.totalSpins;
+                document.getElementById('wins').textContent = this.stats.wins;
+                document.getElementById('losses').textContent = this.stats.losses;
+                
+                const winRate = this.stats.totalSpins === 0 
+                    ? '0%' 
+                    : ((this.stats.wins / this.stats.totalSpins) * 100).toFixed(1) + '%';
+                document.getElementById('winRate').textContent = winRate;
+            },
+
+            showNotification(message, type) {
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+
+                setTimeout(() => notification.remove(), 3000);
+            },
+
+            playSound(type) {
+                // Create simple beep sounds using Web Audio API
+                try {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    const oscillator = audioContext.createOscillator();
+                    const gainNode = audioContext.createGain();
+
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioContext.destination);
+
+                    if (type === 'win') {
+                        oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+                        oscillator.frequency.setValueAtTime(1200, audioContext.currentTime + 0.1);
+                        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                        gainNode.gain.setValueAtTime(0, audioContext.currentTime + 0.2);
+                        oscillator.start(audioContext.currentTime);
+                        oscillator.stop(audioContext.currentTime + 0.2);
+                    } else {
+                        oscillator.frequency.setValueAtTime(400, audioContext.currentTime);
+                        oscillator.frequency.setValueAtTime(300, audioContext.currentTime + 0.1);
+                        gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+                        gainNode.gain.setValueAtTime(0, audioContext.currentTime + 0.15);
+                        oscillator.start(audioContext.currentTime);
+                        oscillator.stop(audioContext.currentTime + 0.15);
+                    }
+                } catch (e) {
+                    console.log('Audio not available');
+                }
+            },
+
+            reset() {
+                this.playerTokens = 100;
+                this.aiTokens = 1000;
+                this.currentBet = 10;
+                this.stats = {
+                    totalSpins: 0,
+                    wins: 0,
+                    losses: 0
+                };
+                document.getElementById('currentBet').textContent = '10';
+                document.getElementById('betAmount').value = '10';
+                this.updateDisplay();
+                this.updateStats();
+                this.updateMessage('🎯 Game reset! Ready for another round?', 'win');
+                this.showNotification('Game reset!', 'win');
+            }
+        };
+
+        // Initialize the game
+        slotMachine.init();
+        slotMachine.setAIMessage();
+
+        // Handle Enter key in bet input
+        document.getElementById('betAmount').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                slotMachine.setBet();
+            }
+        });
+    </script>
+</body>
+</html>
