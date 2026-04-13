@@ -1,7 +1,8 @@
 # Team Pied Piper
 
 ## Our Brand
-> *put our brand logo here*
+<img width="126" height="126" alt="piedPiperLogo" src="https://github.com/user-attachments/assets/77803f9b-ecc9-44cd-acad-12745eb78a96" />
+
 
 ## Core Values
 We believe in building a strong foundation for our project through:
