@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI Token Slot Machine - Gamble Your Prompt Requests Away!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <h1>🎰 The AI Token Slot Machine 🎰</h1>
+            <p class="tagline">Where Your Tokens Meet Their Inevitable Fate</p>
+        </header>
+
+        <div class="dashboard">
+            <div class="account-section">
+                <div class="account-box">
+                    <div class="account-label">Your AI Tokens</div>
+                    <div class="account-value" id="tokenDisplay">1000</div>
+                </div>
+                <div class="stats-box">
+                    <div class="stat-item">
+                        <span class="stat-label">Won:</span>
+                        <span class="stat-value" id="totalWon">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Lost:</span>
+                        <span class="stat-value" id="totalLost">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slot-machine">
+                <div class="reel-window">
+                    <div class="reel-column">
+                        <div class="reel" id="reel1">
+                            <div class="symbol">🤖</div>
+                            <div class="symbol">💬</div>
+                            <div class="symbol">🧠</div>
+                            <div class="symbol">⚡</div>
+                            <div class="symbol">💾</div>
+                            <div class="symbol">🎯</div>
+                            <div class="symbol">❌</div>
+                            <div class="symbol">💰</div>
+                        </div>
+                    </div>
+                    <div class="reel-column">
+                        <div class="reel" id="reel2">
+                            <div class="symbol">🤖</div>
+                            <div class="symbol">💬</div>
+                            <div class="symbol">🧠</div>
+                            <div class="symbol">⚡</div>
+                            <div class="symbol">💾</div>
+                            <div class="symbol">🎯</div>
+                            <div class="symbol">❌</div>
+                            <div class="symbol">💰</div>
+                        </div>
+                    </div>
+                    <div class="reel-column">
+                        <div class="reel" id="reel3">
+                            <div class="symbol">🤖</div>
+                            <div class="symbol">💬</div>
+                            <div class="symbol">🧠</div>
+                            <div class="symbol">⚡</div>
+                            <div class="symbol">💾</div>
+                            <div class="symbol">🎯</div>
+                            <div class="symbol">❌</div>
+                            <div class="symbol">💰</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-panel" id="resultPanel">
+                    <span class="result-text" id="resultText">Place your bet and spin!</span>
+                </div>
+
+                <div class="controls">
+                    <div class="bet-section">
+                        <label for="betInput">Bet Amount (1-500):</label>
+                        <input type="range" id="betInput" min="1" max="500" value="50" class="bet-slider">
+                        <div class="bet-display">
+                            <span id="betValue">50</span> tokens
+                        </div>
+                    </div>
+                    <button id="spinBtn" class="spin-btn">SPIN THE WHEEL OF FORTUNE!</button>
+                    <button id="resetBtn" class="reset-btn">New Game</button>
+                </div>
+
+                <div class="message-area" id="messageArea"></div>
+            </div>
+
+            <div class="rules-section">
+                <h2>⚙️ AI Token Payouts</h2>
+                <div class="rules-list">
+                    <div class="rule">
+                        <span class="rule-symbol">🤖 🤖 🤖</span>
+                        <span class="rule-text">AGI Achieved! (+500 tokens)</span>
+                    </div>
+                    <div class="rule">
+                        <span class="rule-symbol">💬 💬 💬</span>
+                        <span class="rule-text">Token Storm! (+250 tokens)</span>
+                    </div>
+                    <div class="rule">
+                        <span class="rule-symbol">🧠 🧠 🧠</span>
+                        <span class="rule-text">Neural Network Aligned! (+200 tokens)</span>
+                    </div>
+                    <div class="rule">
+                        <span class="rule-symbol">⚡ ⚡ ⚡</span>
+                        <span class="rule-text">GPU Power Surge! (+150 tokens)</span>
+                    </div>
+                    <div class="rule">
+                        <span class="rule-symbol">Any Triple Match</span>
+                        <span class="rule-text">Model Hallucinating! (+50 tokens)</span>
+                    </div>
+                    <div class="rule">
+                        <span class="rule-symbol">Anything Else</span>
+                        <span class="rule-text">Context Window Exceeded (-bet)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>⚠️ Warning: This slot machine runs on artificial intelligence. Results may be completely fabricated. Please spin responsibly.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
