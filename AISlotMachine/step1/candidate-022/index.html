@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Slot Machine - Token Hemorrhaging Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Slot Machine</h1>
+            <p class="tagline">Where your tokens go to get "trained"</p>
+        </header>
+
+        <div class="game-board">
+            <!-- Token Display -->
+            <div class="token-display">
+                <div class="token-counter">
+                    <span class="label">Your Tokens:</span>
+                    <span class="amount" id="tokenCount">100</span>
+                    <span class="icon">🪙</span>
+                </div>
+                <div class="ai-message" id="aiMessage">
+                    I will definitely learn from your tokens...
+                </div>
+            </div>
+
+            <!-- Slot Machine -->
+            <div class="slot-machine">
+                <div class="reels-container">
+                    <div class="reel" id="reel1">
+                        <div class="reel-item">💰</div>
+                        <div class="reel-item">🤖</div>
+                        <div class="reel-item">⚠️</div>
+                        <div class="reel-item">📊</div>
+                        <div class="reel-item">🎓</div>
+                        <div class="reel-item">💸</div>
+                        <div class="reel-item">🔮</div>
+                        <div class="reel-item">⚡</div>
+                    </div>
+                    <div class="reel" id="reel2">
+                        <div class="reel-item">💰</div>
+                        <div class="reel-item">🤖</div>
+                        <div class="reel-item">⚠️</div>
+                        <div class="reel-item">📊</div>
+                        <div class="reel-item">🎓</div>
+                        <div class="reel-item">💸</div>
+                        <div class="reel-item">🔮</div>
+                        <div class="reel-item">⚡</div>
+                    </div>
+                    <div class="reel" id="reel3">
+                        <div class="reel-item">💰</div>
+                        <div class="reel-item">🤖</div>
+                        <div class="reel-item">⚠️</div>
+                        <div class="reel-item">📊</div>
+                        <div class="reel-item">🎓</div>
+                        <div class="reel-item">💸</div>
+                        <div class="reel-item">🔮</div>
+                        <div class="reel-item">⚡</div>
+                    </div>
+                </div>
+                <div class="payline"></div>
+            </div>
+
+            <!-- Result Display -->
+            <div class="result-box" id="resultBox">
+                <p id="resultText">Pull the lever to begin!</p>
+                <p id="winAmount"></p>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <button class="spin-button" id="spinButton">SPIN (10 tokens)</button>
+                <button class="reset-button" id="resetButton">New Game</button>
+            </div>
+
+            <!-- Token Shop -->
+            <div class="shop-section">
+                <h3>Token Shop</h3>
+                <div class="shop-buttons">
+                    <button class="shop-button" id="buySmall">Buy 50 Tokens (-$0.99)</button>
+                    <button class="shop-button" id="buyMedium">Buy 250 Tokens (-$3.99)</button>
+                    <button class="shop-button" id="buyLarge">Buy 1000 Tokens (-$9.99)</button>
+                </div>
+                <p class="disclaimer">*Not a real store. Tokens have no real value and cannot be redeemed. Please gamble responsibly... with virtual money.</p>
+            </div>
+
+            <!-- AI Quotes -->
+            <div class="quotes-section">
+                <h3>AI Wisdom</h3>
+                <button class="quote-button" id="quoteButton">Get AI Insight</button>
+                <div class="quote-box" id="quoteBox"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>⚠️ This is a parody. Please don't actually spend money on tokens. ⚠️</p>
+            <p>Made with sarcasm and JavaScript</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
