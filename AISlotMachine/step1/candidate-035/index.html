@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine - Where Your Crypto Dreams Die</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: linear-gradient(to bottom, #1a1a2e 0%, #16213e 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(102, 126, 234, 0.2);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #00d4ff;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2em;
+            text-shadow: 0 0 10px #00d4ff;
+        }
+
+        .subtitle {
+            color: #ff6b6b;
+            text-align: center;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .token-display {
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .token-label {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .token-count {
+            font-size: 2.5em;
+            color: #00ff00;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .machine {
+            background: linear-gradient(to bottom, #2a2a4a, #1a1a3a);
+            border: 3px solid #00d4ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .reels-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .reel {
+            background: linear-gradient(135deg, #0f3460, #1a5f7a);
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            color: #00ff00;
+            font-weight: bold;
+            overflow: hidden;
+            box-shadow: inset 0 0 15px rgba(0, 212, 255, 0.2);
+        }
+
+        .reel.spinning {
+            animation: spin 0.5s linear;
+        }
+
+        @keyframes spin {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        .reel.pop {
+            animation: pop 0.3s ease-out;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .spin-button {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #00d4ff, #00ff88);
+            color: #1a1a2e;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .spin-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.6);
+        }
+
+        .spin-button:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .spin-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .result {
+            margin-top: 20px;
+            min-height: 80px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result.win {
+            background: rgba(0, 255, 0, 0.2);
+            border: 2px solid #00ff00;
+            color: #00ff00;
+        }
+
+        .result.lose {
+            background: rgba(255, 107, 107, 0.2);
+            border: 2px solid #ff6b6b;
+            color: #ff6b6b;
+        }
+
+        .result.jackpot {
+            background: rgba(255, 215, 0, 0.3);
+            border: 2px solid #ffd700;
+            color: #ffd700;
+            animation: pulse 0.5s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .result-text {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .result-amount {
+            font-size: 1.3em;
+        }
+
+        .info-box {
+            background: rgba(100, 100, 150, 0.2);
+            border: 1px solid #667eea;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 20px;
+            font-size: 0.85em;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .info-box strong {
+            color: #00d4ff;
+        }
+
+        .reset-button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            background: rgba(255, 107, 107, 0.2);
+            border: 1px solid #ff6b6b;
+            color: #ff6b6b;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .reset-button:hover {
+            background: rgba(255, 107, 107, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 AI Token Slot Machine</h1>
+        <p class="subtitle">Bet your tokens against artificial stupidity</p>
+
+        <div class="token-display">
+            <div class="token-label">YOUR TOKENS</div>
+            <div class="token-count" id="tokenCount">100</div>
+        </div>
+
+        <div class="machine">
+            <div class="reels-container">
+                <div class="reel" id="reel1">🤖</div>
+                <div class="reel" id="reel2">🤖</div>
+                <div class="reel" id="reel3">🤖</div>
+            </div>
+
+            <button class="spin-button" id="spinButton">SPIN (Costs 10 Tokens)</button>
+
+            <div class="result" id="result">
+                <div class="result-text" id="resultText"></div>
+                <div class="result-amount" id="resultAmount"></div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>🎯 How to Win:</strong><br>
+            • 3 same symbols = WIN tokens!<br>
+            • All 🤖 = JACKPOT! (100 tokens)<br>
+            • Bet costs 10 tokens per spin<br>
+            • 0 tokens = Game Over!
+        </div>
+
+        <button class="reset-button" id="resetButton">Reset Game (100 tokens)</button>
+    </div>
+
+    <script>
+        // Game state
+        let tokens = 100;
+        const symbols = ['🤖', '💰', '🔥', '⚡', '🎯', '🚀'];
+        const spinCost = 10;
+        let isSpinning = false;
+
+        const tokenDisplay = document.getElementById('tokenCount');
+        const spinButton = document.getElementById('spinButton');
+        const resetButton = document.getElementById('resetButton');
+        const reels = [
+            document.getElementById('reel1'),
+            document.getElementById('reel2'),
+            document.getElementById('reel3')
+        ];
+        const resultDiv = document.getElementById('result');
+        const resultText = document.getElementById('resultText');
+        const resultAmount = document.getElementById('resultAmount');
+
+        // Get random symbol
+        function getRandomSymbol() {
+            return symbols[Math.floor(Math.random() * symbols.length)];
+        }
+
+        // Spin the reel with animation
+        async function spinReel(reel) {
+            reel.classList.remove('spinning');
+            reel.offsetHeight; // Trigger reflow
+            reel.classList.add('spinning');
+
+            // Random delay for variety
+            const delay = Math.random() * 0.5 + 0.5;
+            await new Promise(resolve => setTimeout(resolve, delay * 1000));
+
+            reel.classList.remove('spinning');
+            const symbol = getRandomSymbol();
+            reel.textContent = symbol;
+            return symbol;
+        }
+
+        // Check win condition
+        function checkWin(symbols) {
+            if (symbols[0] === symbols[1] && symbols[1] === symbols[2]) {
+                return 'match';
+            }
+            return 'lose';
+        }
+
+        // Get reward amount
+        function getReward(symbolsArray) {
+            const symbol = symbolsArray[0];
+            const rewards = {
+                '🤖': 100,  // Jackpot - AI making fun of itself
+                '💰': 50,   // Money
+                '🔥': 30,   // Fire - hot deal
+                '⚡': 40,   // Lightning - quick win
+                '🎯': 35,   // Target - hit the mark
+                '🚀': 45    // Rocket - moon time
+            };
+            return rewards[symbol] || 25;
+        }
+
+        // Display result
+        function showResult(won, amount) {
+            resultDiv.classList.add('show');
+
+            if (won === 'jackpot') {
+                resultDiv.className = 'result show jackpot';
+                resultText.textContent = '🎉 JACKPOT!!! 🎉';
+                resultAmount.textContent = `You win ${amount} tokens!\nThe AI congratulates itself on your luck!`;
+            } else if (won === 'match') {
+                resultDiv.className = 'result show win';
+                resultText.textContent = '✨ WINNER! ✨';
+                resultAmount.textContent = `You win ${amount} tokens!\nAI: "I calculated this outcome..."`;
+            } else {
+                resultDiv.className = 'result show lose';
+                resultText.textContent = '❌ Better luck next time!';
+                resultAmount.textContent = `The AI thanks you for your donation.`;
+            }
+        }
+
+        // Play sound effect (using Web Audio API)
+        function playSound(type) {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                if (type === 'win') {
+                    oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+                    oscillator.frequency.setValueAtTime(1000, audioContext.currentTime + 0.1);
+                    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                    gainNode.gain.setValueAtTime(0, audioContext.currentTime + 0.1);
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.1);
+                } else if (type === 'lose') {
+                    oscillator.frequency.setValueAtTime(400, audioContext.currentTime);
+                    oscillator.frequency.setValueAtTime(300, audioContext.currentTime + 0.1);
+                    gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+                    gainNode.gain.setValueAtTime(0, audioContext.currentTime + 0.1);
+                    oscillator.start(audioContext.currentTime);
+                    oscillator.stop(audioContext.currentTime + 0.1);
+                }
+            } catch (e) {
+                // Audio not supported, continue without sound
+            }
+        }
+
+        // Main spin function
+        async function spin() {
+            if (isSpinning || tokens < spinCost) return;
+
+            isSpinning = true;
+            spinButton.disabled = true;
+            resultDiv.classList.remove('show');
+
+            // Deduct spin cost
+            tokens -= spinCost;
+            updateDisplay();
+
+            // Spin all reels
+            const spinPromises = reels.map(reel => spinReel(reel));
+            const results = await Promise.all(spinPromises);
+
+            // Pop animation
+            reels.forEach(reel => {
+                reel.classList.remove('pop');
+                reel.offsetHeight;
+                reel.classList.add('pop');
+            });
+
+            // Check results
+            const winType = checkWin(results);
+            const isJackpot = results[0] === '🤖' && results[1] === '🤖' && results[2] === '🤖';
+
+            if (winType === 'match') {
+                const reward = getReward(results);
+                tokens += reward;
+                playSound('win');
+                showResult(isJackpot ? 'jackpot' : 'match', reward);
+            } else {
+                playSound('lose');
+                showResult('lose', 0);
+            }
+
+            updateDisplay();
+            isSpinning = false;
+
+            // Enable button if player has tokens
+            if (tokens >= spinCost) {
+                spinButton.disabled = false;
+            }
+        }
+
+        // Update display
+        function updateDisplay() {
+            tokenDisplay.textContent = tokens;
+
+            if (tokens < spinCost) {
+                spinButton.disabled = true;
+                spinButton.textContent = 'GAME OVER (No tokens)';
+            } else {
+                spinButton.disabled = false;
+                spinButton.textContent = `SPIN (Costs ${spinCost} Tokens)`;
+            }
+        }
+
+        // Reset game
+        function resetGame() {
+            tokens = 100;
+            reels.forEach(reel => {
+                reel.textContent = '🤖';
+                reel.classList.remove('spinning', 'pop');
+            });
+            resultDiv.classList.remove('show');
+            isSpinning = false;
+            updateDisplay();
+        }
+
+        // Event listeners
+        spinButton.addEventListener('click', spin);
+        resetButton.addEventListener('click', resetGame);
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                spin();
+            }
+        });
+
+        // Initialize
+        updateDisplay();
+    </script>
+</body>
+</html>
