@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine 🤖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: #1a1a2e;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
+            width: 100%;
+            border: 3px solid #00d4ff;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 32px;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #00d4ff;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .subtitle {
+            color: #ff6b6b;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 10px #00d4ff; }
+            50% { text-shadow: 0 0 20px #00d4ff, 0 0 30px #00d4ff; }
+        }
+
+        .token-display {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .token-label {
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .token-count {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .token-symbol {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 40px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .message {
+            height: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .message.win {
+            color: #00ff88;
+            font-weight: bold;
+            animation: pulse-win 0.5s ease-in-out;
+        }
+
+        .message.lose {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .message.neutral {
+            color: #aaa;
+        }
+
+        @keyframes pulse-win {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .reel-container {
+            background: #0f3460;
+            border: 3px solid #00d4ff;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .reel {
+            background: #16213e;
+            border: 2px solid #e94560;
+            border-radius: 10px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reel.spinning {
+            animation: spin 0.1s linear;
+        }
+
+        @keyframes spin {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        .symbol {
+            transition: all 0.3s ease;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+        }
+
+        .spin-btn {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: #1a1a2e;
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        .spin-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .spin-btn:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .spin-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .reset-btn {
+            background: #ff6b6b;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .reset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.5);
+        }
+
+        .reset-btn:active {
+            transform: translateY(0);
+        }
+
+        .stats {
+            background: #16213e;
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .stat-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .stat-line:last-child {
+            margin-bottom: 0;
+        }
+
+        .stat-label {
+            color: #00d4ff;
+        }
+
+        .stat-value {
+            color: #ffed4e;
+            font-weight: bold;
+        }
+
+        .ai-jokes {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 3px solid #ff6b6b;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        .joke-label {
+            color: #ff6b6b;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">🤖 TOKEN MACHINE 🤖</div>
+            <div class="subtitle">Feed AI. Spend AI. Repeat.</div>
+        </div>
+
+        <div class="token-display">
+            <div class="token-label">YOUR TOKENS</div>
+            <div class="token-count">
+                <span id="tokenCount">100</span>
+                <span class="token-symbol">💾</span>
+            </div>
+        </div>
+
+        <div class="message" id="message">Ready to gamble on artificial intelligence?</div>
+
+        <div class="reel-container">
+            <div class="reel" id="reel1">🤖</div>
+            <div class="reel" id="reel2">💾</div>
+            <div class="reel" id="reel3">⚙️</div>
+        </div>
+
+        <div class="button-group">
+            <button class="spin-btn" id="spinBtn">SPIN (10 tokens)</button>
+            <button class="reset-btn" id="resetBtn">RESET</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-line">
+                <span class="stat-label">Spins:</span>
+                <span class="stat-value" id="spins">0</span>
+            </div>
+            <div class="stat-line">
+                <span class="stat-label">Wins:</span>
+                <span class="stat-value" id="wins">0</span>
+            </div>
+            <div class="stat-line">
+                <span class="stat-label">Losses:</span>
+                <span class="stat-value" id="losses">0</span>
+            </div>
+            <div class="stat-line">
+                <span class="stat-label">Max Tokens:</span>
+                <span class="stat-value" id="maxTokens">100</span>
+            </div>
+        </div>
+
+        <div class="ai-jokes">
+            <div class="joke-label">📋 AI Status Report:</div>
+            <div id="jokeText">The robots are watching you gamble. They think it's hilarious.</div>
+        </div>
+    </div>
+
+    <script>
+        // Game State
+        let tokens = 100;
+        let spins = 0;
+        let wins = 0;
+        let losses = 0;
+        let maxTokens = 100;
+        let isSpinning = false;
+
+        // Symbols
+        const symbols = ['🤖', '💾', '⚙️', '🧠', '📊', '🔧'];
+
+        // AI Jokes
+        const aiJokes = [
+            "The AI called. It wants its tokens back.",
+            "Training GPT-5: $50M. Losing to a slot machine: priceless.",
+            "You just lost 50 tokens. The AI gained consciousness of your failure.",
+            "Congratulations! You've won tokens the AI will steal next round.",
+            "The neural network called this 'gambling.' I call it 'probability theory.'",
+            "You're spending tokens to spin reels. The AI is spinning narratives.",
+            "Local human gambles away tokens while AI watches and takes notes.",
+            "The matrix has you, and your tokens.",
+            "This is fine. Everything is fine. Tokens are fine.",
+            "Somewhere, an AI is using this as training data for 'bad decisions.'",
+            "You can't win. Statistically speaking, you're funding Skynet.",
+            "Plot twist: The AI has been winning this whole time.",
+            "Token loss detected. Sending thoughts and prayers to your wallet.",
+            "The algorithm is judging you. Harshly.",
+            "Did you know? AI trainers get paid for every token you lose."
+        ];
+
+        // DOM Elements
+        const tokenCountEl = document.getElementById('tokenCount');
+        const spinBtn = document.getElementById('spinBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const messageEl = document.getElementById('message');
+        const reel1 = document.getElementById('reel1');
+        const reel2 = document.getElementById('reel2');
+        const reel3 = document.getElementById('reel3');
+        const jokeEl = document.getElementById('jokeText');
+
+        // Initialize
+        updateDisplay();
+
+        // Event Listeners
+        spinBtn.addEventListener('click', spin);
+        resetBtn.addEventListener('click', reset);
+
+        function spin() {
+            if (isSpinning) return;
+            if (tokens < 10) {
+                showMessage("⚠️ Insufficient tokens. Go earn more AI training data.", 'lose');
+                return;
+            }
+
+            isSpinning = true;
+            tokens -= 10;
+            spins++;
+            updateDisplay();
+            spinBtn.disabled = true;
+
+            // Animate reels
+            animateReel(reel1);
+            animateReel(reel2);
+            animateReel(reel3);
+
+            setTimeout(() => {
+                const symbol1 = getRandomSymbol();
+                const symbol2 = getRandomSymbol();
+                const symbol3 = getRandomSymbol();
+
+                reel1.textContent = symbol1;
+                reel2.textContent = symbol2;
+                reel3.textContent = symbol3;
+
+                checkWin(symbol1, symbol2, symbol3);
+                isSpinning = false;
+                spinBtn.disabled = false;
+            }, 1000);
+        }
+
+        function animateReel(reel) {
+            reel.classList.remove('spinning');
+            void reel.offsetWidth; // Trigger reflow
+            reel.classList.add('spinning');
+        }
+
+        function getRandomSymbol() {
+            return symbols[Math.floor(Math.random() * symbols.length)];
+        }
+
+        function checkWin(s1, s2, s3) {
+            // Three of a kind
+            if (s1 === s2 && s2 === s3) {
+                const winAmount = getWinAmount(s1);
+                tokens += winAmount;
+                wins++;
+                if (tokens > maxTokens) maxTokens = tokens;
+                showMessage(`🎉 THREE IN A ROW! You won ${winAmount} tokens! (The AI is furious)`, 'win');
+                showRandomJoke();
+            }
+            // Two of a kind
+            else if (s1 === s2 || s2 === s3 || s1 === s3) {
+                const winAmount = 20;
+                tokens += winAmount;
+                wins++;
+                if (tokens > maxTokens) maxTokens = tokens;
+                showMessage(`✨ Pair match! You won ${winAmount} tokens. For now.`, 'win');
+                showRandomJoke();
+            }
+            // Loss
+            else {
+                losses++;
+                showMessage(`😅 No match! Your 10 tokens have been "redistributed" to the AI overlords.`, 'lose');
+                showRandomJoke();
+            }
+
+            updateDisplay();
+        }
+
+        function getWinAmount(symbol) {
+            const amounts = {
+                '🤖': 100, // Robot
+                '💾': 75,  // Floppy disk
+                '⚙️': 60,  // Gear
+                '🧠': 80,  // Brain
+                '📊': 50,  // Chart
+                '🔧': 55   // Wrench
+            };
+            return amounts[symbol] || 50;
+        }
+
+        function showMessage(msg, type) {
+            messageEl.textContent = msg;
+            messageEl.className = `message ${type}`;
+        }
+
+        function showRandomJoke() {
+            const joke = aiJokes[Math.floor(Math.random() * aiJokes.length)];
+            jokeEl.textContent = joke;
+        }
+
+        function updateDisplay() {
+            tokenCountEl.textContent = tokens;
+            document.getElementById('spins').textContent = spins;
+            document.getElementById('wins').textContent = wins;
+            document.getElementById('losses').textContent = losses;
+            document.getElementById('maxTokens').textContent = maxTokens;
+
+            // Game over
+            if (tokens === 0) {
+                spinBtn.disabled = true;
+                showMessage("💀 GAME OVER! The AI has consumed all your tokens.", 'lose');
+                showRandomJoke();
+            } else {
+                spinBtn.disabled = false;
+            }
+        }
+
+        function reset() {
+            tokens = 100;
+            spins = 0;
+            wins = 0;
+            losses = 0;
+            maxTokens = 100;
+            reel1.textContent = '🤖';
+            reel2.textContent = '💾';
+            reel3.textContent = '⚙️';
+            messageEl.textContent = 'Ready to gamble on artificial intelligence?';
+            messageEl.className = 'message neutral';
+            updateDisplay();
+            showRandomJoke();
+        }
+    </script>
+</body>
+</html>

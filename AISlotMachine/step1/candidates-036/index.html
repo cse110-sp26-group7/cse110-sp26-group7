@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine 🤖💰</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI Token Slot Machine 💰</h1>
+            <p class="subtitle">Spend your tokens wisely... or recklessly</p>
+        </div>
+
+        <div class="game-board">
+            <div class="token-display">
+                <div class="token-box">
+                    <span class="label">Tokens</span>
+                    <span class="amount" id="tokenCount">1000</span>
+                </div>
+            </div>
+
+            <div class="slot-machine">
+                <div class="reels-container">
+                    <div class="reel">
+                        <div class="symbol" id="reel1">🚀</div>
+                    </div>
+                    <div class="reel">
+                        <div class="symbol" id="reel2">💻</div>
+                    </div>
+                    <div class="reel">
+                        <div class="symbol" id="reel3">🧠</div>
+                    </div>
+                </div>
+
+                <div class="pay-line"></div>
+            </div>
+
+            <div class="info-panel">
+                <div class="cost-display">
+                    <span class="label">Cost per spin:</span>
+                    <span class="cost" id="costDisplay">50 tokens</span>
+                </div>
+                <div id="message" class="message">Ready to lose some tokens? 😄</div>
+            </div>
+
+            <button class="spin-button" id="spinButton">SPIN (50 tokens)</button>
+
+            <div class="payouts">
+                <h3>💎 Payout Table</h3>
+                <table>
+                    <tr>
+                        <td>🚀 🚀 🚀</td>
+                        <td>+500 tokens</td>
+                    </tr>
+                    <tr>
+                        <td>💻 💻 💻</td>
+                        <td>+300 tokens</td>
+                    </tr>
+                    <tr>
+                        <td>🧠 🧠 🧠</td>
+                        <td>+200 tokens</td>
+                    </tr>
+                    <tr>
+                        <td>💰 💰 💰</td>
+                        <td>+400 tokens</td>
+                    </tr>
+                    <tr>
+                        <td>📊 📊 📊</td>
+                        <td>+150 tokens</td>
+                    </tr>
+                    <tr>
+                        <td>Any match</td>
+                        <td>+50 tokens</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <footer>
+            <button class="reset-button" id="resetButton">Reset Game</button>
+            <p class="footer-text">Remember: This is how your API bills feel 📉</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

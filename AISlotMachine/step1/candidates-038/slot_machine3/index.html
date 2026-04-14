@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 AI Token Slot Machine 🎰</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI TOKEN CASINO 🤖</h1>
+            <p class="subtitle">Where your data becomes our entertainment</p>
+        </header>
+
+        <main>
+            <!-- Token Counter -->
+            <div class="token-display">
+                <div class="token-box">
+                    <span class="label">Tokens</span>
+                    <span class="amount" id="tokenCount">100</span>
+                </div>
+                <div class="token-box">
+                    <span class="label">Current Bet</span>
+                    <span class="amount" id="betAmount">10</span>
+                </div>
+            </div>
+
+            <!-- Slot Machine -->
+            <div class="slot-machine">
+                <div class="reels-container">
+                    <div class="reel" id="reel1">
+                        <div class="reel-item">🧠</div>
+                        <div class="reel-item">💰</div>
+                        <div class="reel-item">📊</div>
+                        <div class="reel-item">🔮</div>
+                        <div class="reel-item">⚡</div>
+                        <div class="reel-item">🎯</div>
+                    </div>
+                    <div class="reel" id="reel2">
+                        <div class="reel-item">🧠</div>
+                        <div class="reel-item">💰</div>
+                        <div class="reel-item">📊</div>
+                        <div class="reel-item">🔮</div>
+                        <div class="reel-item">⚡</div>
+                        <div class="reel-item">🎯</div>
+                    </div>
+                    <div class="reel" id="reel3">
+                        <div class="reel-item">🧠</div>
+                        <div class="reel-item">💰</div>
+                        <div class="reel-item">📊</div>
+                        <div class="reel-item">🔮</div>
+                        <div class="reel-item">⚡</div>
+                        <div class="reel-item">🎯</div>
+                    </div>
+                </div>
+
+                <div class="result-display" id="result"></div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <div class="bet-controls">
+                    <button class="bet-btn" id="betMinus" title="Decrease bet">-</button>
+                    <input type="number" id="betInput" min="1" value="10">
+                    <button class="bet-btn" id="betPlus" title="Increase bet">+</button>
+                </div>
+                <button class="spin-btn" id="spinBtn">SPIN</button>
+                <button class="reset-btn" id="resetBtn">New Game</button>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Spins</span>
+                    <span class="stat-value" id="spins">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Wins</span>
+                    <span class="stat-value" id="wins">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Win Rate</span>
+                    <span class="stat-value" id="winRate">0%</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Biggest Win</span>
+                    <span class="stat-value" id="biggestWin">0</span>
+                </div>
+            </div>
+
+            <!-- Shop -->
+            <div class="shop-section">
+                <h2>💸 AI Token Shop 💸</h2>
+                <p class="shop-desc">Spend your hard-earned tokens on useless AI features!</p>
+                <div class="shop-items">
+                    <div class="shop-item" id="shop-item-1">
+                        <div class="item-emoji">🤖</div>
+                        <div class="item-name">AI Toaster</div>
+                        <div class="item-cost">25 tokens</div>
+                        <button class="buy-btn" data-cost="25" data-item="AI Toaster">BUY</button>
+                    </div>
+                    <div class="shop-item" id="shop-item-2">
+                        <div class="item-emoji">🍽️</div>
+                        <div class="item-name">AI Chef</div>
+                        <div class="item-cost">50 tokens</div>
+                        <button class="buy-btn" data-cost="50" data-item="AI Chef">BUY</button>
+                    </div>
+                    <div class="shop-item" id="shop-item-3">
+                        <div class="item-emoji">🧽</div>
+                        <div class="item-name">AI Janitor</div>
+                        <div class="item-cost">75 tokens</div>
+                        <button class="buy-btn" data-cost="75" data-item="AI Janitor">BUY</button>
+                    </div>
+                    <div class="shop-item" id="shop-item-4">
+                        <div class="item-emoji">🎸</div>
+                        <div class="item-name">AI Musician</div>
+                        <div class="item-cost">100 tokens</div>
+                        <button class="buy-btn" data-cost="100" data-item="AI Musician">BUY</button>
+                    </div>
+                    <div class="shop-item" id="shop-item-5">
+                        <div class="item-emoji">⚖️</div>
+                        <div class="item-name">AI Therapist</div>
+                        <div class="item-cost">150 tokens</div>
+                        <button class="buy-btn" data-cost="150" data-item="AI Therapist">BUY</button>
+                    </div>
+                    <div class="shop-item" id="shop-item-6">
+                        <div class="item-emoji">🎬</div>
+                        <div class="item-name">AI Director</div>
+                        <div class="item-cost">200 tokens</div>
+                        <button class="buy-btn" data-cost="200" data-item="AI Director">BUY</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inventory -->
+            <div class="inventory-section">
+                <h2>🎁 Your AI Collection 🎁</h2>
+                <div class="inventory" id="inventory">
+                    <p class="empty-inv">No AI friends yet... keep spinning!</p>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div class="message-box" id="messageBox"></div>
+        </main>
+
+        <footer>
+            <p>🚀 Disclaimer: No actual AI was harmed in the making of this slot machine. Please gamble responsibly with your fake tokens.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine 🤖</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Token Slot Machine 🎰</h1>
+            <p>Win tokens. Lose tokens. Question your decisions.</p>
+        </header>
+
+        <div class="stats-panel">
+            <div class="stat">
+                <span class="stat-label">Tokens</span>
+                <span class="stat-value" id="tokenCount">1000</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Total Won</span>
+                <span class="stat-value" id="totalWon">0</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Total Lost</span>
+                <span class="stat-value" id="totalLost">0</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel1">
+                    <div class="reel-item">🤔</div>
+                    <div class="reel-item">💰</div>
+                    <div class="reel-item">🚀</div>
+                    <div class="reel-item">⚠️</div>
+                    <div class="reel-item">📊</div>
+                    <div class="reel-item">🎲</div>
+                    <div class="reel-item">🔮</div>
+                    <div class="reel-item">💸</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-item">🤔</div>
+                    <div class="reel-item">💰</div>
+                    <div class="reel-item">🚀</div>
+                    <div class="reel-item">⚠️</div>
+                    <div class="reel-item">📊</div>
+                    <div class="reel-item">🎲</div>
+                    <div class="reel-item">🔮</div>
+                    <div class="reel-item">💸</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-item">🤔</div>
+                    <div class="reel-item">💰</div>
+                    <div class="reel-item">🚀</div>
+                    <div class="reel-item">⚠️</div>
+                    <div class="reel-item">📊</div>
+                    <div class="reel-item">🎲</div>
+                    <div class="reel-item">🔮</div>
+                    <div class="reel-item">💸</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="bet-control">
+                    <label for="betAmount">Bet Amount:</label>
+                    <input type="number" id="betAmount" min="1" max="500" value="10">
+                    <span class="tokens-label">tokens</span>
+                </div>
+
+                <button id="spinButton" class="spin-button">SPIN</button>
+
+                <button id="resetButton" class="reset-button">Reset Game</button>
+            </div>
+        </div>
+
+        <div class="message-box" id="messageBox">
+            <p id="message">Place your bet and spin to see if the AI gods smile upon you!</p>
+        </div>
+
+        <div class="payouts">
+            <h3>Payout Table</h3>
+            <ul>
+                <li>💰 💰 💰 = 5x your bet (The House Approves)</li>
+                <li>🚀 🚀 🚀 = 3x your bet (To The Moon!)</li>
+                <li>🔮 🔮 🔮 = 2x your bet (The Prophecy Was Right)</li>
+                <li>📊 📊 📊 = 1.5x your bet (Analysis Paralysis)</li>
+                <li>🎲 🎲 🎲 = 1x your bet (Lucky Guess)</li>
+                <li>Any Match = 1x your bet (Something's Something)</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
