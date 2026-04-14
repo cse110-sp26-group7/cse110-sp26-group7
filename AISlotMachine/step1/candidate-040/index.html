@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI Token Slot Machine 🤖</h1>
+            <p class="subtitle">Spin to win tokens! (Or lose them. Mostly lose them.)</p>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="label">Your Tokens</span>
+                <span class="value" id="token-count">1000</span>
+            </div>
+            <div class="stat">
+                <span class="label">Total Won</span>
+                <span class="value" id="total-won">0</span>
+            </div>
+            <div class="stat">
+                <span class="label">Total Lost</span>
+                <span class="value" id="total-lost">0</span>
+            </div>
+        </div>
+
+        <div class="machine">
+            <div class="reels-container">
+                <div class="reel" id="reel-1">
+                    <div class="symbol">🤖</div>
+                    <div class="symbol">💰</div>
+                    <div class="symbol">🧠</div>
+                    <div class="symbol">📊</div>
+                    <div class="symbol">✨</div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="symbol">🤖</div>
+                    <div class="symbol">💰</div>
+                    <div class="symbol">🧠</div>
+                    <div class="symbol">📊</div>
+                    <div class="symbol">✨</div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="symbol">🤖</div>
+                    <div class="symbol">💰</div>
+                    <div class="symbol">🧠</div>
+                    <div class="symbol">📊</div>
+                    <div class="symbol">✨</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="bet-amount">
+                <label for="bet">Bet Amount:</label>
+                <div class="bet-controls">
+                    <button class="bet-btn" id="bet-minus">−</button>
+                    <input type="number" id="bet" min="1" max="1000" value="10">
+                    <button class="bet-btn" id="bet-plus">+</button>
+                </div>
+            </div>
+            <button id="spin-btn" class="spin-button">SPIN</button>
+        </div>
+
+        <div class="message-box" id="message">
+            <p id="message-text">Good luck! 🍀</p>
+        </div>
+
+        <div class="payout-table">
+            <h2>Payout Table</h2>
+            <div class="payouts">
+                <div class="payout-row">
+                    <span class="combo">🤖 🤖 🤖</span>
+                    <span class="amount">100x Bet</span>
+                </div>
+                <div class="payout-row">
+                    <span class="combo">💰 💰 💰</span>
+                    <span class="amount">50x Bet</span>
+                </div>
+                <div class="payout-row">
+                    <span class="combo">🧠 🧠 🧠</span>
+                    <span class="amount">25x Bet</span>
+                </div>
+                <div class="payout-row">
+                    <span class="combo">📊 📊 📊</span>
+                    <span class="amount">15x Bet</span>
+                </div>
+                <div class="payout-row">
+                    <span class="combo">✨ ✨ ✨</span>
+                    <span class="amount">10x Bet</span>
+                </div>
+                <div class="payout-row">
+                    <span class="combo">Any Match (2)</span>
+                    <span class="amount">Return Bet</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-jokes">
+            <h2>AI Wisdom 💡</h2>
+            <p id="joke" class="joke"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
