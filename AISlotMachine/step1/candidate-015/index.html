@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Token Slot Machine 🤖</h1>
+            <p class="subtitle">Where your tokens disappear faster than AI can hallucinate</p>
+        </header>
+
+        <div class="token-display">
+            <div class="token-box">
+                <span class="label">Your Tokens:</span>
+                <span class="amount" id="tokenCount">1000</span>
+                <span class="emoji">💰</span>
+            </div>
+            <div class="total-spent">
+                <span class="label">Total Spent:</span>
+                <span class="amount" id="totalSpent">0</span>
+                <span class="emoji">📉</span>
+            </div>
+        </div>
+
+        <div class="machine">
+            <div class="machine-header">ARTIFICIAL INTELLIGENCE UNLIMITED™</div>
+
+            <div class="reels-container">
+                <div class="reel" id="reel1">
+                    <div class="symbol">🚀</div>
+                    <div class="symbol">💡</div>
+                    <div class="symbol">🔄</div>
+                    <div class="symbol">😵</div>
+                    <div class="symbol">💸</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="symbol">🚀</div>
+                    <div class="symbol">💡</div>
+                    <div class="symbol">🔄</div>
+                    <div class="symbol">😵</div>
+                    <div class="symbol">💸</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="symbol">🚀</div>
+                    <div class="symbol">💡</div>
+                    <div class="symbol">🔄</div>
+                    <div class="symbol">😵</div>
+                    <div class="symbol">💸</div>
+                </div>
+            </div>
+
+            <div class="payline"></div>
+
+            <div class="controls">
+                <div class="bet-container">
+                    <label for="betAmount">Bet per spin:</label>
+                    <input type="number" id="betAmount" min="1" max="500" value="10">
+                    <span class="tokens">tokens</span>
+                </div>
+                <button class="spin-btn" id="spinBtn">SPIN 🎰</button>
+            </div>
+        </div>
+
+        <div class="result-area">
+            <div class="message" id="message"></div>
+            <div class="payouts">
+                <h3>💎 Payouts 💎</h3>
+                <table>
+                    <tr>
+                        <td>🚀 🚀 🚀</td>
+                        <td>= 500x bet (AGI Achievement!)</td>
+                    </tr>
+                    <tr>
+                        <td>💡 💡 💡</td>
+                        <td>= 100x bet (Great Idea!)</td>
+                    </tr>
+                    <tr>
+                        <td>🔄 🔄 🔄</td>
+                        <td>= 50x bet (Infinite Loop?)</td>
+                    </tr>
+                    <tr>
+                        <td>😵 😵 😵</td>
+                        <td>= 25x bet (Hallucinating...)</td>
+                    </tr>
+                    <tr>
+                        <td>💸 💸 💸</td>
+                        <td>= 5x bet (Cost Exploding!)</td>
+                    </tr>
+                    <tr>
+                        <td>Any 2 matching</td>
+                        <td>= 2x bet (Kinda works)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tips">
+                <h3>🎓 AI Wisdom 🎓</h3>
+                <ul id="tipsList">
+                    <li>"The best time to stop was yesterday. The second best time is now." - Unknown AI</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <button class="reset-btn" id="resetBtn">Reset Game</button>
+            <p>⚠️ This is a simulation. No actual tokens were harmed in the making of this game.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

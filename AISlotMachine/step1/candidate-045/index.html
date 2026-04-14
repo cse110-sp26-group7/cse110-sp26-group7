@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Slot Machine - Waste Your Tokens!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Slot Machine 🤖</h1>
+            <p class="subtitle">Where AI Models Go to Lose Token$ 💸</p>
+        </header>
+
+        <div class="game-area">
+            <!-- Token Display -->
+            <div class="token-display">
+                <div class="tokens-section">
+                    <div class="token-item">
+                        <span class="label">Your Tokens:</span>
+                        <span id="tokenCount" class="value">100</span>
+                        <span class="icon">🎫</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Stats -->
+            <div class="stats-panel">
+                <div class="stat">
+                    <span class="stat-label">Total Spent:</span>
+                    <span id="totalSpent" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Total Won:</span>
+                    <span id="totalWon" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Spins:</span>
+                    <span id="spinCount" class="stat-value">0</span>
+                </div>
+            </div>
+
+            <!-- Main Slot Machine -->
+            <div class="machine">
+                <div class="machine-display">
+                    <!-- Reel 1 -->
+                    <div class="reel-container">
+                        <div id="reel1" class="reel">
+                            <div class="reel-item">📊 Big Data</div>
+                            <div class="reel-item">🧠 Neural Net</div>
+                            <div class="reel-item">⚙️ Algorithm</div>
+                            <div class="reel-item">🔮 Hallucination</div>
+                            <div class="reel-item">💬 ChatBot</div>
+                            <div class="reel-item">🎯 Prompt</div>
+                            <div class="reel-item">🚀 DeepSeek</div>
+                            <div class="reel-item">🤖 Transformer</div>
+                        </div>
+                    </div>
+
+                    <!-- Reel 2 -->
+                    <div class="reel-container">
+                        <div id="reel2" class="reel">
+                            <div class="reel-item">📚 Training Data</div>
+                            <div class="reel-item">🔥 Attention</div>
+                            <div class="reel-item">💡 Inference</div>
+                            <div class="reel-item">🎨 Diffusion</div>
+                            <div class="reel-item">🌐 Embedding</div>
+                            <div class="reel-item">🎲 Backprop</div>
+                            <div class="reel-item">⚡ GPU Power</div>
+                            <div class="reel-item">🎭 Jailbreak</div>
+                        </div>
+                    </div>
+
+                    <!-- Reel 3 -->
+                    <div class="reel-container">
+                        <div id="reel3" class="reel">
+                            <div class="reel-item">💰 Tokens</div>
+                            <div class="reel-item">🎪 Context</div>
+                            <div class="reel-item">🔐 Alignment</div>
+                            <div class="reel-item">🌟 Parameters</div>
+                            <div class="reel-item">📈 Scaling</div>
+                            <div class="reel-item">🎯 Loss Function</div>
+                            <div class="reel-item">⏱️ Latency</div>
+                            <div class="reel-item">🤯 Singularity</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Win Line Indicator -->
+                <div class="win-line"></div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <button id="spinBtn" class="spin-button">🎰 SPIN! 🎰</button>
+                <div class="bet-controls">
+                    <label for="betAmount">Bet:</label>
+                    <input type="number" id="betAmount" min="1" max="100" value="10">
+                    <span class="icon">🎫</span>
+                </div>
+            </div>
+
+            <!-- Result Display -->
+            <div id="resultBox" class="result-box hidden">
+                <div class="result-content">
+                    <h2 id="resultTitle"></h2>
+                    <p id="resultMessage"></p>
+                    <div id="tokensChange" class="tokens-change"></div>
+                </div>
+            </div>
+
+            <!-- Messages -->
+            <div class="messages-panel">
+                <h3>💬 AI Thoughts:</h3>
+                <div id="messageLog" class="message-log">
+                    <p class="message">Welcome, token holder! Ready to waste your digital currency? 🤖</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>🎰 Disclaimer: This is a game of pure chance. No actual AI models were harmed in the making of this app. 🎰</p>
+            <button id="resetBtn" class="reset-button">Reset Game</button>
+        </footer>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

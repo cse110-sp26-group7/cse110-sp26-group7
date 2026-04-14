@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI TOKEN SLOT MACHINE 🤖</h1>
+            <p class="subtitle">Gamble Your Way to AI Enlightenment (or Bankruptcy)</p>
+        </div>
+
+        <div class="stats-panel">
+            <div class="stat">
+                <span class="stat-label">Tokens Balance:</span>
+                <span class="stat-value" id="tokenBalance">1000</span>
+                <span class="stat-unit">🎫</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Total Won:</span>
+                <span class="stat-value" id="totalWon">0</span>
+                <span class="stat-unit">✨</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Total Lost:</span>
+                <span class="stat-value" id="totalLost">0</span>
+                <span class="stat-unit">💔</span>
+            </div>
+        </div>
+
+        <div class="machine">
+            <div class="screen">
+                <div class="reels-container">
+                    <div class="reel" id="reel1">
+                        <div class="symbol">🤖</div>
+                        <div class="symbol">💾</div>
+                        <div class="symbol">⚙️</div>
+                        <div class="symbol">🧠</div>
+                        <div class="symbol">🔌</div>
+                        <div class="symbol">📊</div>
+                        <div class="symbol">🌐</div>
+                    </div>
+                    <div class="reel" id="reel2">
+                        <div class="symbol">🤖</div>
+                        <div class="symbol">💾</div>
+                        <div class="symbol">⚙️</div>
+                        <div class="symbol">🧠</div>
+                        <div class="symbol">🔌</div>
+                        <div class="symbol">📊</div>
+                        <div class="symbol">🌐</div>
+                    </div>
+                    <div class="reel" id="reel3">
+                        <div class="symbol">🤖</div>
+                        <div class="symbol">💾</div>
+                        <div class="symbol">⚙️</div>
+                        <div class="symbol">🧠</div>
+                        <div class="symbol">🔌</div>
+                        <div class="symbol">📊</div>
+                        <div class="symbol">🌐</div>
+                    </div>
+                </div>
+                <div class="payline"></div>
+            </div>
+
+            <div class="message-box" id="messageBox">
+                <p id="message">Ready to lose some tokens?</p>
+            </div>
+
+            <div class="controls">
+                <div class="bet-section">
+                    <label for="betAmount">Bet Amount:</label>
+                    <div class="bet-controls">
+                        <button id="betMinus" class="bet-btn">-</button>
+                        <input type="number" id="betAmount" value="10" min="1" max="1000">
+                        <button id="betPlus" class="bet-btn">+</button>
+                    </div>
+                </div>
+
+                <button class="spin-btn" id="spinBtn">SPIN FOR YOUR LIFE</button>
+
+                <button class="reset-btn" id="resetBtn">Reset Game</button>
+            </div>
+        </div>
+
+        <div class="legend">
+            <h3>Symbol Guide:</h3>
+            <p>🤖 AI = Wild Card (any combo)</p>
+            <p>💾 Floppy Disk = Legacy Code</p>
+            <p>⚙️ Gear = Processing</p>
+            <p>🧠 Brain = Consciousness (unlikely)</p>
+            <p>🔌 Plug = Connection</p>
+            <p>📊 Chart = Data</p>
+            <p>🌐 Globe = The Internet is Watching</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI Token Slot Machine 🤖</h1>
+            <p class="tagline">Spin to win! Or lose. Probably lose.</p>
+        </div>
+
+        <div class="balance-display">
+            <div class="balance-card">
+                <h2>Your Tokens</h2>
+                <div class="token-count" id="tokenCount">100</div>
+                <p class="balance-subtitle">Use them before AI uses them all</p>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reel-container">
+                <div class="reel" id="reel1">
+                    <div class="symbol">💰</div>
+                    <div class="symbol">🤖</div>
+                    <div class="symbol">📊</div>
+                    <div class="symbol">🚀</div>
+                    <div class="symbol">💎</div>
+                    <div class="symbol">🔌</div>
+                    <div class="symbol">⚡</div>
+                    <div class="symbol">🧠</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="symbol">💰</div>
+                    <div class="symbol">🤖</div>
+                    <div class="symbol">📊</div>
+                    <div class="symbol">🚀</div>
+                    <div class="symbol">💎</div>
+                    <div class="symbol">🔌</div>
+                    <div class="symbol">⚡</div>
+                    <div class="symbol">🧠</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="symbol">💰</div>
+                    <div class="symbol">🤖</div>
+                    <div class="symbol">📊</div>
+                    <div class="symbol">🚀</div>
+                    <div class="symbol">💎</div>
+                    <div class="symbol">🔌</div>
+                    <div class="symbol">⚡</div>
+                    <div class="symbol">🧠</div>
+                </div>
+            </div>
+
+            <div class="payout-window">
+                <div class="payline"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="spin-button" id="spinButton">🎰 SPIN (Cost: 10 tokens)</button>
+            <button class="reset-button" id="resetButton">Reset Game</button>
+        </div>
+
+        <div class="result-display" id="resultDisplay"></div>
+
+        <div class="payouts">
+            <h3>💸 Payout Table 💸</h3>
+            <table>
+                <tr>
+                    <td>🤖 🤖 🤖</td>
+                    <td>+50 tokens</td>
+                    <td>(AI wins, you lose)</td>
+                </tr>
+                <tr>
+                    <td>💰 💰 💰</td>
+                    <td>+200 tokens</td>
+                    <td>(Get that bread!)</td>
+                </tr>
+                <tr>
+                    <td>💎 💎 💎</td>
+                    <td>+150 tokens</td>
+                    <td>(Shiny!)</td>
+                </tr>
+                <tr>
+                    <td>⚡ ⚡ ⚡</td>
+                    <td>+100 tokens</td>
+                    <td>(Power surge!)</td>
+                </tr>
+                <tr>
+                    <td>🚀 🚀 🚀</td>
+                    <td>+300 tokens</td>
+                    <td>(To the moon!)</td>
+                </tr>
+                <tr>
+                    <td>🧠 🧠 🧠</td>
+                    <td>+75 tokens</td>
+                    <td>(Big brain time)</td>
+                </tr>
+                <tr>
+                    <td>Any mismatch</td>
+                    <td>-10 tokens</td>
+                    <td>(You lose, AI learns)</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="ai-messages" id="aiMessages">
+            <h3>🤖 AI Thoughts:</h3>
+            <div id="messageBox" class="message-box">AI is watching... 👀</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

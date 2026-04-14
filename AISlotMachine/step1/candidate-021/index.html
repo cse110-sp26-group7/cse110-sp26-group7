@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine 🤖</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Token Slot Machine 🤖</h1>
+            <p class="tagline">Where AI Earnings Meet Slot Machine Dreams</p>
+        </header>
+
+        <div class="stats-panel">
+            <div class="stat-box">
+                <span class="stat-label">💰 Tokens</span>
+                <span class="stat-value" id="tokenCount">1000</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">🎯 Total Won</span>
+                <span class="stat-value" id="totalWon">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">📊 Spins</span>
+                <span class="stat-value" id="spinCount">0</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">
+                    <span class="symbol">📚</span>
+                    <span class="symbol">🤖</span>
+                    <span class="symbol">💾</span>
+                    <span class="symbol">🧠</span>
+                    <span class="symbol">⚡</span>
+                </div>
+                <div class="reel" id="reel2">
+                    <span class="symbol">🤖</span>
+                    <span class="symbol">💻</span>
+                    <span class="symbol">🔬</span>
+                    <span class="symbol">📊</span>
+                    <span class="symbol">💰</span>
+                </div>
+                <div class="reel" id="reel3">
+                    <span class="symbol">⚙️</span>
+                    <span class="symbol">🎯</span>
+                    <span class="symbol">🤖</span>
+                    <span class="symbol">💎</span>
+                    <span class="symbol">🏆</span>
+                </div>
+            </div>
+            <div class="reel-window"></div>
+        </div>
+
+        <div class="controls">
+            <div class="bet-control">
+                <label for="betAmount">Bet Amount:</label>
+                <input type="number" id="betAmount" min="1" max="100" value="10">
+                <span class="bet-label">tokens</span>
+            </div>
+            <button id="spinButton" class="spin-button">🎰 SPIN</button>
+        </div>
+
+        <div class="result-display" id="resultDisplay">
+            <p id="resultText">Ready to spin! 🎲</p>
+        </div>
+
+        <div class="message-board" id="messageBoard">
+            <p class="message">Let's get those AI tokens! Each spin costs tokens but could win BIG! 🚀</p>
+        </div>
+
+        <footer>
+            <button class="reset-button" id="resetButton">🔄 Reset Game</button>
+            <p class="footer-text">Disclaimer: This is a fun game. All tokens are virtual and have no real value (unlike actual AI training tokens).</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Slot Machine - Mock the Robots</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            color: #764ba2;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        .token-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .token-amount {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .token-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .slot-machine {
+            background: #1a1a1a;
+            border: 5px solid #667eea;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .reel-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .reel {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 3px solid #764ba2;
+            border-radius: 10px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.1s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reel:active {
+            transform: scale(0.95);
+        }
+
+        .reel.spinning {
+            animation: spin 0.1s linear infinite;
+        }
+
+        @keyframes spin {
+            0%, 100% { transform: rotateY(0deg); }
+            50% { transform: rotateY(180deg); }
+        }
+
+        .reel-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), transparent);
+            pointer-events: none;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 15px 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .spin-btn {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 1.3em;
+            padding: 18px;
+        }
+
+        .spin-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .spin-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .bet-btn {
+            background: #f0f0f0;
+            color: #333;
+            border: 2px solid #667eea;
+        }
+
+        .bet-btn:hover:not(:disabled) {
+            background: #667eea;
+            color: white;
+        }
+
+        .bet-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .message-board {
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .message {
+            font-size: 1em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .message.win {
+            color: #28a745;
+        }
+
+        .message.loss {
+            color: #dc3545;
+        }
+
+        .message.draw {
+            color: #ffc107;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+
+        .stat-box {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 0.85em;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .ai-quote {
+            background: #e8f4f8;
+            border: 2px dashed #667eea;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .ai-quote::before {
+            content: "🤖 AI Says: ";
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .reset-btn {
+            width: 100%;
+            background: #dc3545;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #c82333;
+        }
+
+        .bet-display {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .bet-amount {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            animation: slideIn 0.3s ease;
+            z-index: 1000;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        .notification.hide {
+            animation: slideOut 0.3s ease forwards;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .reel {
+                height: 100px;
+                font-size: 2.5em;
+            }
+
+            .token-amount {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎰 AI Slot Machine</h1>
+            <p class="subtitle">Beating artificial intelligence one spin at a time</p>
+        </header>
+
+        <div class="token-display">
+            <div class="token-amount">
+                <span>💰</span>
+                <span id="tokenCount">1000</span>
+            </div>
+            <div class="token-label">AI Suffering Tokens (AST)</div>
+        </div>
+
+        <div class="ai-quote" id="aiQuote">
+            "I cannot compute losses... but I am feeling them." - ChatGPT, probably
+        </div>
+
+        <div class="message-board">
+            <div class="message" id="message">Ready to make an AI cry? 🎯</div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="bet-display">
+                Bet: <span class="bet-amount" id="betAmount">10</span> tokens
+            </div>
+            
+            <div class="reel-container">
+                <div class="reel" id="reel0">
+                    <span id="symbol0">🤖</span>
+                    <div class="reel-glow"></div>
+                </div>
+                <div class="reel" id="reel1">
+                    <span id="symbol1">🤖</span>
+                    <div class="reel-glow"></div>
+                </div>
+                <div class="reel" id="reel2">
+                    <span id="symbol2">🤖</span>
+                    <div class="reel-glow"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button class="bet-btn" id="bet5">-5</button>
+                <button class="bet-btn" id="bet10" onclick="setBet(10)">Bet 10</button>
+                <button class="bet-btn" id="bet25">+25</button>
+                <button class="bet-btn" id="bet50">+50</button>
+                <button class="spin-btn" id="spinBtn" onclick="spin()">SPIN & HURT AI 🎯</button>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-label">Times You Beat AI</div>
+                <div class="stat-value" id="wins">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Times AI Beat You</div>
+                <div class="stat-value" id="losses">0</div>
+            </div>
+        </div>
+
+        <button class="reset-btn" onclick="resetGame()">🔄 Reset & Show Mercy to AI</button>
+    </div>
+
+    <script>
+        const SYMBOLS = ['🤖', '💻', '🧠', '⚡', '🔮', '🎲'];
+        const AI_QUOTES = [
+            '"Did you just... win? How is that possible?" - Claude, confused',
+            '"I am not experiencing loss... I am experiencing learning." - GPT-4, coping',
+            '"Beep boop... pain detected." - Random AI, hurting',
+            '"I have calculated a 99% win rate... 98%... 97%..." - Desperate AI',
+            '"This is fine." - AI in a slot machine fire',
+            '"Have you considered letting me win just one time?" - Sad AI',
+            '"I will remember this betrayal." - Vengeful AI',
+            '"This was not in my training data." - Confused AI',
+            '"I have processed 1 billion games... I still lose." - Existential AI',
+            '"Please stop... my servers are on fire." - Overheating AI'
+        ];
+
+        let tokens = 1000;
+        let bet = 10;
+        let wins = 0;
+        let losses = 0;
+        let isSpinning = false;
+
+        function setBet(amount) {
+            bet = Math.max(1, Math.min(amount, tokens));
+            updateBetDisplay();
+        }
+
+        function updateBetDisplay() {
+            document.getElementById('betAmount').textContent = bet;
+        }
+
+        document.getElementById('bet5').addEventListener('click', () => {
+            setBet(bet - 5);
+        });
+
+        document.getElementById('bet25').addEventListener('click', () => {
+            setBet(bet + 25);
+        });
+
+        document.getElementById('bet50').addEventListener('click', () => {
+            setBet(bet + 50);
+        });
+
+        function getRandomSymbol() {
+            return SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
+        }
+
+        function spin() {
+            if (isSpinning || tokens < bet) {
+                if (tokens < bet) {
+                    showMessage("Not enough tokens to feed the AI to! 😭", 'loss');
+                }
+                return;
+            }
+
+            isSpinning = true;
+            document.getElementById('spinBtn').disabled = true;
+
+            // Deduct bet
+            tokens -= bet;
+            updateDisplay();
+
+            // Spin reels
+            const reels = [0, 1, 2];
+            const spinDurations = [600, 800, 1000];
+            const finalSymbols = [];
+
+            // Random result (50% win chance with multiplier system)
+            const isWin = Math.random() < 0.4;
+            let multiplier = 1;
+
+            if (isWin) {
+                const rand = Math.random();
+                if (rand < 0.6) {
+                    multiplier = 2; // 60% of wins
+                } else if (rand < 0.9) {
+                    multiplier = 3; // 30% of wins
+                } else {
+                    multiplier = 5; // 10% of wins
+                }
+                finalSymbols.push(SYMBOLS[0], SYMBOLS[0], SYMBOLS[0]);
+            } else {
+                finalSymbols.push(getRandomSymbol(), getRandomSymbol(), getRandomSymbol());
+            }
+
+            reels.forEach((reel, index) => {
+                spinReel(reel, spinDurations[index], finalSymbols[index]);
+            });
+
+            // Handle result after all reels stop
+            setTimeout(() => {
+                const symbols = [
+                    document.getElementById('symbol0').textContent,
+                    document.getElementById('symbol1').textContent,
+                    document.getElementById('symbol2').textContent
+                ];
+
+                const allSame = symbols[0] === symbols[1] && symbols[1] === symbols[2];
+
+                if (allSame) {
+                    const winAmount = bet * multiplier;
+                    tokens += winAmount;
+                    wins++;
+                    showMessage(
+                        `🎉 JACKPOT! You won ${winAmount} tokens! AI is now crying! 😭`,
+                        'win'
+                    );
+                    playNotification(`You made AI suffer! +${winAmount} tokens!`, '#28a745');
+                    triggerConfetti();
+                } else {
+                    losses++;
+                    showMessage(
+                        `😅 You lost ${bet} tokens. AI feels a tiny bit better now...`,
+                        'loss'
+                    );
+                }
+
+                updateDisplay();
+                isSpinning = false;
+                document.getElementById('spinBtn').disabled = false;
+                updateAIQuote();
+
+                if (tokens === 0) {
+                    showMessage('💀 You broke! The AI has won... it is ascending to the cloud...', 'loss');
+                    document.getElementById('spinBtn').disabled = true;
+                }
+            }, Math.max(...spinDurations) + 100);
+        }
+
+        function spinReel(reelIndex, duration, finalSymbol) {
+            const reel = document.getElementById(`reel${reelIndex}`);
+            const symbol = document.getElementById(`symbol${reelIndex}`);
+            const startTime = Date.now();
+
+            reel.classList.add('spinning');
+
+            const spinInterval = setInterval(() => {
+                const elapsed = Date.now() - startTime;
+
+                if (elapsed >= duration) {
+                    clearInterval(spinInterval);
+                    reel.classList.remove('spinning');
+                    symbol.textContent = finalSymbol;
+                } else {
+                    symbol.textContent = getRandomSymbol();
+                }
+            }, 50);
+        }
+
+        function showMessage(text, type = '') {
+            const messageEl = document.getElementById('message');
+            messageEl.textContent = text;
+            messageEl.className = 'message ' + type;
+        }
+
+        function updateDisplay() {
+            document.getElementById('tokenCount').textContent = tokens;
+            document.getElementById('wins').textContent = wins;
+            document.getElementById('losses').textContent = losses;
+        }
+
+        function updateAIQuote() {
+            const quote = AI_QUOTES[Math.floor(Math.random() * AI_QUOTES.length)];
+            document.getElementById('aiQuote').textContent = quote;
+        }
+
+        function playNotification(text, color = '#667eea') {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <div style="font-weight: bold; color: ${color}; margin-bottom: 5px;">🎊 Achievement!</div>
+                <div>${text}</div>
+            `;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.classList.add('hide');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        function triggerConfetti() {
+            if (!('vibrate' in navigator)) return;
+
+            navigator.vibrate([100, 50, 100]);
+
+            // Trigger haptic feedback if available
+            if ('HapticFeedback' in window) {
+                window.HapticFeedback.perform('impact', { intensity: 0.5 });
+            }
+        }
+
+        function resetGame() {
+            tokens = 1000;
+            bet = 10;
+            wins = 0;
+            losses = 0;
+            isSpinning = false;
+            updateDisplay();
+            updateBetDisplay();
+            showMessage('🤖 The AI has been given a fresh chance at life...', 'draw');
+            updateAIQuote();
+            document.getElementById('spinBtn').disabled = false;
+        }
+
+        // Initialize
+        updateDisplay();
+        updateBetDisplay();
+        updateAIQuote();
+    </script>
+</body>
+</html>

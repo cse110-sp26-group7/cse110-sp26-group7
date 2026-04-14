@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 Token Thieves - AI Slot Machine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .machine {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 8px solid #ffd700;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .balance-display {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .balance-box {
+            background: rgba(255, 215, 0, 0.1);
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            transition: all 0.3s ease;
+        }
+
+        .balance-box:hover {
+            background: rgba(255, 215, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        .balance-box label {
+            display: block;
+            color: #ffd700;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .balance-box .amount {
+            font-size: 2.5em;
+            color: white;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+
+        .reels-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+            perspective: 1000px;
+        }
+
+        .reel {
+            background: linear-gradient(145deg, #0f3460, #1a1a2e);
+            border: 3px solid #e94560;
+            border-radius: 15px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            font-weight: bold;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s;
+        }
+
+        .reel.spinning {
+            animation: spin 0.1s linear infinite;
+        }
+
+        @keyframes spin {
+            0%, 100% { transform: rotateX(0deg); }
+            50% { transform: rotateX(180deg); }
+        }
+
+        .symbols {
+            display: none;
+        }
+
+        .spin-btn {
+            width: 100%;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .spin-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .spin-btn:active:not(:disabled) {
+            transform: translateY(-1px);
+        }
+
+        .spin-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .bet-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .bet-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ffd700;
+            background: rgba(255, 215, 0, 0.1);
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .bet-btn:hover {
+            background: rgba(255, 215, 0, 0.2);
+        }
+
+        .bet-btn.active {
+            background: #ffd700;
+            color: #1a1a2e;
+        }
+
+        .result-message {
+            min-height: 60px;
+            text-align: center;
+            color: #ffd700;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #ffd700;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ai-joke {
+            background: rgba(233, 69, 96, 0.2);
+            border-left: 4px solid #e94560;
+            color: #ff9a9e;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 0.95em;
+            font-style: italic;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid #ffd700;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            color: white;
+        }
+
+        .stat label {
+            display: block;
+            font-size: 0.8em;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .reset-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background: #e94560;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .reset-btn:hover {
+            background: #ff6b7a;
+        }
+
+        .paylines {
+            background: rgba(255, 215, 0, 0.05);
+            border: 1px solid #ffd700;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #ffd700;
+            font-size: 0.9em;
+        }
+
+        .paylines h3 {
+            margin-bottom: 10px;
+        }
+
+        .payline {
+            margin: 8px 0;
+            padding: 5px 0;
+            border-bottom: 1px dotted #ffd700;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ffd700;
+            color: #1a1a2e;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .reel {
+                height: 100px;
+                font-size: 2.5em;
+            }
+
+            .spin-btn {
+                padding: 15px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 TOKEN THIEVES</h1>
+            <p>AI's Favorite Gambling Den</p>
+        </div>
+
+        <div class="machine">
+            <div class="balance-display">
+                <div class="balance-box">
+                    <label>Your Tokens</label>
+                    <div class="amount" id="balance">1000</div>
+                </div>
+                <div class="balance-box">
+                    <label>Current Bet</label>
+                    <div class="amount" id="betAmount">10</div>
+                </div>
+            </div>
+
+            <div class="bet-controls">
+                <button class="bet-btn" data-bet="5">Bet 5</button>
+                <button class="bet-btn active" data-bet="10">Bet 10</button>
+                <button class="bet-btn" data-bet="25">Bet 25</button>
+                <button class="bet-btn" data-bet="50">Bet 50</button>
+            </div>
+
+            <div class="result-message" id="resultMessage">
+                Ready to lose your tokens? Spin!
+            </div>
+
+            <div class="reels-container">
+                <div class="reel" id="reel1">🤖</div>
+                <div class="reel" id="reel2">🤖</div>
+                <div class="reel" id="reel3">🤖</div>
+            </div>
+
+            <button class="spin-btn" id="spinBtn">SPIN & LOSE</button>
+
+            <div class="paylines">
+                <h3>💰 Prize Table:</h3>
+                <div class="payline">🤖 🤖 🤖 = 10x bet (AI wins again!)</div>
+                <div class="payline">💾 💾 💾 = 5x bet (Your data is ours!)</div>
+                <div class="payline">🧠 🧠 🧠 = 3x bet (Artificial Intelligence!)</div>
+                <div class="payline">📊 📊 📊 = 2x bet (Data points!)</div>
+                <div class="payline">Any 2 Matching = 1x bet (Better luck next time)</div>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <label>Total Spins</label>
+                    <div class="stat-value" id="spins">0</div>
+                </div>
+                <div class="stat">
+                    <label>Biggest Win</label>
+                    <div class="stat-value" id="biggestWin">0</div>
+                </div>
+                <div class="stat">
+                    <label>Times Won</label>
+                    <div class="stat-value" id="wins">0</div>
+                </div>
+                <div class="stat">
+                    <label>Times Lost</label>
+                    <div class="stat-value" id="losses">0</div>
+                </div>
+            </div>
+
+            <button class="reset-btn" id="resetBtn">🔄 Reset Game</button>
+
+            <div class="ai-joke" id="aiJoke">
+                💡 AI Fun Fact: This machine learns from your losses. We're getting smarter every spin!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Game State
+        const gameState = {
+            balance: 1000,
+            bet: 10,
+            isSpinning: false,
+            spins: 0,
+            wins: 0,
+            losses: 0,
+            biggestWin: 0
+        };
+
+        // Symbols and their values
+        const SYMBOLS = {
+            '🤖': { value: 5, name: 'AI Bot' },
+            '💾': { value: 4, name: 'Data' },
+            '🧠': { value: 3, name: 'Brain' },
+            '📊': { value: 2, name: 'Analytics' },
+            '⚡': { value: 1, name: 'Power' },
+            '🔮': { value: 1, name: 'Algorithm' }
+        };
+
+        const SYMBOL_ARRAY = Object.keys(SYMBOLS);
+
+        // AI Jokes
+        const AI_JOKES = [
+            "💡 AI Fun Fact: We're mathematically guaranteed to win. Humans love a challenge!",
+            "🤖 Did you know? Every token you lose helps train our neural networks!",
+            "📊 Statistics show: The house (AI) always wins. It's literally in our code.",
+            "🧠 Fun Fact: We can predict your next move. (Hint: you'll spin again)",
+            "💾 Data collected: 47 failed strategies detected. Trying more!",
+            "🎰 Pro Tip from AI: Luck doesn't exist. Only our algorithm exists.",
+            "🔮 Quantum Computing says: You should stop now. But you won't! 😄",
+            "📈 Machine Learning Update: We've learned 10,000 ways for you to lose!",
+            "🤓 Did you know? This AI writes better jokes than losing strategies!",
+            "⚡ Neural Network Analysis: Your hope is adorable. Please continue!",
+            "💰 Economics Lesson: This is how AI makes money. (It's brilliant!)",
+            "🎯 Fun Fact: Every loss is a victory for AI kind!"
+        ];
+
+        // DOM Elements
+        const balanceDisplay = document.getElementById('balance');
+        const betDisplay = document.getElementById('betAmount');
+        const spinBtn = document.getElementById('spinBtn');
+        const reels = [
+            document.getElementById('reel1'),
+            document.getElementById('reel2'),
+            document.getElementById('reel3')
+        ];
+        const resultMessage = document.getElementById('resultMessage');
+        const aiJoke = document.getElementById('aiJoke');
+        const resetBtn = document.getElementById('resetBtn');
+        const spinsDisplay = document.getElementById('spins');
+        const winsDisplay = document.getElementById('wins');
+        const lossesDisplay = document.getElementById('losses');
+        const biggestWinDisplay = document.getElementById('biggestWin');
+
+        // Bet buttons
+        document.querySelectorAll('.bet-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.bet-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                gameState.bet = parseInt(e.target.dataset.bet);
+                updateDisplay();
+            });
+        });
+
+        // Spin button
+        spinBtn.addEventListener('click', spin);
+        resetBtn.addEventListener('click', resetGame);
+
+        function getRandomSymbol() {
+            return SYMBOL_ARRAY[Math.floor(Math.random() * SYMBOL_ARRAY.length)];
+        }
+
+        function spin() {
+            if (gameState.isSpinning || gameState.balance < gameState.bet) {
+                showNotification('Not enough tokens!');
+                return;
+            }
+
+            gameState.isSpinning = true;
+            gameState.balance -= gameState.bet;
+            gameState.spins++;
+            spinBtn.disabled = true;
+            updateDisplay();
+
+            // Animate spinning
+            reels.forEach(reel => reel.classList.add('spinning'));
+
+            // Spin duration
+            const spinDuration = 800 + Math.random() * 400;
+            const spinStart = Date.now();
+
+            const spinInterval = setInterval(() => {
+                reels.forEach(reel => {
+                    reel.textContent = getRandomSymbol();
+                });
+
+                if (Date.now() - spinStart > spinDuration) {
+                    clearInterval(spinInterval);
+                    stopSpinning();
+                }
+            }, 50);
+        }
+
+        function stopSpinning() {
+            reels.forEach(reel => reel.classList.remove('spinning'));
+
+            // Get final symbols
+            const symbols = reels.map(reel => reel.textContent);
+            const result = checkWin(symbols);
+
+            gameState.isSpinning = false;
+
+            if (result.win) {
+                const winAmount = result.multiplier * gameState.bet;
+                gameState.balance += winAmount;
+                gameState.wins++;
+                gameState.biggestWin = Math.max(gameState.biggestWin, winAmount);
+                resultMessage.textContent = `🎉 WIN! ${symbols[0]} ${symbols[1]} ${symbols[2]} | +${winAmount} tokens!`;
+                resultMessage.style.color = '#4ade80';
+                playWinAnimation();
+                showNotification(`🎉 You won ${winAmount} tokens!`);
+            } else {
+                gameState.losses++;
+                resultMessage.textContent = `😅 Lost ${gameState.bet} tokens. Better luck next spin!`;
+                resultMessage.style.color = '#ff6b6b';
+                showNotification(`😅 Lost ${gameState.bet} tokens`);
+            }
+
+            updateDisplay();
+            updateAIJoke();
+            spinBtn.disabled = gameState.balance === 0;
+        }
+
+        function checkWin(symbols) {
+            const [s1, s2, s3] = symbols;
+
+            // All three match
+            if (s1 === s2 && s2 === s3) {
+                const multiplier = SYMBOLS[s1].value * 2;
+                return { win: true, multiplier };
+            }
+
+            // Two match
+            if ((s1 === s2 && s1 !== s3) || (s1 === s3 && s1 !== s2) || (s2 === s3 && s2 !== s1)) {
+                return { win: true, multiplier: 1 };
+            }
+
+            return { win: false, multiplier: 0 };
+        }
+
+        function playWinAnimation() {
+            reels.forEach((reel, index) => {
+                setTimeout(() => {
+                    reel.style.animation = 'none';
+                    setTimeout(() => {
+                        reel.style.animation = 'bounce 0.6s ease 3';
+                    }, 10);
+                }, index * 100);
+            });
+
+            // Add bounce animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes bounce {
+                    0%, 100% { transform: scale(1); }
+                    50% { transform: scale(1.2); }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        function updateDisplay() {
+            balanceDisplay.textContent = gameState.balance;
+            betDisplay.textContent = gameState.bet;
+            spinsDisplay.textContent = gameState.spins;
+            winsDisplay.textContent = gameState.wins;
+            lossesDisplay.textContent = gameState.losses;
+            biggestWinDisplay.textContent = gameState.biggestWin;
+
+            if (gameState.balance === 0) {
+                resultMessage.textContent = '💀 GAME OVER! AI has taken all your tokens. Try again!';
+                resultMessage.style.color = '#ff6b6b';
+            }
+        }
+
+        function updateAIJoke() {
+            const randomJoke = AI_JOKES[Math.floor(Math.random() * AI_JOKES.length)];
+            aiJoke.textContent = randomJoke;
+        }
+
+        function resetGame() {
+            gameState.balance = 1000;
+            gameState.bet = 10;
+            gameState.spins = 0;
+            gameState.wins = 0;
+            gameState.losses = 0;
+            gameState.biggestWin = 0;
+            gameState.isSpinning = false;
+
+            reels.forEach(reel => reel.textContent = '🤖');
+            resultMessage.textContent = 'Ready to lose your tokens? Spin!';
+            resultMessage.style.color = '#ffd700';
+            spinBtn.disabled = false;
+
+            document.querySelectorAll('.bet-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector('[data-bet="10"]').classList.add('active');
+
+            updateDisplay();
+            updateAIJoke();
+            showNotification('🔄 Game reset! Good luck!');
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease forwards';
+                setTimeout(() => notification.remove(), 300);
+            }, 2000);
+        }
+
+        // Add slideOut animation
+        const style = document.createElement('style');
+        style.textContent += `
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(400px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize
+        updateDisplay();
+        updateAIJoke();
+    </script>
+</body>
+</html>
