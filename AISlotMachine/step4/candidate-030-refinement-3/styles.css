@@ -158,6 +158,18 @@ h1 {
     100% { transform: rotateY(20deg); }
 }
 
+/* Matching reel animation state */
+.reel.matching {
+    animation: pulse 0.4s ease-in-out;
+    background: linear-gradient(45deg, #22d3ee, #a855f7);
+}
+
+/* Pulse animation for matching reels */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
 /* Bet control section styling */
 .bet-control {
     text-align: center;

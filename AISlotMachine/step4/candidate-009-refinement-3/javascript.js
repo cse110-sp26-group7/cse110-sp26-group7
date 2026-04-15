@@ -2,25 +2,25 @@
    CASINO-STYLE SYMBOL SVG DATA URLS - AI themed visuals
    ======================================== */
 
-// Create SVG casino symbols with AI theming
+// Create SVG casino-style symbols with AI theming
 const createSymbolSVG = {
-    // Robot/AI Bot - stylized mechanical head
-    bot: () => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23a855f7' width='200' height='200' rx='20'/%3E%3Crect fill='%2322d3ee' x='50' y='30' width='100' height='100' rx='10'/%3E%3Ccircle fill='%230f0f0f' cx='75' cy='60' r='10'/%3E%3Ccircle fill='%230f0f0f' cx='125' cy='60' r='10'/%3E%3Crect fill='%2322d3ee' x='70' y='85' width='60' height='15' rx='5'/%3E%3Crect fill='%23a855f7' x='45' y='140' width='110' height='30' rx='10'/%3E%3Ccircle fill='%2322d3ee' cx='85' cy='155' r='6'/%3E%3Ccircle fill='%2322d3ee' cx='115' cy='155' r='6'/%3E%3C/svg%3E`,
+    // Robot/AI Bot - sleek mechanical head with digital elements
+    bot: () => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23a855f7' width='200' height='200' rx='20'/%3E%3Crect fill='%2322d3ee' x='40' y='20' width='120' height='110' rx='15'/%3E%3Crect fill='%230f0f0f' x='60' y='40' width='25' height='35' rx='5'/%3E%3Crect fill='%230f0f0f' x='115' y='40' width='25' height='35' rx='5'/%3E%3Ccircle fill='%2322d3ee' cx='72' cy='57' r='6'/%3E%3Ccircle fill='%2322d3ee' cx='127' cy='57' r='6'/%3E%3Crect fill='%2322d3ee' x='55' y='90' width='90' height='20' rx='8'/%3E%3Crect fill='%23a855f7' x='30' y='135' width='140' height='45' rx='12'/%3E%3Ccircle fill='%2322d3ee' cx='65' cy='162' r='8'/%3E%3Ccircle fill='%2322d3ee' cx='100' cy='162' r='8'/%3E%3Ccircle fill='%2322d3ee' cx='135' cy='162' r='8'/%3E%3C/svg%3E`,
 
-    // Data/Database - cylinder with circuit patterns
-    data: () => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23a855f7' width='200' height='200' rx='20'/%3E%3Cellipse cx='100' cy='50' rx='50' ry='35' fill='%2322d3ee'/%3E%3Crect fill='%2322d3ee' x='50' y='50' width='100' height='80'/%3E%3Cellipse cx='100' cy='130' rx='50' ry='35' fill='%2322d3ee'/%3E%3Crect fill='%230f0f0f' x='65' y='70' width='10' height='30'/%3E%3Crect fill='%230f0f0f' x='125' y='70' width='10' height='30'/%3E%3Cline x1='70' y1='100' x2='130' y2='100' stroke='%230f0f0f' stroke-width='2'/%3E%3Ccircle cx='90' cy='85' r='4' fill='%230f0f0f'/%3E%3Ccircle cx='110' cy='115' r='4' fill='%230f0f0f'/%3E%3C/svg%3E`,
+    // Data/Database - tall cylinder with data streams
+    data: () => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23a855f7' width='200' height='200' rx='20'/%3E%3Cellipse cx='100' cy='35' rx='55' ry='30' fill='%2322d3ee'/%3E%3Crect fill='%2322d3ee' x='45' y='35' width='110' height='100'/%3E%3Cellipse cx='100' cy='135' rx='55' ry='30' fill='%2322d3ee'/%3E%3Crect fill='%230f0f0f' x='60' y='60' width='8' height='50'/%3E%3Crect fill='%230f0f0f' x='100' y='60' width='8' height='50'/%3E%3Crect fill='%230f0f0f' x='140' y='60' width='8' height='50'/%3E%3Cline x1='45' y1='90' x2='155' y2='90' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='50' y1='110' x2='150' y2='110' stroke='%230f0f0f' stroke-width='2'/%3E%3C/svg%3E`,
 
-    // Brain/AI Intelligence - neural network pattern
-    brain: () => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23a855f7' width='200' height='200' rx='20'/%3E%3Cellipse cx='100' cy='80' rx='45' ry='55' fill='%2322d3ee'/%3E%3Ccircle cx='75' cy='50' r='8' fill='%230f0f0f'/%3E%3Ccircle cx='100' cy='40' r='8' fill='%230f0f0f'/%3E%3Ccircle cx='125' cy='50' r='8' fill='%230f0f0f'/%3E%3Ccircle cx='70' cy='90' r='8' fill='%230f0f0f'/%3E%3Ccircle cx='130' cy='90' r='8' fill='%230f0f0f'/%3E%3Cline x1='75' y1='50' x2='100' y2='40' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='100' y1='40' x2='125' y2='50' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='75' y1='50' x2='70' y2='90' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='125' y1='50' x2='130' y2='90' stroke='%230f0f0f' stroke-width='2'/%3E%3Crect fill='%2322d3ee' x='60' y='130' width='80' height='40' rx='8'/%3E%3C/svg%3E`,
+    // Brain/AI Intelligence - neural network with nodes
+    brain: () => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23a855f7' width='200' height='200' rx='20'/%3E%3Cellipse cx='100' cy='85' rx='50' ry='60' fill='%2322d3ee'/%3E%3Ccircle cx='65' cy='45' r='10' fill='%230f0f0f'/%3E%3Ccircle cx='100' cy='30' r='10' fill='%230f0f0f'/%3E%3Ccircle cx='135' cy='45' r='10' fill='%230f0f0f'/%3E%3Ccircle cx='60' cy='85' r='10' fill='%230f0f0f'/%3E%3Ccircle cx='140' cy='85' r='10' fill='%230f0f0f'/%3E%3Ccircle cx='100' cy='130' r='10' fill='%230f0f0f'/%3E%3Cline x1='65' y1='45' x2='100' y2='30' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='100' y1='30' x2='135' y2='45' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='65' y1='45' x2='60' y2='85' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='135' y1='45' x2='140' y2='85' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='60' y1='85' x2='100' y2='130' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='140' y1='85' x2='100' y2='130' stroke='%230f0f0f' stroke-width='2'/%3E%3C/svg%3E`,
 
-    // Analytics/Data Charts - vertical bars
-    analytics: () => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23a855f7' width='200' height='200' rx='20'/%3E%3Crect fill='%2322d3ee' x='45' y='100' width='25' height='60'/%3E%3Crect fill='%2322d3ee' x='87' y='70' width='25' height='90'/%3E%3Crect fill='%2322d3ee' x='130' y='85' width='25' height='75'/%3E%3Cline x1='40' y1='165' x2='160' y2='165' stroke='%230f0f0f' stroke-width='3'/%3E%3Ccircle cx='57' cy='110' r='3' fill='%230f0f0f'/%3E%3Ccircle cx='99' cy='95' r='3' fill='%230f0f0f'/%3E%3Ccircle cx='142' cy='105' r='3' fill='%230f0f0f'/%3E%3C/svg%3E`,
+    // Analytics/Data Charts - classic slot machine bars
+    analytics: () => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23a855f7' width='200' height='200' rx='20'/%3E%3Crect fill='%2322d3ee' x='35' y='75' width='35' height='90' rx='5'/%3E%3Crect fill='%2322d3ee' x='82' y='45' width='35' height='120' rx='5'/%3E%3Crect fill='%2322d3ee' x='129' y='65' width='35' height='100' rx='5'/%3E%3Cline x1='25' y1='170' x2='175' y2='170' stroke='%230f0f0f' stroke-width='3'/%3E%3C/svg%3E`,
 
-    // Power/Energy - lightning bolt
-    power: () => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23a855f7' width='200' height='200' rx='20'/%3E%3Cpolygon points='100,30 130,90 90,90 140,170 50,100 90,100' fill='%2322d3ee'/%3E%3Cpolygon points='100,30 130,90 90,90 140,170 50,100 90,100' fill='%230f0f0f' opacity='0.3'/%3E%3C/svg%3E`,
+    // Power/Energy - iconic lightning bolt
+    power: () => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23a855f7' width='200' height='200' rx='20'/%3E%3Cpolygon points='100,20 140,85 105,85 150,180 50,110 95,110' fill='%2322d3ee'/%3E%3Cpolygon points='105,105 140,145 110,145 120,170 70,135' fill='%230f0f0f'/%3E%3C/svg%3E`,
 
-    // Algorithm/Pattern - geometric network
-    algorithm: () => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23a855f7' width='200' height='200' rx='20'/%3E%3Crect fill='%2322d3ee' x='40' y='40' width='120' height='120' rx='15'/%3E%3Ccircle cx='60' cy='60' r='12' fill='%230f0f0f'/%3E%3Ccircle cx='100' cy='60' r='12' fill='%230f0f0f'/%3E%3Ccircle cx='140' cy='60' r='12' fill='%230f0f0f'/%3E%3Ccircle cx='60' cy='100' r='12' fill='%230f0f0f'/%3E%3Ccircle cx='140' cy='100' r='12' fill='%230f0f0f'/%3E%3Ccircle cx='100' cy='140' r='12' fill='%230f0f0f'/%3E%3Cline x1='60' y1='60' x2='100' y2='60' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='100' y1='60' x2='140' y2='60' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='60' y1='60' x2='60' y2='100' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='140' y1='60' x2='140' y2='100' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='60' y1='100' x2='100' y2='140' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='140' y1='100' x2='100' y2='140' stroke='%230f0f0f' stroke-width='2'/%3E%3C/svg%3E`
+    // Algorithm/Pattern - geometric circuit board pattern
+    algorithm: () => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect fill='%23a855f7' width='200' height='200' rx='20'/%3E%3Crect fill='%2322d3ee' x='35' y='35' width='130' height='130' rx='15'/%3E%3Ccircle cx='55' cy='55' r='12' fill='%230f0f0f'/%3E%3Ccircle cx='100' cy='55' r='12' fill='%230f0f0f'/%3E%3Ccircle cx='145' cy='55' r='12' fill='%230f0f0f'/%3E%3Ccircle cx='55' cy='100' r='12' fill='%230f0f0f'/%3E%3Ccircle cx='145' cy='100' r='12' fill='%230f0f0f'/%3E%3Ccircle cx='100' cy='145' r='12' fill='%230f0f0f'/%3E%3Cline x1='55' y1='55' x2='100' y2='55' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='100' y1='55' x2='145' y2='55' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='55' y1='55' x2='55' y2='100' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='145' y1='55' x2='145' y2='100' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='55' y1='100' x2='100' y2='145' stroke='%230f0f0f' stroke-width='2'/%3E%3Cline x1='145' y1='100' x2='100' y2='145' stroke='%230f0f0f' stroke-width='2'/%3E%3C/svg%3E`
 };
 
 /* ========================================
@@ -235,6 +235,12 @@ function updateDisplay() {
     // Disable spin button if no balance or game is spinning
     domElements.spinBtn.disabled = gameState.balance === 0 || gameState.isSpinning;
 
+    // Disable bet buttons for amounts higher than current balance
+    domElements.betBtns.forEach(btn => {
+        const betAmount = parseInt(btn.dataset.bet);
+        btn.disabled = betAmount > gameState.balance;
+    });
+
     // Show game over message when balance is zero
     if (gameState.balance === 0) {
         domElements.resultMessage.textContent = '💀 GAME OVER! AI has taken all your tokens. Try again!';
@@ -274,28 +280,36 @@ function showNotification(message) {
    GAME LOGIC FUNCTIONS
    ======================================== */
 
-/** Check if the spin resulted in a win and calculate multiplier */
+/** Check if the spin resulted in a win and calculate multiplier, return matched reel indices */
 function checkWin(symbolKeys) {
     const [s1, s2, s3] = symbolKeys;
+    let matchedIndices = [];
 
     // All three match - highest payout
     if (s1 === s2 && s2 === s3) {
         const multiplier = gameState.symbols[s1].value * 2;
-        return { win: true, multiplier, symbols: [s1, s2, s3] };
+        return { win: true, multiplier, symbols: [s1, s2, s3], matchedIndices: [0, 1, 2] };
     }
 
-    // Two match - lower payout
-    if ((s1 === s2 && s1 !== s3) || (s1 === s3 && s1 !== s2) || (s2 === s3 && s2 !== s1)) {
-        return { win: true, multiplier: 1, symbols: [s1, s2, s3] };
+    // Two match - lower payout with specific matched reel indices
+    if (s1 === s2 && s1 !== s3) {
+        return { win: true, multiplier: 1, symbols: [s1, s2, s3], matchedIndices: [0, 1] };
+    }
+    if (s1 === s3 && s1 !== s2) {
+        return { win: true, multiplier: 1, symbols: [s1, s2, s3], matchedIndices: [0, 2] };
+    }
+    if (s2 === s3 && s2 !== s1) {
+        return { win: true, multiplier: 1, symbols: [s1, s2, s3], matchedIndices: [1, 2] };
     }
 
     // No match - loss
-    return { win: false, multiplier: 0, symbols: [s1, s2, s3] };
+    return { win: false, multiplier: 0, symbols: [s1, s2, s3], matchedIndices: [] };
 }
 
-/** Animate reels bouncing on a win */
-function playWinAnimation() {
-    domElements.reels.forEach((reel, index) => {
+/** Animate only matched reels bouncing on a win */
+function playWinAnimation(matchedIndices) {
+    matchedIndices.forEach((index) => {
+        const reel = domElements.reels[index];
         const bounceTimeout = setTimeout(() => {
             reel.style.animation = 'none';
 
@@ -343,8 +357,8 @@ function stopSpinning() {
         domElements.resultMessage.textContent = `🎉 WIN! ${symbolNames} | +${winAmount} tokens!`;
         domElements.resultMessage.style.color = '#4ade80';
 
-        // Play win animations and sound
-        playWinAnimation();
+        // Play win animations and sound - only animate matched reels
+        playWinAnimation(result.matchedIndices);
         playWinSound();
 
         showNotification(`🎉 You won ${winAmount} tokens!`);
@@ -468,6 +482,13 @@ function resetGame() {
 // Attach click handlers to bet buttons
 domElements.betBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
+        // Prevent changing to a disabled bet amount
+        if (e.target.disabled) {
+            playClickSound();
+            showNotification('Insufficient tokens for this bet');
+            return;
+        }
+
         playClickSound();
 
         // Update active bet button

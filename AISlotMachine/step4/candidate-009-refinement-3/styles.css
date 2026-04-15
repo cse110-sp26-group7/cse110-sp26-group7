@@ -147,6 +147,13 @@ body {
     color: #0f0f0f;
 }
 
+/* Disabled bet button styling */
+.bet-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    color: #888888;
+}
+
 /* ========================================
    RESULT MESSAGE
    ======================================== */

@@ -24,14 +24,14 @@ const gameState = {
         'dataGraph': 20
     },
 
-    // Symbol images (SVG data URIs with AI casino theme)
+    // Symbol images (SVG data URIs with AI casino theme and classic casino symbols)
     symbolImages: {
-        'aiCore': 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%2322d3ee" x="10" y="10" width="80" height="80" rx="8"/><circle fill="%23a855f7" cx="50" cy="50" r="25"/><rect fill="%23a855f7" x="25" y="30" width="8" height="8"/><rect fill="%23a855f7" x="67" y="30" width="8" height="8"/><rect fill="%23a855f7" x="25" y="62" width="8" height="8"/><rect fill="%23a855f7" x="67" y="62" width="8" height="8"/><line x1="33" y1="34" x2="44" y2="45" stroke="%23a855f7" stroke-width="2"/><line x1="67" y1="34" x2="56" y2="45" stroke="%23a855f7" stroke-width="2"/><line x1="33" y1="66" x2="44" y2="55" stroke="%23a855f7" stroke-width="2"/><line x1="67" y1="66" x2="56" y2="55" stroke="%23a855f7" stroke-width="2"/></svg>',
-        'neuralNet': 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle fill="%2322d3ee" cx="50" cy="30" r="12"/><circle fill="%2322d3ee" cx="30" cy="70" r="12"/><circle fill="%2322d3ee" cx="70" cy="70" r="12"/><circle fill="%23a855f7" cx="50" cy="50" r="8"/><line x1="50" y1="30" x2="50" y2="50" stroke="%23a855f7" stroke-width="2"/><line x1="50" y1="50" x2="30" y2="70" stroke="%23a855f7" stroke-width="2"/><line x1="50" y1="50" x2="70" y2="70" stroke="%23a855f7" stroke-width="2"/><circle cx="30" cy="70" r="12" fill="none" stroke="%2322d3ee" stroke-width="2"/><circle cx="50" cy="30" r="12" fill="none" stroke="%2322d3ee" stroke-width="2"/><circle cx="70" cy="70" r="12" fill="none" stroke="%2322d3ee" stroke-width="2"/></svg>',
-        'crypto': 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle fill="%23a855f7" cx="50" cy="50" r="40"/><circle fill="%2322d3ee" cx="50" cy="50" r="35"/><text x="50" y="60" font-size="40" font-weight="bold" text-anchor="middle" fill="%23a855f7">₿</text><path d="M 30 50 Q 50 35 70 50" stroke="%23a855f7" stroke-width="2" fill="none"/></svg>',
-        'target': 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="%2322d3ee" stroke-width="3"/><circle cx="50" cy="50" r="30" fill="none" stroke="%23a855f7" stroke-width="3"/><circle cx="50" cy="50" r="20" fill="none" stroke="%2322d3ee" stroke-width="3"/><circle cx="50" cy="50" r="10" fill="%23a855f7"/></svg>',
-        'lightning': 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,15 65,45 45,45 65,85 25,45 45,45" fill="%2322d3ee" stroke="%23a855f7" stroke-width="2"/><polygon points="50,20 62,48 47,48 62,82 30,48 45,48" fill="%23a855f7"/></svg>',
-        'dataGraph': 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="15" y="60" width="12" height="25" fill="%2322d3ee"/><rect x="32" y="40" width="12" height="45" fill="%23a855f7"/><rect x="49" y="50" width="12" height="35" fill="%2322d3ee"/><rect x="66" y="35" width="12" height="50" fill="%23a855f7"/><line x1="10" y1="85" x2="85" y2="85" stroke="%2322d3ee" stroke-width="2"/></svg>'
+        'aiCore': 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="coreGrad" cx="50%" cy="50%"><stop offset="0%" style="stop-color:%2322d3ee;stop-opacity:1"/><stop offset="100%" style="stop-color:%230891b2;stop-opacity:1"/></radialGradient></defs><rect fill="%230f172a" x="5" y="5" width="90" height="90" rx="10"/><circle fill="url(%23coreGrad)" cx="50" cy="50" r="30"/><circle fill="%23a855f7" cx="50" cy="50" r="20"/><circle fill="%2322d3ee" cx="50" cy="50" r="10"/><rect fill="%23a855f7" x="20" y="35" width="6" height="6"/><rect fill="%23a855f7" x="74" y="35" width="6" height="6"/><rect fill="%23a855f7" x="20" y="59" width="6" height="6"/><rect fill="%23a855f7" x="74" y="59" width="6" height="6"/></svg>',
+        'neuralNet': 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="netGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%2322d3ee;stop-opacity:1"/><stop offset="100%" style="stop-color:%23a855f7;stop-opacity:1"/></linearGradient></defs><rect fill="%230f172a" x="5" y="5" width="90" height="90" rx="10"/><circle fill="url(%23netGrad)" cx="50" cy="25" r="10"/><circle fill="url(%23netGrad)" cx="30" cy="65" r="10"/><circle fill="url(%23netGrad)" cx="70" cy="65" r="10"/><circle fill="%2322d3ee" cx="50" cy="50" r="6"/><line x1="50" y1="25" x2="50" y2="50" stroke="%23a855f7" stroke-width="2"/><line x1="50" y1="50" x2="30" y2="65" stroke="%23a855f7" stroke-width="2"/><line x1="50" y1="50" x2="70" y2="65" stroke="%23a855f7" stroke-width="2"/></svg>',
+        'crypto': 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23fcd34d;stop-opacity:1"/><stop offset="100%" style="stop-color:%23f59e0b;stop-opacity:1"/></linearGradient></defs><rect fill="%230f172a" x="5" y="5" width="90" height="90" rx="10"/><circle fill="url(%23goldGrad)" cx="50" cy="50" r="32"/><circle fill="%23b45309" cx="50" cy="50" r="28"/><text x="50" y="65" font-size="48" font-weight="bold" text-anchor="middle" fill="%23fcd34d" font-family="serif">₿</text></svg>',
+        'target': 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%230f172a" x="5" y="5" width="90" height="90" rx="10"/><circle cx="50" cy="50" r="35" fill="none" stroke="%2322d3ee" stroke-width="4"/><circle cx="50" cy="50" r="25" fill="none" stroke="%23a855f7" stroke-width="3"/><circle cx="50" cy="50" r="15" fill="none" stroke="%2322d3ee" stroke-width="3"/><circle cx="50" cy="50" r="6" fill="%23a855f7"/></svg>',
+        'lightning': 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="lightGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%2322d3ee;stop-opacity:1"/><stop offset="100%" style="stop-color:%23a855f7;stop-opacity:1"/></linearGradient></defs><rect fill="%230f172a" x="5" y="5" width="90" height="90" rx="10"/><polygon points="50,12 68,45 48,45 70,85 20,45 48,45" fill="url(%23lightGrad)" stroke="%2322d3ee" stroke-width="2"/></svg>',
+        'dataGraph': 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><linearGradient id="barGrad" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" style="stop-color:%2322d3ee;stop-opacity:1"/><stop offset="100%" style="stop-color:%23a855f7;stop-opacity:1"/></linearGradient></defs><rect fill="%230f172a" x="5" y="5" width="90" height="90" rx="10"/><rect x="18" y="55" width="14" height="25" fill="url(%23barGrad)"/><rect x="38" y="35" width="14" height="45" fill="url(%23barGrad)"/><rect x="58" y="45" width="14" height="35" fill="url(%23barGrad)"/><rect x="78" y="25" width="14" height="55" fill="url(%23barGrad)"/><line x1="10" y1="82" x2="90" y2="82" stroke="%2322d3ee" stroke-width="2"/></svg>'
     },
 
     // Timer references for cleanup
@@ -170,8 +170,14 @@ function updateDisplay() {
     document.getElementById('spinBtn').disabled = gameState.tokens < gameState.spinCost;
     document.getElementById('spinBtn').textContent = `SPIN (${gameState.spinCost} tokens)`;
 
+    // Update bet display with current bet amount
+    document.getElementById('betDisplay').textContent = gameState.spinCost;
+
+    // Update bet button states (allow decrease if > 1, allow increase if < tokens)
     const betDownBtn = document.getElementById('betDown');
+    const betUpBtn = document.getElementById('betUp');
     betDownBtn.disabled = gameState.spinCost <= 1 || gameState.isSpinning;
+    betUpBtn.disabled = gameState.spinCost >= gameState.tokens || gameState.isSpinning;
 }
 
 // Get image source for a given symbol
@@ -247,6 +253,7 @@ function spin() {
             const img = reel.querySelector('.reel-image');
             img.src = getSymbolImage(randomSymbol);
             reel.classList.add('spinning');
+            reel.classList.remove('matching');
         });
 
         playTickSound();
@@ -284,8 +291,15 @@ function finishSpin(reels, messageEl) {
     }, 300);
 }
 
-// Check if the spin results match and distribute winnings
+// Check if the spin results match and distribute winnings, handle 3-match wins and 2-match animations
 function checkWin(symbols, messageEl) {
+    const reels = [
+        document.getElementById('reel1'),
+        document.getElementById('reel2'),
+        document.getElementById('reel3')
+    ];
+
+    // Check for 3-symbol match (win condition)
     if (symbols[0] === symbols[1] && symbols[1] === symbols[2]) {
         const winAmount = gameState.payouts[symbols[0]];
         gameState.tokens += winAmount;
@@ -294,8 +308,44 @@ function checkWin(symbols, messageEl) {
         messageEl.textContent = `🎉 YOU WON ${winAmount} TOKENS! 🎉`;
         messageEl.className = 'message win';
 
+        // Animate all three reels for 3-match win
+        reels.forEach(reel => reel.classList.add('matching'));
+
         playWinSound();
-    } else {
+    }
+    // Check for 2-symbol match (animate but no payout)
+    else if (symbols[0] === symbols[1]) {
+        messageEl.textContent = '⭐ Two match! Almost there...';
+        messageEl.className = 'message neutral';
+
+        // Animate only the matching reels
+        reels[0].classList.add('matching');
+        reels[1].classList.add('matching');
+
+        playClickSound();
+    }
+    else if (symbols[1] === symbols[2]) {
+        messageEl.textContent = '⭐ Two match! Almost there...';
+        messageEl.className = 'message neutral';
+
+        // Animate only the matching reels
+        reels[1].classList.add('matching');
+        reels[2].classList.add('matching');
+
+        playClickSound();
+    }
+    else if (symbols[0] === symbols[2]) {
+        messageEl.textContent = '⭐ Two match! Almost there...';
+        messageEl.className = 'message neutral';
+
+        // Animate only the matching reels
+        reels[0].classList.add('matching');
+        reels[2].classList.add('matching');
+
+        playClickSound();
+    }
+    // No matches
+    else {
         messageEl.textContent = '❌ No match... your training data was corrupted.';
         messageEl.className = 'message lose';
 
@@ -348,8 +398,11 @@ function reset() {
         img.src = getSymbolImage(defaultSymbols[i]);
     });
 
-    // Remove spinning animation class
-    document.querySelectorAll('.reel').forEach(reel => reel.classList.remove('spinning'));
+    // Remove spinning and matching animation classes
+    document.querySelectorAll('.reel').forEach(reel => {
+        reel.classList.remove('spinning');
+        reel.classList.remove('matching');
+    });
 
     // Update display and re-enable controls
     updateDisplay();
