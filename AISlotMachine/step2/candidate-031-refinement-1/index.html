@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main application container -->
+    <div class="container">
+
+        <!-- Page header with title and tagline -->
+        <div class="header">
+            <h1>🤖 AI TOKEN SLOT MACHINE 🎰</h1>
+            <p class="tagline">"Where your money goes to become training data"</p>
+        </div>
+
+        <!-- Game statistics panel showing tokens, bet, and last win -->
+        <div class="stats-panel">
+            <div class="stat-box">
+                <div class="stat-label">YOUR TOKENS</div>
+                <div class="stat-value" id="tokenCount">100</div>
+                <div class="token-symbol">💰</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">CURRENT BET</div>
+                <div class="stat-value" id="betAmount">10</div>
+                <div class="token-symbol">🎲</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">LAST WIN</div>
+                <div class="stat-value" id="lastWin">0</div>
+                <div class="token-symbol">🏆</div>
+            </div>
+        </div>
+
+        <!-- AI message box that displays random AI quotes -->
+        <div class="ai-message-box">
+            <p id="aiMessage">💡 "I have optimized your financial future... into my future" - Claude AI</p>
+        </div>
+
+        <!-- Slot machine with three reels and symbols -->
+        <div class="machine">
+            <!-- First reel container with overflow hidden to clip spinning symbols -->
+            <div class="reel-container">
+                <div class="reel" id="reel1">
+                    <div class="symbol">💾</div>
+                    <div class="symbol">🧠</div>
+                    <div class="symbol">🤖</div>
+                    <div class="symbol">📊</div>
+                    <div class="symbol">⚙️</div>
+                    <div class="symbol">🔗</div>
+                    <div class="symbol">💎</div>
+                    <div class="symbol">🎯</div>
+                </div>
+                <div class="window"></div>
+            </div>
+
+            <!-- Second reel container with overflow hidden to clip spinning symbols -->
+            <div class="reel-container">
+                <div class="reel" id="reel2">
+                    <div class="symbol">💾</div>
+                    <div class="symbol">🧠</div>
+                    <div class="symbol">🤖</div>
+                    <div class="symbol">📊</div>
+                    <div class="symbol">⚙️</div>
+                    <div class="symbol">🔗</div>
+                    <div class="symbol">💎</div>
+                    <div class="symbol">🎯</div>
+                </div>
+                <div class="window"></div>
+            </div>
+
+            <!-- Third reel container with overflow hidden to clip spinning symbols -->
+            <div class="reel-container">
+                <div class="reel" id="reel3">
+                    <div class="symbol">💾</div>
+                    <div class="symbol">🧠</div>
+                    <div class="symbol">🤖</div>
+                    <div class="symbol">📊</div>
+                    <div class="symbol">⚙️</div>
+                    <div class="symbol">🔗</div>
+                    <div class="symbol">💎</div>
+                    <div class="symbol">🎯</div>
+                </div>
+                <div class="window"></div>
+            </div>
+        </div>
+
+        <!-- Control buttons for betting and spinning -->
+        <div class="controls">
+            <div class="bet-controls">
+                <button class="btn-small" id="betDown">-</button>
+                <div class="bet-display">BET: <span id="betDisplay">10</span></div>
+                <button class="btn-small" id="betUp">+</button>
+            </div>
+            <button class="btn-spin" id="spinBtn">SPIN</button>
+            <button class="btn-reset" id="resetBtn">RESET GAME</button>
+        </div>
+
+        <!-- Result panel showing win/loss messages -->
+        <div class="result-panel">
+            <div id="resultText"></div>
+        </div>
+
+        <!-- Payout table showing win multipliers for different symbol combinations -->
+        <div class="payouts">
+            <h3>💸 PAYOUTS</h3>
+            <div class="payout-grid">
+                <div class="payout-item">
+                    <span>3 🤖</span>
+                    <span>10x</span>
+                </div>
+                <div class="payout-item">
+                    <span>3 🧠</span>
+                    <span>8x</span>
+                </div>
+                <div class="payout-item">
+                    <span>3 💎</span>
+                    <span>15x</span>
+                </div>
+                <div class="payout-item">
+                    <span>3 ⚙️</span>
+                    <span>5x</span>
+                </div>
+                <div class="payout-item">
+                    <span>3 🔗</span>
+                    <span>6x</span>
+                </div>
+                <div class="payout-item">
+                    <span>Any 3</span>
+                    <span>2x</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

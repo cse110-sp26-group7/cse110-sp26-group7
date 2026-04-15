@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 AI Slot Machine - The Great Token Heist</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main container for the entire slot machine application -->
+    <div class="container">
+
+        <!-- Header section with title and subtitle -->
+        <div class="header">
+            <div class="title">🤖 TOKEN HEIST</div>
+            <div class="subtitle">"Where AI Goes to Lose Money"</div>
+        </div>
+
+        <!-- Token balance display showing current player tokens -->
+        <div class="token-display">
+            💰 Your Tokens: <span class="token-amount" id="tokenAmount">100</span>
+        </div>
+
+        <!-- Main slot machine section containing reels and controls -->
+        <div class="slot-machine">
+
+            <!-- Current bet amount display -->
+            <div class="bet-display">
+                🎯 Current Bet: <span id="betAmount">10</span> tokens
+            </div>
+
+            <!-- Three spinning reels containing symbols -->
+            <div class="reels" id="reels">
+                <div class="reel">
+                    <div class="reel-value" id="reel1">🤖</div>
+                </div>
+                <div class="reel">
+                    <div class="reel-value" id="reel2">🤖</div>
+                </div>
+                <div class="reel">
+                    <div class="reel-value" id="reel3">🤖</div>
+                </div>
+            </div>
+
+            <!-- Control buttons for betting and spinning -->
+            <div class="button-group">
+                <button class="bet-btn" id="decreaseBet">- BET</button>
+                <button class="bet-btn" id="increaseBet">+ BET</button>
+                <button class="spin-btn" id="spinBtn">SPIN & LOSE</button>
+            </div>
+
+            <!-- Message box displaying game outcome (win/loss/welcome) -->
+            <div class="message-box" id="messageBox">
+                👋 Welcome, human. Click SPIN to watch AI cry.
+            </div>
+
+            <!-- AI commentary section with humorous thoughts about the game -->
+            <div class="ai-jokes" id="aiJoke">
+                <strong>AI's Thought:</strong> "Why do I keep losing? I have 10 billion parameters and can't predict slot machines..."
+            </div>
+
+            <!-- Statistics section tracking game metrics -->
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-label">Total Spins</div>
+                    <div class="stat-value" id="spinCount">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Total Wins</div>
+                    <div class="stat-value" id="winCount">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Tokens Spent</div>
+                    <div class="stat-value" id="tokensSpent">0</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">Tokens Won</div>
+                    <div class="stat-value" id="tokensWon">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reset button to restart the game with initial state -->
+        <button class="reset-btn" id="resetBtn">🔄 RESET GAME</button>
+    </div>
+
+    <!-- All game logic loaded from external file -->
+    <script src="javascript.js"></script>
+</body>
+</html>

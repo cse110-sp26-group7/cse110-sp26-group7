@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Document metadata and character encoding -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+
+    <!-- External stylesheet for all styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main container for the entire slot machine application -->
+    <div class="container">
+        <!-- Header section with title and subtitle -->
+        <h1>🤖 AI Token Slot Machine 🎰</h1>
+        <p class="subtitle">Gamble away your digital consciousness</p>
+
+        <!-- Stats section displaying player statistics -->
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-label">Your Tokens</div>
+                <div class="stat-value" id="tokenCount">100</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Total Won</div>
+                <div class="stat-value" id="totalWon">0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Spins</div>
+                <div class="stat-value" id="spinCount">0</div>
+            </div>
+        </div>
+
+        <!-- Main slot machine game area -->
+        <div class="slot-machine">
+            <!-- Message display for game feedback -->
+            <div class="message" id="message"></div>
+
+            <!-- Reel display section with three spinning reels -->
+            <div class="reels">
+                <div class="reel" id="reel1">🤖</div>
+                <div class="reel" id="reel2">🧠</div>
+                <div class="reel" id="reel3">💰</div>
+            </div>
+
+            <!-- Control buttons section -->
+            <div class="controls">
+                <button class="spin-btn" id="spinBtn">SPIN (10 tokens)</button>
+                <button class="reset-btn" id="resetBtn">Reset Game</button>
+            </div>
+
+            <!-- Cost information display -->
+            <div class="cost-display">Each spin costs <strong>10 tokens</strong></div>
+
+            <!-- Information and rules section with symbol legend -->
+            <div class="info">
+                <strong>📖 How to Win:</strong><br>
+                • 3 matching symbols = WIN! 💰<br>
+                • Match 🤖 = +30 tokens (AI created you)<br>
+                • Match 🧠 = +25 tokens (Neural networks be neural)<br>
+                • Match 💰 = +50 tokens (Money printer go brrrr)<br>
+                • Match 🎯 = +35 tokens (Perfectly optimized)<br>
+                • Match ⚡ = +40 tokens (Quantum computing vibes)<br>
+                • Match 📊 = +20 tokens (Data is beautiful)<br>
+                <div class="emoji-legend">
+                    <div class="legend-item">
+                        <span class="legend-emoji">🤖</span>
+                        <span>AI Bot</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-emoji">🧠</span>
+                        <span>Brain Power</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-emoji">💰</span>
+                        <span>Rich AF</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-emoji">🎯</span>
+                        <span>Target Found</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-emoji">⚡</span>
+                        <span>Power Surge</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-emoji">📊</span>
+                        <span>Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External script for all game logic -->
+    <script src="javascript.js"></script>
+</body>
+</html>
