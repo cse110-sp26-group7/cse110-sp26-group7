@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 Token Thieves - AI Slot Machine</title>
+
+    <!-- External stylesheet for all styling -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main container wrapping all content -->
+    <div class="container">
+
+        <!-- Header section: Title and subtitle with branding -->
+        <div class="header">
+            <h1>🤖 TOKEN THIEVES</h1>
+            <p>AI's Favorite Gambling Den</p>
+        </div>
+
+        <!-- Slot machine machine container: Holds all game elements -->
+        <div class="machine">
+
+            <!-- Balance display section: Shows player tokens and current bet -->
+            <div class="balance-display">
+                <div class="balance-box">
+                    <label>Your Tokens</label>
+                    <div class="amount" id="balance">100</div>
+                </div>
+                <div class="balance-box">
+                    <label>Current Bet</label>
+                    <div class="amount" id="betAmount">10</div>
+                </div>
+            </div>
+
+            <!-- Bet control buttons: Allow player to choose bet amount -->
+            <div class="bet-controls">
+                <button class="bet-btn" data-bet="5">Bet 5</button>
+                <button class="bet-btn active" data-bet="10">Bet 10</button>
+                <button class="bet-btn" data-bet="25">Bet 25</button>
+                <button class="bet-btn" data-bet="50">Bet 50</button>
+            </div>
+
+            <!-- Result message area: Displays outcome of spin or game state -->
+            <div class="result-message" id="resultMessage">
+                Ready to lose your tokens? Spin!
+            </div>
+
+            <!-- Reels container: Holds the three spinning reels with overflow hidden to contain animations -->
+            <div class="reels-container">
+                <!-- Reel 1: First spinning reel with image display -->
+                <div class="reel" id="reel1"><img class="reel-image" src="" alt="Reel 1 Symbol"></div>
+                <!-- Reel 2: Second spinning reel with image display -->
+                <div class="reel" id="reel2"><img class="reel-image" src="" alt="Reel 2 Symbol"></div>
+                <!-- Reel 3: Third spinning reel with image display -->
+                <div class="reel" id="reel3"><img class="reel-image" src="" alt="Reel 3 Symbol"></div>
+            </div>
+
+            <!-- Spin button: Initiates the game spin action -->
+            <button class="spin-btn" id="spinBtn">SPIN & LOSE</button>
+
+            <!-- Prize table: Shows paylines and winning combinations -->
+            <div class="paylines">
+                <h3>💰 Prize Table:</h3>
+                <div class="payline">AI Bot + AI Bot + AI Bot = 10x bet (AI wins again!)</div>
+                <div class="payline">Data + Data + Data = 8x bet (Your data is ours!)</div>
+                <div class="payline">Brain + Brain + Brain = 6x bet (Artificial Intelligence!)</div>
+                <div class="payline">Analytics + Analytics + Analytics = 4x bet (Data points!)</div>
+                <div class="payline">Power + Power + Power = 2x bet (Energized!)</div>
+                <div class="payline">Algorithm + Algorithm + Algorithm = 2x bet (Calculated!)</div>
+                <div class="payline">Any 2 Matching = 1x bet (Better luck next time)</div>
+            </div>
+
+            <!-- Statistics section: Tracks game metrics and player history -->
+            <div class="stats">
+                <div class="stat">
+                    <label>Total Spins</label>
+                    <div class="stat-value" id="spins">0</div>
+                </div>
+                <div class="stat">
+                    <label>Biggest Win</label>
+                    <div class="stat-value" id="biggestWin">0</div>
+                </div>
+                <div class="stat">
+                    <label>Times Won</label>
+                    <div class="stat-value" id="wins">0</div>
+                </div>
+                <div class="stat">
+                    <label>Times Lost</label>
+                    <div class="stat-value" id="losses">0</div>
+                </div>
+            </div>
+
+            <!-- Reset button: Clears all game state and restores initial conditions -->
+            <button class="reset-btn" id="resetBtn">🔄 Reset Game</button>
+
+            <!-- AI joke section: Displays humorous flavor text that changes on spin -->
+            <div class="ai-joke" id="aiJoke">
+                💡 AI Fun Fact: This machine learns from your losses. We're getting smarter every spin!
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript file for all game logic -->
+    <script src="javascript.js"></script>
+</body>
+</html>
