@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Roast Machine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main container for the entire application -->
+    <div class="container">
+        <!-- Header section displaying title and subtitle -->
+        <header class="header">
+            <h1>🤖 AI Token Roast 🎰</h1>
+            <p class="subtitle">Gambling with AI's dignity</p>
+        </header>
+
+        <!-- Statistics display section showing token balance and total bets -->
+        <section class="stats-container">
+            <div class="stat-box">
+                <div class="stat-label">Your Tokens</div>
+                <div class="stat-value" id="tokens">100</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-label">Total Bet</div>
+                <div class="stat-value" id="totalBet">0</div>
+            </div>
+        </section>
+
+        <!-- Roast message display section for witty AI commentary -->
+        <section class="roast-box">
+            <div class="roast-text" id="roast">AI took a wrong turn at Albuquerque...</div>
+        </section>
+
+        <!-- Main slot machine game container -->
+        <section class="slot-machine">
+            <!-- Bet amount input section allowing user to customize stake -->
+            <div class="bet-input-group">
+                <label for="betAmount">Bet Amount (tokens):</label>
+                <input
+                    type="number"
+                    id="betAmount"
+                    min="10"
+                    max="1000"
+                    value="10"
+                    placeholder="Enter bet amount"
+                >
+            </div>
+
+            <!-- Slot machine reel display section with overflow hidden to contain symbols -->
+            <div class="reel-container">
+                <div class="reel" id="reel1">💻</div>
+                <div class="reel" id="reel2">💻</div>
+                <div class="reel" id="reel3">💻</div>
+            </div>
+
+            <!-- Control buttons section for spinning and resetting the game -->
+            <div class="controls">
+                <button class="spin-btn" id="spinBtn">SPIN & ROAST</button>
+                <button class="reset-btn" id="resetBtn">Reset Game</button>
+            </div>
+
+            <!-- Result message display section showing win/loss outcomes -->
+            <div class="result-message" id="result"></div>
+        </section>
+
+        <!-- Achievements section displaying unlocked badges and milestones -->
+        <section class="achievements">
+            <div class="achievements-title">🏆 ACHIEVEMENTS</div>
+            <div id="achievementsList"></div>
+        </section>
+    </div>
+
+    <!-- Load JavaScript module containing all game logic -->
+    <script src="javascript.js"></script>
+</body>
+</html>
